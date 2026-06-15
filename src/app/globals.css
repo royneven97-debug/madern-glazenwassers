@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/*
+  Madern Glazenwassers — design system
+  Thema: helder water / streepvrij glas. Diepe navy voor vertrouwen,
+  fris waterblauw als accent, veel wit en lucht.
+*/
+
+@theme {
+  --color-navy-950: #07182b;
+  --color-navy-900: #0c2240;
+  --color-navy-800: #143256;
+  --color-navy-700: #1d4474;
+
+  --color-water-50: #ecfbff;
+  --color-water-100: #d3f3fd;
+  --color-water-200: #ace8fb;
+  --color-water-300: #72d6f7;
+  --color-water-400: #2fbdef;
+  --color-water-500: #06a2df;
+  --color-water-600: #0381bd;
+  --color-water-700: #086799;
+  --color-water-800: #0d567d;
+  --color-water-900: #114868;
+
+  --color-mist-50: #f6f9fb;
+  --color-mist-100: #eef3f7;
+  --color-mist-200: #dde7ee;
+
+  --color-background: #ffffff;
+  --color-foreground: var(--color-navy-900);
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1rem;
+}
+
+* {
+  border-color: var(--color-mist-200);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtiel "schoon glas" raster voor hero-achtergronden */
+.bg-glass-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Zachte waterglans gradient */
+.bg-water-sheen {
+  background:
+    radial-gradient(60% 80% at 20% 0%, rgba(47, 189, 239, 0.18), transparent 60%),
+    radial-gradient(50% 70% at 100% 20%, rgba(6, 162, 223, 0.14), transparent 55%);
+}
+
+@keyframes shine {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(220%) skewX(-18deg); }
+}
+.animate-shine {
+  animation: shine 3.2s ease-in-out infinite;
+}
