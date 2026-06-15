@@ -41,7 +41,7 @@ export function UspStrip() {
             key={u.title}
             className="rounded-2xl border border-mist-200 bg-white p-5 shadow-sm shadow-navy-900/[0.03]"
           >
-            <span className="grid h-11 w-11 place-items-center rounded-xl bg-water-50 text-water-600">
+            <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent-50 text-accent-600">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 {u.icon}
               </svg>

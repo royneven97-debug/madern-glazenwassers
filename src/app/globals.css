@@ -2,30 +2,41 @@
 
 /*
   Madern Glazenwassers — design system
-  Thema: helder water / streepvrij glas. Diepe navy voor vertrouwen,
-  fris waterblauw als accent, veel wit en lucht.
+  Hoofdkleur: helder royal-blauw. Accent: warm oranje.
 */
 
 @theme {
-  --color-navy-950: #07182b;
-  --color-navy-900: #0c2240;
-  --color-navy-800: #143256;
-  --color-navy-700: #1d4474;
+  /* Deep blue — donkere secties & koppen/tekst */
+  --color-navy-700: #163b72;
+  --color-navy-800: #102f5d;
+  --color-navy-900: #0c2750;
+  --color-navy-950: #08183a;
 
-  --color-water-50: #ecfbff;
-  --color-water-100: #d3f3fd;
-  --color-water-200: #ace8fb;
-  --color-water-300: #72d6f7;
-  --color-water-400: #2fbdef;
-  --color-water-500: #06a2df;
-  --color-water-600: #0381bd;
-  --color-water-700: #086799;
-  --color-water-800: #0d567d;
-  --color-water-900: #114868;
+  /* Royal blue — hoofdkleur (links, accenten, hero) */
+  --color-water-50: #eef5ff;
+  --color-water-100: #d9e9ff;
+  --color-water-200: #bad6ff;
+  --color-water-300: #8bb8fc;
+  --color-water-400: #5494f8;
+  --color-water-500: #2a78ef;
+  --color-water-600: #1560da;
+  --color-water-700: #1350b4;
+  --color-water-800: #15448f;
+  --color-water-900: #163b72;
 
-  --color-mist-50: #f6f9fb;
-  --color-mist-100: #eef3f7;
-  --color-mist-200: #dde7ee;
+  /* Oranje — accentkleur (CTA's, highlights, iconen) */
+  --color-accent-50: #fff6ec;
+  --color-accent-100: #ffe7c7;
+  --color-accent-200: #ffce8f;
+  --color-accent-300: #fdb15a;
+  --color-accent-400: #fb9a30;
+  --color-accent-500: #f7941d;
+  --color-accent-600: #e07a0c;
+  --color-accent-700: #b85f0c;
+
+  --color-mist-50: #f6f9fc;
+  --color-mist-100: #eef3f8;
+  --color-mist-200: #dde6f0;
 
   --color-background: #ffffff;
   --color-foreground: var(--color-navy-900);
@@ -51,19 +62,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Heldere royal-blauwe hero-gradient met zachte glans-blobs */
+.bg-hero {
+  background:
+    radial-gradient(40% 55% at 85% 25%, rgba(255, 255, 255, 0.16), transparent 60%),
+    radial-gradient(55% 70% at 12% 90%, rgba(255, 255, 255, 0.10), transparent 60%),
+    linear-gradient(135deg, #0b54bf 0%, #1769de 45%, #2e8bf0 100%);
+}
+
+/* Donkere blauwe band (CTA) met subtiele glans */
+.bg-water-sheen {
+  background:
+    radial-gradient(60% 80% at 20% 0%, rgba(84, 148, 248, 0.25), transparent 60%),
+    radial-gradient(50% 70% at 100% 20%, rgba(247, 148, 29, 0.14), transparent 55%);
+}
+
 /* Subtiel "schoon glas" raster voor hero-achtergronden */
 .bg-glass-grid {
   background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 44px 44px;
-}
-
-/* Zachte waterglans gradient */
-.bg-water-sheen {
-  background:
-    radial-gradient(60% 80% at 20% 0%, rgba(47, 189, 239, 0.18), transparent 60%),
-    radial-gradient(50% 70% at 100% 20%, rgba(6, 162, 223, 0.14), transparent 55%);
 }
 
 @keyframes shine {

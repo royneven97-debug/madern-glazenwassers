@@ -12,7 +12,8 @@ const sizes = {
 };
 
 const variants: Record<Variant, string> = {
-  primary: "bg-water-500 text-white hover:bg-water-600 shadow-sm shadow-water-500/30",
+  primary:
+    "bg-gradient-to-b from-accent-400 to-accent-600 text-white hover:to-accent-700 shadow-sm shadow-accent-600/30",
   secondary: "bg-navy-900 text-white hover:bg-navy-800",
   ghost: "text-navy-900 hover:bg-mist-100",
   white: "bg-white text-navy-900 hover:bg-water-50",

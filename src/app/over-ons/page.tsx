@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site";
 import { generatePageMetadata } from "@/lib/metadata";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -21,6 +22,7 @@ const personSchema = {
   jobTitle: "Oprichter",
   worksFor: { "@type": "LocalBusiness", name: siteConfig.name },
   homeLocation: { "@type": "City", name: "Apeldoorn" },
+  image: `${siteConfig.url}/michael-oprichter-glazenwasser-apeldoorn.jpg`,
 };
 
 export default function OverOnsPage() {
@@ -39,29 +41,34 @@ export default function OverOnsPage() {
           een persoonlijke aanpak.
         </p>
 
-        <div className="mt-10 rounded-3xl border border-mist-200 bg-mist-50 p-7 sm:p-9">
-          <div className="flex items-center gap-4">
-            <span className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-water-500 text-2xl font-bold text-white">
-              {siteConfig.founder.charAt(0)}
-            </span>
-            <div>
-              <p className="font-semibold text-navy-900">{siteConfig.founder}</p>
-              <p className="text-sm text-navy-800/70">Oprichter Madern Glazenwassers</p>
-            </div>
+        <div className="mt-10 grid gap-8 rounded-3xl border border-mist-200 bg-mist-50 p-6 sm:p-8 md:grid-cols-[280px_1fr] md:items-center">
+          <div className="overflow-hidden rounded-2xl">
+            <Image
+              src="/michael-oprichter-glazenwasser-apeldoorn.jpg"
+              alt="Michael, oprichter van Madern Glazenwassers in Apeldoorn"
+              width={720}
+              height={1100}
+              className="h-full w-full object-cover"
+              priority
+            />
           </div>
-          <div className="mt-6 space-y-4 text-pretty text-navy-900/90">
-            <p>
-              &ldquo;Hallo! Ik ben {siteConfig.founder}, de oprichter van Madern
-              Glazenwassers. Als geboren en getogen Apeldoorner heb ik altijd al
-              een passie gehad voor schoonmaak en het leveren van kwaliteitswerk.
-            </p>
-            <p>
-              Wat mij drijft? De voldoening van tevreden klanten en het zien van
-              kristalheldere ramen. Ik geloof in persoonlijk contact,
-              betrouwbaarheid en eerlijke prijzen. Met Madern Glazenwassers breng
-              ik professionele service naar particulieren en bedrijven in de regio
-              Apeldoorn.&rdquo;
-            </p>
+          <div>
+            <p className="font-semibold text-navy-900">{siteConfig.founder}</p>
+            <p className="text-sm text-navy-800/70">Oprichter Madern Glazenwassers</p>
+            <div className="mt-5 space-y-4 text-pretty text-navy-900/90">
+              <p>
+                &ldquo;Hallo! Ik ben {siteConfig.founder}, de oprichter van Madern
+                Glazenwassers. Als geboren en getogen Apeldoorner heb ik altijd al
+                een passie gehad voor schoonmaak en het leveren van kwaliteitswerk.
+              </p>
+              <p>
+                Wat mij drijft? De voldoening van tevreden klanten en het zien van
+                kristalheldere ramen. Ik geloof in persoonlijk contact,
+                betrouwbaarheid en eerlijke prijzen. Met Madern Glazenwassers breng
+                ik professionele service naar particulieren en bedrijven in de regio
+                Apeldoorn.&rdquo;
+              </p>
+            </div>
           </div>
         </div>
 

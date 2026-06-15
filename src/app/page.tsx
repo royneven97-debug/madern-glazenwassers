@@ -41,7 +41,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-water-sheen relative overflow-hidden bg-navy-900">
+      <section className="bg-hero relative overflow-hidden">
         <div className="bg-glass-grid absolute inset-0 opacity-40" aria-hidden />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
           <div>
@@ -50,7 +50,7 @@ export default function HomePage() {
             </span>
             <h1 className="mt-5 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
               Glazenwasser in Apeldoorn voor{" "}
-              <span className="text-water-300">stralend schone ramen</span>
+              <span className="text-accent-400">stralend schone ramen</span>
             </h1>
             <p className="mt-5 max-w-xl text-pretty text-lg text-mist-100/85">
               Madern Glazenwassers maakt uw ramen aan binnen- én buitenkant
