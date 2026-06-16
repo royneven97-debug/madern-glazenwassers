@@ -87,7 +87,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="-mt-8 sm:-mt-10">
+      <div className="pt-14 sm:pt-16">
         <UspStrip />
       </div>
 

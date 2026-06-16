@@ -26,7 +26,9 @@ export const metadata: Metadata = {
     locale: "nl_NL",
     url: siteConfig.url,
     siteName: siteConfig.name,
+    images: [{ url: "/madern-glazenwassers-logo.png", width: 1024, height: 1024, alt: siteConfig.name }],
   },
+  icons: { icon: "/icon.png" },
 };
 
 export default function RootLayout({

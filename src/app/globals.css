@@ -70,11 +70,14 @@ body {
     linear-gradient(135deg, #0b54bf 0%, #1769de 45%, #2e8bf0 100%);
 }
 
-/* Donkere blauwe band (CTA) met subtiele glans */
+/* Donkere blauwe band (CTA) met subtiele glans.
+   De solide navy-basis staat als laatste laag zodat witte tekst altijd
+   leesbaar blijft (anders reset de background-shorthand de kleur naar transparant). */
 .bg-water-sheen {
   background:
-    radial-gradient(60% 80% at 20% 0%, rgba(84, 148, 248, 0.25), transparent 60%),
-    radial-gradient(50% 70% at 100% 20%, rgba(247, 148, 29, 0.14), transparent 55%);
+    radial-gradient(60% 80% at 20% 0%, rgba(84, 148, 248, 0.30), transparent 60%),
+    radial-gradient(50% 70% at 100% 20%, rgba(247, 148, 29, 0.18), transparent 55%),
+    linear-gradient(135deg, #0e2a55 0%, #143b72 100%);
 }
 
 /* Subtiel "schoon glas" raster voor hero-achtergronden */

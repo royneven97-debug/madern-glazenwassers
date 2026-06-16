@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site";
 import { availableServices } from "@/lib/services";
 import { plaatsen } from "@/lib/plaatsen";
@@ -10,10 +11,14 @@ export function Footer() {
     <footer className="mt-20 bg-navy-950 text-mist-100">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="text-lg font-bold text-white">
-            Madern<span className="text-water-400"> Glazenwassers</span>
-          </div>
-          <p className="mt-3 max-w-xs text-sm text-mist-200/80">
+          <Image
+            src="/madern-glazenwassers-logo.png"
+            alt="Madern Glazenwassers logo"
+            width={112}
+            height={112}
+            className="h-24 w-24 rounded-2xl object-cover ring-1 ring-white/10"
+          />
+          <p className="mt-4 max-w-xs text-sm text-mist-200/80">
             Professionele glazenwasser in Apeldoorn. Streepvrij schone ramen met
             gezuiverd osmosewater — voor particulier en zakelijk.
           </p>

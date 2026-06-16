@@ -19,8 +19,8 @@ export function localBusinessSchema() {
     telephone: siteConfig.phone.e164,
     email: siteConfig.email,
     priceRange: siteConfig.priceRange,
-    image: `${siteConfig.url}/og-image.jpg`,
-    logo: `${siteConfig.url}/logo.png`,
+    image: `${siteConfig.url}/madern-glazenwassers-logo.png`,
+    logo: `${siteConfig.url}/madern-glazenwassers-logo.png`,
     address: {
       "@type": "PostalAddress",
       ...(siteConfig.address.streetAddress
