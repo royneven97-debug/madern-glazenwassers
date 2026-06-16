@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { UspStrip } from "@/components/sections/UspStrip";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Faq } from "@/components/sections/Faq";
+import { HeroForm } from "@/components/sections/HeroForm";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Glazenwasser Apeldoorn | Madern Glazenwassers",
@@ -60,10 +61,20 @@ export default function HomePage() {
               Apeldoorns bedrijf, door Apeldoorners.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="/offerte" size="lg">Gratis offerte aanvragen</Button>
-              <Button href={siteConfig.phone.href} size="lg" variant="white">
-                Bel {siteConfig.phone.display}
-              </Button>
+              <a
+                href={siteConfig.phone.href}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-navy-900 transition-colors hover:bg-water-50"
+              >
+                <PhoneIcon /> Bel {siteConfig.phone.display}
+              </a>
+              <a
+                href={siteConfig.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#1faa55]"
+              >
+                <WhatsAppIcon /> WhatsApp
+              </a>
             </div>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-mist-100/80">
               <li className="flex items-center gap-2"><Check /> Binnen &amp; buiten</li>
@@ -72,19 +83,8 @@ export default function HomePage() {
             </ul>
           </div>
 
-          <div className="relative hidden lg:block">
-            <div className="absolute inset-0 grid place-items-center">
-              <div className="relative aspect-square w-full max-w-sm overflow-hidden rounded-3xl bg-gradient-to-br from-water-400/30 to-water-700/20 ring-1 ring-white/15">
-                <div className="absolute inset-0 bg-glass-grid opacity-60" aria-hidden />
-                <span className="animate-shine absolute -inset-y-4 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/30 to-transparent" aria-hidden />
-                <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-white/95 p-4 shadow-xl">
-                  <p className="text-sm font-semibold text-navy-900">Kristalhelder resultaat</p>
-                  <p className="mt-1 text-xs text-navy-800/70">
-                    Gezuiverd osmosewater · geen strepen · geen chemicaliën
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="lg:pl-2">
+            <HeroForm />
           </div>
         </div>
       </section>
@@ -198,6 +198,22 @@ function Check() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-water-400">
       <path d="M20 6L9 17l-5-5" />
+    </svg>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.46-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.5-.17-.01-.37-.01-.56-.01s-.52.07-.79.37c-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.99-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35ZM12.05 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.78 9.78 0 0 1-1.5-5.23c0-5.41 4.41-9.81 9.83-9.81 2.62 0 5.09 1.02 6.94 2.88a9.74 9.74 0 0 1 2.88 6.94c0 5.41-4.41 9.81-9.83 9.81Zm8.36-18.17A11.76 11.76 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.88c0 2.09.55 4.14 1.59 5.94L.06 24l6.33-1.66a11.86 11.86 0 0 0 5.66 1.44h.01c6.55 0 11.89-5.33 11.89-11.88 0-3.18-1.24-6.16-3.49-8.41Z" />
     </svg>
   );
 }
