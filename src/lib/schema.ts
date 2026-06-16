@@ -38,10 +38,26 @@ export function localBusinessSchema() {
       latitude: siteConfig.geo.lat,
       longitude: siteConfig.geo.lng,
     },
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      `${siteConfig.name} ${siteConfig.address.city}`,
+    )}`,
     areaServed: plaatsen.map((p) => ({
       "@type": "City",
       name: p.name,
     })),
+    // Verzorgingsgebied als cirkel rond Apeldoorn (±20 km).
+    serviceArea: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: siteConfig.geo.lat,
+        longitude: siteConfig.geo.lng,
+      },
+      geoRadius: 20000,
+    },
+    knowsLanguage: ["nl-NL"],
+    currenciesAccepted: "EUR",
+    paymentAccepted: "Contant, Pinnen, Bankoverschrijving",
     openingHoursSpecification: siteConfig.openingHours.map((o) => ({
       "@type": "OpeningHoursSpecification",
       dayOfWeek: o.days,

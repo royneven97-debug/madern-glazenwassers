@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
 import { availableServices } from "@/lib/services";
@@ -46,10 +47,7 @@ export default function HomePage() {
         <div className="bg-glass-grid absolute inset-0 opacity-40" aria-hidden />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-water-200 ring-1 ring-white/15">
-              💧 Streepvrij met osmosewater · Apeldoorn
-            </span>
-            <h1 className="mt-5 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
               Glazenwasser <span className="text-accent-400">Apeldoorn</span>
             </h1>
             <p className="mt-4 text-pretty text-xl font-semibold text-water-100">
@@ -121,6 +119,45 @@ export default function HomePage() {
               </span>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Feature — lokale glazenwasser */}
+      <section className="mx-auto max-w-6xl px-4 pb-4 sm:px-6">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div className="overflow-hidden rounded-3xl">
+            <Image
+              src="/images/glazenwasser-ramen-wassen-apeldoorn.jpg"
+              alt="Glazenwasser van Madern wast ramen streepvrij schoon in Apeldoorn"
+              width={900}
+              height={650}
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold text-navy-900">Uw glazenwasser in Apeldoorn</h2>
+            <p className="mt-4 text-pretty leading-relaxed text-navy-800/85">
+              Madern Glazenwassers is een jong, lokaal bedrijf, opgericht door een
+              geboren en getogen Apeldoorner. We kennen de stad, de wijken en het
+              weer aan de rand van de Veluwe — en weten dus precies wat uw ramen
+              nodig hebben om het hele jaar door helder te blijven.
+            </p>
+            <p className="mt-3 text-pretty leading-relaxed text-navy-800/85">
+              Of het nu gaat om de ramen van uw woning, de etalage van uw winkel of
+              de complete glasbewassing van een bedrijfspand: u krijgt bij ons een
+              vast aanspreekpunt, eerlijke prijzen en vakwerk met een persoonlijke
+              aanpak. Afspraak is afspraak — en we komen, als het u beter uitkomt,
+              ook in het weekend langs.
+            </p>
+            <p className="mt-3 text-pretty leading-relaxed text-navy-800/85">
+              Omdat we met gezuiverd osmosewater werken, blijft uw glas langer
+              streepvrij schoon, helemaal zonder agressieve chemicaliën. Beter voor
+              uw ramen én voor het milieu.
+            </p>
+            <div className="mt-6">
+              <Button href="/over-ons" variant="secondary">Lees ons verhaal</Button>
+            </div>
+          </div>
         </div>
       </section>
 

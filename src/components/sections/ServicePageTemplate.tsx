@@ -1,7 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Service } from "@/lib/services";
 import { availableServices } from "@/lib/services";
+import { getServiceContent } from "@/lib/serviceContent";
 import { siteConfig } from "@/lib/site";
+import { plaatsen, plaatsHref } from "@/lib/plaatsen";
 import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Faq } from "@/components/sections/Faq";
@@ -11,6 +14,7 @@ import { serviceSchema } from "@/lib/schema";
 
 export function ServicePageTemplate({ service }: { service: Service }) {
   const related = availableServices.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const content = getServiceContent(service.slug);
 
   return (
     <>
@@ -40,20 +44,32 @@ export function ServicePageTemplate({ service }: { service: Service }) {
               </Button>
             </div>
           </div>
-          <div className="rounded-3xl border border-mist-200 bg-mist-50 p-8">
-            <p className="text-sm font-semibold uppercase tracking-wide text-water-600">
-              Waarom Madern
-            </p>
-            <ul className="mt-4 space-y-3 text-navy-900">
-              {["Streepvrij met osmosewater", "Flexibel, ook in het weekend", "Eerlijke prijs vooraf", "Persoonlijk contact"].map((u) => (
-                <li key={u} className="flex items-start gap-2.5">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 text-water-500">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>
-                  {u}
-                </li>
-              ))}
-            </ul>
+
+          <div className="space-y-5">
+            {content?.image && (
+              <div className="overflow-hidden rounded-3xl">
+                <Image
+                  src={content.image.src}
+                  alt={content.image.alt}
+                  width={800}
+                  height={600}
+                  className="h-full w-full object-cover"
+                  priority
+                />
+              </div>
+            )}
+            <div className="rounded-3xl border border-mist-200 bg-mist-50 p-7">
+              <ul className="space-y-3 text-navy-900">
+                {["Streepvrij met osmosewater", "Flexibel, ook in het weekend", "Eerlijke prijs vooraf", "Persoonlijk contact"].map((u) => (
+                  <li key={u} className="flex items-start gap-2.5">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 text-water-500">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                    {u}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -68,6 +84,45 @@ export function ServicePageTemplate({ service }: { service: Service }) {
                 <p className="mt-2 text-pretty text-navy-800/75">{h.body}</p>
               </div>
             ))}
+          </div>
+        </section>
+      )}
+
+      {/* Long-form content */}
+      {content && content.sections.length > 0 && (
+        <section className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+          <div className="space-y-10">
+            {content.sections.map((sec) => (
+              <div key={sec.heading}>
+                <h2 className="text-2xl font-bold text-navy-900">{sec.heading}</h2>
+                {sec.paragraphs.map((p, i) => (
+                  <p key={i} className="mt-3 text-pretty leading-relaxed text-navy-800/85">
+                    {p}
+                  </p>
+                ))}
+              </div>
+            ))}
+
+            {/* Werkgebied — interne links voor lokale SEO */}
+            <div className="rounded-2xl border border-mist-200 bg-mist-50 p-6">
+              <h2 className="text-xl font-bold text-navy-900">
+                {service.name} in Apeldoorn en omgeving
+              </h2>
+              <p className="mt-2 text-navy-800/80">
+                Madern is een Apeldoorns bedrijf en werkt in de hele regio. Bekijk uw plaats:
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {plaatsen.map((p) => (
+                  <Link
+                    key={p.slug}
+                    href={plaatsHref(p)}
+                    className="rounded-full border border-mist-200 bg-white px-3.5 py-1.5 text-sm font-medium text-navy-800 hover:border-water-300 hover:text-water-700"
+                  >
+                    {p.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       )}
