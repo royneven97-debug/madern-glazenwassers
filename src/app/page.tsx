@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
 import { availableServices } from "@/lib/services";
-import { plaatsen, primaryPlaats } from "@/lib/plaatsen";
+import { plaatsen, primaryPlaats, plaatsHref } from "@/lib/plaatsen";
 import { generatePageMetadata } from "@/lib/metadata";
 import { Button } from "@/components/ui/Button";
 import { UspStrip } from "@/components/sections/UspStrip";
@@ -49,10 +49,12 @@ export default function HomePage() {
               💧 Streepvrij met osmosewater · Apeldoorn
             </span>
             <h1 className="mt-5 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Glazenwasser in Apeldoorn voor{" "}
-              <span className="text-accent-400">stralend schone ramen</span>
+              Glazenwasser <span className="text-accent-400">Apeldoorn</span>
             </h1>
-            <p className="mt-5 max-w-xl text-pretty text-lg text-mist-100/85">
+            <p className="mt-4 text-pretty text-xl font-semibold text-water-100">
+              Stralend schone ramen, streepvrij met osmosewater.
+            </p>
+            <p className="mt-4 max-w-xl text-pretty text-lg text-mist-100/85">
               Madern Glazenwassers maakt uw ramen aan binnen- én buitenkant
               streepvrij schoon — voor woningen, kantoren en winkels. Een
               Apeldoorns bedrijf, door Apeldoorners.
@@ -100,7 +102,7 @@ export default function HomePage() {
             vakwerk met een persoonlijke aanpak.
           </p>
         </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {availableServices.map((s) => (
             <Link
               key={s.slug}
@@ -174,7 +176,7 @@ export default function HomePage() {
           {plaatsen.map((p) => (
             <Link
               key={p.slug}
-              href={`/werkgebied/${p.slug}`}
+              href={plaatsHref(p)}
               className="rounded-full border border-mist-200 bg-white px-4 py-2 text-sm font-medium text-navy-800 hover:border-water-300 hover:text-water-700"
             >
               Glazenwasser {p.name}

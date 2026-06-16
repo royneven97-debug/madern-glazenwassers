@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { plaatsen } from "@/lib/plaatsen";
+import { plaatsen, plaatsHref } from "@/lib/plaatsen";
 import { generatePageMetadata } from "@/lib/metadata";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -30,7 +30,7 @@ export default function WerkgebiedPage() {
           {plaatsen.map((p) => (
             <Link
               key={p.slug}
-              href={`/werkgebied/${p.slug}`}
+              href={plaatsHref(p)}
               className="group rounded-2xl border border-mist-200 bg-white p-6 transition-shadow hover:shadow-lg hover:shadow-navy-900/5"
             >
               <h2 className="text-xl font-semibold text-navy-900 group-hover:text-water-600">

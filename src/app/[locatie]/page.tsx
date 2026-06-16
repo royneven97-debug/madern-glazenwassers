@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { plaatsen, getPlaats } from "@/lib/plaatsen";
+import { locatiePlaatsen, getPlaatsByLocatie, locatieSlug } from "@/lib/plaatsen";
 import { availableServices } from "@/lib/services";
 import { siteConfig } from "@/lib/site";
 import { generatePageMetadata } from "@/lib/metadata";
@@ -10,32 +10,35 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
 
+// Alleen de gegenereerde glazenwasser-[plaats] slugs zijn geldig; al het andere → 404.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return plaatsen.map((p) => ({ plaats: p.slug }));
+  return locatiePlaatsen.map((p) => ({ locatie: locatieSlug(p) }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ plaats: string }>;
+  params: Promise<{ locatie: string }>;
 }): Promise<Metadata> {
-  const { plaats } = await params;
-  const p = getPlaats(plaats);
+  const { locatie } = await params;
+  const p = getPlaatsByLocatie(locatie);
   if (!p) return {};
   return generatePageMetadata({
     title: `Glazenwasser ${p.name} | Ramen wassen | Madern Glazenwassers`,
     description: `Glazenwasser in ${p.name}? Madern maakt uw ramen streepvrij schoon met osmosewater, voor particulier en zakelijk. Flexibel en betrouwbaar. Vraag een offerte aan.`,
-    path: `/werkgebied/${p.slug}`,
+    path: `/${locatie}`,
   });
 }
 
-export default async function PlaatsPage({
+export default async function LocatiePage({
   params,
 }: {
-  params: Promise<{ plaats: string }>;
+  params: Promise<{ locatie: string }>;
 }) {
-  const { plaats } = await params;
-  const p = getPlaats(plaats);
+  const { locatie } = await params;
+  const p = getPlaatsByLocatie(locatie);
   if (!p) notFound();
 
   const faqs = [
@@ -54,13 +57,13 @@ export default async function PlaatsPage({
       <Breadcrumbs
         items={[
           { name: "Werkgebied", path: "/werkgebied" },
-          { name: p.name, path: `/werkgebied/${p.slug}` },
+          { name: `Glazenwasser ${p.name}`, path: `/${locatie}` },
         ]}
       />
 
       <section className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
         <h1 className="text-balance text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
-          Glazenwasser {p.name}
+          Glazenwasser <span className="text-accent-500">{p.name}</span>
         </h1>
         <p className="mt-5 text-pretty text-lg text-navy-800/80">{p.intro}</p>
         <p className="mt-4 text-pretty text-navy-800/80">{p.detail}</p>

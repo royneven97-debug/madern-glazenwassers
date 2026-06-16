@@ -1,5 +1,8 @@
 // Diensten-registry. Pagina's worden hieruit gegenereerd, dus scope wijzigen = één regel.
 // `available: false` → pagina/links worden niet getoond (bouwt niets dat Madern niet levert).
+//
+// SEO-methode: de slug = puur het zoekwoord, en `title` (de H1) is EXACT gelijk
+// aan dat zoekwoord (kebab → spaties). De langere SEO <title> staat in `metaTitle`.
 
 export type Service = {
   slug: string;
@@ -7,9 +10,9 @@ export type Service = {
   audience: "particulier" | "zakelijk" | "beide";
   // Korte naam (nav/cards)
   name: string;
-  // Volledige H1 / titel
+  // H1 — EXACT het zoekwoord (= slug zonder streepjes)
   title: string;
-  // Voor metadata
+  // Voor metadata (<title>)
   metaTitle: string;
   metaDescription: string;
   // Korte tagline (cards)
@@ -30,7 +33,7 @@ export const services: Service[] = [
     available: true,
     audience: "particulier",
     name: "Glazenwassen particulier",
-    title: "Glazenwassen voor particulieren in Apeldoorn",
+    title: "Glazenwassen particulier",
     metaTitle: "Glazenwasser particulier Apeldoorn | Ramen wassen | Madern",
     metaDescription:
       "Stralend schone ramen voor uw woning in Apeldoorn. Binnen- én buitenkant, streepvrij met osmosewater. Flexibele afspraken, ook in het weekend. Gratis offerte.",
@@ -76,7 +79,7 @@ export const services: Service[] = [
     available: true,
     audience: "zakelijk",
     name: "Glazenwassen zakelijk",
-    title: "Glazenwassen voor bedrijven in Apeldoorn",
+    title: "Glazenwassen zakelijk",
     metaTitle: "Glazenwasser zakelijk Apeldoorn | Kantoren & bedrijfspanden | Madern",
     metaDescription:
       "Professionele glazenwasser voor kantoren en bedrijfspanden in Apeldoorn. Vaste contracten met flexibele frequentie, betrouwbaar en streepvrij. Vraag een offerte aan.",
@@ -114,20 +117,20 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "winkels-etalages",
+    slug: "etalage-reinigen",
     available: true,
     audience: "zakelijk",
-    name: "Winkels & etalages",
-    title: "Etalages en winkelruiten reinigen in Apeldoorn",
-    metaTitle: "Etalage & winkelruiten wassen Apeldoorn | Madern Glazenwassers",
+    name: "Etalage reinigen",
+    title: "Etalage reinigen",
+    metaTitle: "Etalage & winkelruiten reinigen Apeldoorn | Madern Glazenwassers",
     metaDescription:
       "Kristalheldere etalages en winkelruiten in Apeldoorn. Een uitnodigende uitstraling voor uw winkel, met flexibele en frequente schoonmaak. Vraag een offerte aan.",
     tagline: "Een uitnodigende etalage trekt klanten.",
     intro:
       "Eerste indrukken tellen. Wij houden uw etalages en winkelruiten kristalhelder voor een uitnodigend uiterlijk dat klanten naar binnen trekt. Frequent en flexibel, zodat uw winkel er altijd op zijn best uitziet.",
     keywords: [
-      "etalage wassen Apeldoorn",
-      "winkelruiten reinigen Apeldoorn",
+      "etalage reinigen Apeldoorn",
+      "winkelruiten wassen Apeldoorn",
       "glazenwasser winkel Apeldoorn",
     ],
     highlights: [
@@ -156,7 +159,7 @@ export const services: Service[] = [
     available: true,
     audience: "beide",
     name: "Zonnepanelen reinigen",
-    title: "Zonnepanelen reinigen in Apeldoorn",
+    title: "Zonnepanelen reinigen",
     metaTitle: "Zonnepanelen reinigen Apeldoorn | Meer opbrengst | Madern",
     metaDescription:
       "Vuile zonnepanelen leveren minder op. Madern reinigt uw zonnepanelen in Apeldoorn streepvrij met osmosewater, veilig en zonder krassen. Vraag een offerte aan.",
@@ -192,39 +195,73 @@ export const services: Service[] = [
       },
     ],
   },
-
-  // ── Mogelijke uitbreiding (nu uit; op available:true zetten als Madern dit levert) ──
   {
     slug: "gevelreiniging",
-    available: false,
+    available: true,
     audience: "beide",
     name: "Gevelreiniging",
-    title: "Gevelreiniging in Apeldoorn",
-    metaTitle: "Gevelreiniging Apeldoorn | Madern Glazenwassers",
+    title: "Gevelreiniging",
+    metaTitle: "Gevelreiniging Apeldoorn | Frisse, schone gevel | Madern",
     metaDescription:
-      "Professionele gevelreiniging in Apeldoorn. Verwijder vuil, algen en vervuiling van uw gevel voor een frisse uitstraling. Vraag een offerte aan.",
+      "Professionele gevelreiniging in Apeldoorn. Verwijder vuil, algen en groene aanslag van uw gevel voor een frisse uitstraling. Vraag een gratis offerte aan.",
     tagline: "Een frisse, schone gevel.",
     intro:
-      "Een schone gevel maakt uw hele pand weer fris. Madern verwijdert vuil, algen en vervuiling van uw gevel met de juiste methode voor het materiaal.",
-    keywords: ["gevelreiniging Apeldoorn"],
-    highlights: [],
-    faqs: [],
+      "Een schone gevel maakt uw hele pand weer fris. Madern verwijdert vuil, algen en groene aanslag van uw gevel met de juiste methode voor het materiaal — zorgvuldig en met een mooi, egaal resultaat.",
+    keywords: ["gevelreiniging Apeldoorn", "gevel reinigen Apeldoorn"],
+    highlights: [
+      {
+        title: "Algen & groene aanslag weg",
+        body: "We pakken vervuiling, algen en aanslag aan voor een egale, frisse gevel.",
+      },
+      {
+        title: "Passend bij het materiaal",
+        body: "Baksteen, stucwerk of beplating — we kiezen de juiste, veilige methode.",
+      },
+      {
+        title: "Particulier én zakelijk",
+        body: "Van woning tot bedrijfspand, met een vrijblijvende offerte vooraf.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Hoe vaak is gevelreiniging nodig?",
+        a: "Dat hangt af van de ligging en het materiaal. Op het noorden en onder bomen ontstaat sneller groene aanslag; vaak volstaat eens per paar jaar.",
+      },
+    ],
   },
   {
     slug: "dakgootreiniging",
-    available: false,
+    available: true,
     audience: "beide",
     name: "Dakgootreiniging",
-    title: "Dakgootreiniging in Apeldoorn",
-    metaTitle: "Dakgootreiniging Apeldoorn | Madern Glazenwassers",
+    title: "Dakgootreiniging",
+    metaTitle: "Dakgootreiniging Apeldoorn | Voorkom waterschade | Madern",
     metaDescription:
-      "Verstopte dakgoten voorkomen waterschade. Madern reinigt uw dakgoten in Apeldoorn snel en veilig. Vraag een offerte aan.",
+      "Verstopte dakgoten voorkomen lekkage en waterschade. Madern reinigt uw dakgoten in Apeldoorn snel en veilig. Vraag een gratis, vrijblijvende offerte aan.",
     tagline: "Voorkom waterschade door verstopping.",
     intro:
-      "Verstopte dakgoten kunnen leiden tot lekkage en waterschade. Madern reinigt uw dakgoten veilig en grondig zodat het water weer vrij kan wegstromen.",
-    keywords: ["dakgootreiniging Apeldoorn"],
-    highlights: [],
-    faqs: [],
+      "Verstopte dakgoten kunnen leiden tot lekkage en waterschade. Madern reinigt uw dakgoten veilig en grondig, verwijdert blad en vuil, zodat het regenwater weer vrij kan wegstromen.",
+    keywords: ["dakgootreiniging Apeldoorn", "dakgoot reinigen Apeldoorn"],
+    highlights: [
+      {
+        title: "Voorkom lekkage",
+        body: "Vrije goten en regenpijpen voorkomen overlopen en waterschade.",
+      },
+      {
+        title: "Blad en vuil verwijderd",
+        body: "We halen bladeren, mos en aanslag weg en controleren de afvoer.",
+      },
+      {
+        title: "Veilig uitgevoerd",
+        body: "Met het juiste materiaal en oog voor veiligheid op hoogte.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Wanneer kan ik mijn dakgoten het beste laten reinigen?",
+        a: "Meestal in het najaar, ná de bladval, en eventueel in het voorjaar. Bij veel bomen in de buurt is twee keer per jaar verstandig.",
+      },
+    ],
   },
 ];
 

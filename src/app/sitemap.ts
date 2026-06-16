@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { availableServices } from "@/lib/services";
-import { plaatsen } from "@/lib/plaatsen";
+import { locatiePlaatsen, locatieSlug } from "@/lib/plaatsen";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
@@ -29,11 +29,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.85,
     })),
-    ...plaatsen.map((p) => ({
-      url: `${base}/werkgebied/${p.slug}`,
+    ...locatiePlaatsen.map((p) => ({
+      url: `${base}/${locatieSlug(p)}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
-      priority: p.primary ? 0.8 : 0.6,
+      priority: 0.7,
     })),
   ];
 }

@@ -65,6 +65,28 @@ export const plaatsen: Plaats[] = [
 
 export const primaryPlaats = plaatsen.find((p) => p.primary)!;
 
+// Plaatsen die een eigen /glazenwasser-[plaats] pagina krijgen (Apeldoorn = homepage).
+export const locatiePlaatsen = plaatsen.filter((p) => !p.primary);
+
 export function getPlaats(slug: string): Plaats | undefined {
   return plaatsen.find((p) => p.slug === slug);
+}
+
+// Link naar de plaats: Apeldoorn → homepage, rest → /glazenwasser-[plaats].
+export function plaatsHref(p: Plaats): string {
+  return p.primary ? "/" : `/glazenwasser-${p.slug}`;
+}
+
+// URL-segment voor de locatiepagina, bijv. "glazenwasser-vaassen".
+export function locatieSlug(p: Plaats): string {
+  return `glazenwasser-${p.slug}`;
+}
+
+// Zoek een plaats op basis van het volledige locatie-segment ("glazenwasser-vaassen").
+export function getPlaatsByLocatie(locatie: string): Plaats | undefined {
+  if (!locatie.startsWith("glazenwasser-")) return undefined;
+  const slug = locatie.replace(/^glazenwasser-/, "");
+  const p = plaatsen.find((x) => x.slug === slug);
+  // Apeldoorn heeft geen eigen locatiepagina (dat is de homepage).
+  return p && !p.primary ? p : undefined;
 }
