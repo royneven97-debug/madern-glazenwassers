@@ -7,9 +7,9 @@ import { siteConfig } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 
 const nav = [
+  { href: "/diensten", label: "Diensten" },
   { href: "/glazenwassen-particulier", label: "Particulier" },
   { href: "/glazenwassen-zakelijk", label: "Zakelijk" },
-  { href: "/zonnepanelen-reinigen", label: "Zonnepanelen" },
   { href: "/tarieven", label: "Tarieven" },
   { href: "/werkgebied", label: "Werkgebied" },
   { href: "/over-ons", label: "Over ons" },

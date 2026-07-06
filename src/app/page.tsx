@@ -12,7 +12,8 @@ import { Faq } from "@/components/sections/Faq";
 import { HeroForm } from "@/components/sections/HeroForm";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Glazenwasser Apeldoorn | Madern Glazenwassers",
+  title:
+    "Glazenwasser Apeldoorn nodig? - Madern Glazenwassers - voor streepvrij glazenwassen, zonnepanelen reinigen, gevel- & dakgootreiniging bij u in de buurt",
   description: siteConfig.shortDescription,
   path: "/",
 });
@@ -119,6 +120,9 @@ export default function HomePage() {
               </span>
             </Link>
           ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Button href="/diensten" variant="secondary">Bekijk al onze diensten</Button>
         </div>
       </section>
 

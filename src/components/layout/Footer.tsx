@@ -34,7 +34,9 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-water-300">Diensten</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-water-300">
+            <Link href="/diensten" className="hover:text-white">Diensten</Link>
+          </h3>
           <ul className="mt-4 space-y-2 text-sm">
             {availableServices.map((s) => (
               <li key={s.slug}>

@@ -108,6 +108,22 @@ export function serviceSchema(opts: {
   };
 }
 
+// ItemList van diensten — versterkt de /diensten hub-pagina.
+export function serviceListSchema(
+  items: { name: string; path: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      url: `${siteConfig.url}${item.path}`,
+    })),
+  };
+}
+
 export function faqSchema(faqs: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

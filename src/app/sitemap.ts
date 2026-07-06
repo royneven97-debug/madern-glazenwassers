@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPaths = [
     { path: "", priority: 1.0 },
+    { path: "/diensten", priority: 0.9 },
     { path: "/tarieven", priority: 0.8 },
     { path: "/werkgebied", priority: 0.7 },
     { path: "/over-ons", priority: 0.6 },
