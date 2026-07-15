@@ -10,8 +10,8 @@ export type ServiceContent = {
 export const serviceContent: Record<string, ServiceContent> = {
   "glazenwassen-particulier": {
     image: {
-      src: "/images/ramen-wassen-trekker-closeup.jpg",
-      alt: "Glazenwasser wast een raam streepvrij met een trekker in Apeldoorn",
+      src: "/images/ramen-wassen-woning-apeldoorn.jpg",
+      alt: "Glazenwasser wast de ramen van een woning in Apeldoorn met een telescoopsteel",
     },
     sections: [
       {
@@ -55,8 +55,8 @@ export const serviceContent: Record<string, ServiceContent> = {
 
   "glazenwassen-zakelijk": {
     image: {
-      src: "/images/glazenwasser-ramen-wassen-apeldoorn.jpg",
-      alt: "Professionele glazenwasser maakt zakelijke ruiten schoon in Apeldoorn",
+      src: "/images/glasbewassing-bedrijfspand-apeldoorn.jpg",
+      alt: "Glazenwasser reinigt de glasgevel van een bedrijfspand in Apeldoorn met osmosewater",
     },
     sections: [
       {
@@ -98,8 +98,8 @@ export const serviceContent: Record<string, ServiceContent> = {
 
   "etalage-reinigen": {
     image: {
-      src: "/images/glazenwasser-ramen-wassen-apeldoorn.jpg",
-      alt: "Etalageruiten van een winkel worden streepvrij gereinigd",
+      src: "/images/etalage-reinigen-apeldoorn.jpg",
+      alt: "Glazenwasser maakt de grote glazen pui van een bedrijfspand in Apeldoorn streepvrij schoon",
     },
     sections: [
       {
@@ -135,8 +135,8 @@ export const serviceContent: Record<string, ServiceContent> = {
 
   "zonnepanelen-reinigen": {
     image: {
-      src: "/images/glazenwasser-osmosewater-steel.jpg",
-      alt: "Zonnepanelen worden veilig en streepvrij gereinigd met een watersteel",
+      src: "/images/glasdak-reinigen-apeldoorn.jpg",
+      alt: "Glazenwasser reinigt glazen dakbeglazing streepvrij met osmosewater in Apeldoorn",
     },
     sections: [
       {
@@ -171,8 +171,8 @@ export const serviceContent: Record<string, ServiceContent> = {
 
   gevelreiniging: {
     image: {
-      src: "/images/glazenwasser-osmosewater-steel.jpg",
-      alt: "Gevel wordt gereinigd voor een frisse uitstraling",
+      src: "/images/gevelreiniging-voor-na-apeldoorn.jpg",
+      alt: "Gevelreiniging in Apeldoorn: een vervuilde gevel met groene aanslag naast een schoongemaakt deel",
     },
     sections: [
       {
@@ -206,8 +206,8 @@ export const serviceContent: Record<string, ServiceContent> = {
 
   dakgootreiniging: {
     image: {
-      src: "/images/glazenwasser-ramen-wassen-apeldoorn.jpg",
-      alt: "Onderhoud aan een woning in Apeldoorn",
+      src: "/images/dakgootreiniging-apeldoorn.jpg",
+      alt: "Glazenwasser reinigt de dakgoot en dakrand van een woning in Apeldoorn vanaf een ladder",
     },
     sections: [
       {

@@ -131,8 +131,8 @@ export default function HomePage() {
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="overflow-hidden rounded-3xl">
             <Image
-              src="/images/glazenwasser-ramen-wassen-apeldoorn.jpg"
-              alt="Glazenwasser van Madern wast ramen streepvrij schoon in Apeldoorn"
+              src="/images/glazenwasser-apeldoorn-aan-het-werk.jpg"
+              alt="Glazenwasser van Madern wast met een watergevoede steel de ramen van een woning in Apeldoorn"
               width={900}
               height={650}
               className="h-full w-full object-cover"
