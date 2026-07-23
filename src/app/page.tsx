@@ -132,7 +132,7 @@ export default function HomePage() {
           <div className="overflow-hidden rounded-3xl">
             <Image
               src="/images/glazenwasser-apeldoorn-aan-het-werk.jpg"
-              alt="Glazenwasser van Madern wast met een watergevoede steel de ramen van een woning in Apeldoorn"
+              alt="Glazenwasser van Madern reinigt met een watergevoede telescoopsteel de glasgevel van een bedrijfspand in Apeldoorn"
               width={900}
               height={650}
               className="h-full w-full object-cover"
