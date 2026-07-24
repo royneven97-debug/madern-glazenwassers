@@ -11,23 +11,43 @@ const planningOpties = [
 ];
 
 export function HeroForm() {
-  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = Object.fromEntries(
-      new FormData(e.currentTarget).entries(),
-    ) as Record<string, string>;
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
     if (data.company_website) return; // honeypot
-    setSending(true);
-    submitLead({
+    setStatus("sending");
+    const result = await submitLead({
       naam: data.naam,
       telefoon: data.telefoon,
       email: data.email,
       plaats: data.adres,
       bericht: data.wanneer ? `Planning: ${data.wanneer}` : undefined,
     });
-    window.setTimeout(() => setSending(false), 2500);
+    if (result === "email") {
+      setStatus("success");
+      form.reset();
+    } else {
+      setStatus("idle");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="rounded-2xl bg-white p-7 text-center shadow-2xl shadow-navy-950/30">
+        <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-accent-500 text-white">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M20 6L9 17l-5-5" />
+          </svg>
+        </div>
+        <h2 className="mt-4 text-lg font-bold text-navy-900">Aanvraag verzonden!</h2>
+        <p className="mt-2 text-sm text-navy-800/80">
+          Bedankt. We nemen zo snel mogelijk contact met u op.
+        </p>
+      </div>
+    );
   }
 
   const field =
@@ -57,10 +77,10 @@ export function HeroForm() {
 
         <button
           type="submit"
-          disabled={sending}
+          disabled={status === "sending"}
           className="w-full rounded-full bg-gradient-to-b from-accent-400 to-accent-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:to-accent-700 disabled:opacity-60"
         >
-          {sending ? "Openen…" : "Verstuur aanvraag"}
+          {status === "sending" ? "Versturen…" : "Verstuur aanvraag"}
         </button>
         <p className="text-center text-[11px] leading-tight text-navy-800/55">
           Op mobiel versturen we uw aanvraag via WhatsApp, op desktop via e-mail.

@@ -27,7 +27,11 @@ export async function POST(req: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.OFFERTE_TO || siteConfig.email;
+  // Ontvangers: standaard naar info@ én royneven97@; override via OFFERTE_TO (komma-gescheiden).
+  const toEnv = process.env.OFFERTE_TO;
+  const to = toEnv
+    ? toEnv.split(",").map((s) => s.trim()).filter(Boolean)
+    : [siteConfig.email, "royneven97@gmail.com"];
   const from = process.env.OFFERTE_FROM || "onboarding@resend.dev";
 
   if (!apiKey) {
@@ -60,7 +64,7 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         from: `Madern Offerte <${from}>`,
-        to: [to],
+        to,
         reply_to: body.email || undefined,
         subject: `Offerteaanvraag – ${naam} (${body.plaats || "Apeldoorn"})`,
         text,

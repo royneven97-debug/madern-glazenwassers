@@ -1,6 +1,7 @@
-// Client-side lead-afhandeling zonder backend:
+// Client-side lead-afhandeling:
 // - mobiel/touch -> opent WhatsApp met de klantgegevens (owner krijgt een appje)
-// - desktop      -> opent het mailprogramma met de klantgegevens (owner krijgt een mail)
+// - desktop      -> e-mail via de Resend-API (server-side); valt terug op mailto
+//                   als de API (nog) niet is geconfigureerd
 import { siteConfig } from "./site";
 
 export type LeadFields = {
@@ -11,6 +12,8 @@ export type LeadFields = {
   dienst?: string;
   bericht?: string;
 };
+
+export type LeadResult = "whatsapp" | "email" | "mailto";
 
 const LABELS: [keyof LeadFields, string][] = [
   ["naam", "Naam"],
@@ -35,23 +38,47 @@ function buildMessage(fields: LeadFields, pageUrl: string): string {
 function prefersWhatsApp(): boolean {
   if (typeof navigator === "undefined") return false;
   const ua = navigator.userAgent || "";
-  const mobileUA = /Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(ua);
+  const mobileUA = /Android|iPhone|iPod|Mobile|Windows Phone/i.test(ua);
   const coarse =
     typeof window !== "undefined" && !!window.matchMedia?.("(pointer: coarse)")?.matches;
   return mobileUA || coarse;
 }
 
-export function submitLead(fields: LeadFields): void {
-  if (typeof window === "undefined") return;
+function openWhatsApp(fields: LeadFields): void {
+  const waNumber = siteConfig.phone.e164.replace(/\D/g, "");
   const message = buildMessage(fields, window.location.href);
+  window.location.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+}
 
+function openMailto(fields: LeadFields): void {
+  const message = buildMessage(fields, window.location.href);
+  window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
+    "Offerteaanvraag via de website",
+  )}&body=${encodeURIComponent(message)}`;
+}
+
+export async function submitLead(fields: LeadFields): Promise<LeadResult> {
+  if (typeof window === "undefined") return "mailto";
+
+  // Mobiel/touch: direct via WhatsApp.
   if (prefersWhatsApp()) {
-    const waNumber = siteConfig.phone.e164.replace(/\D/g, "");
-    window.location.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
-  } else {
-    const subject = "Offerteaanvraag via de website";
-    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(message)}`;
+    openWhatsApp(fields);
+    return "whatsapp";
+  }
+
+  // Desktop: e-mail via Resend (server-side).
+  try {
+    const res = await fetch("/api/offerte", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(fields),
+    });
+    if (!res.ok) throw new Error("mislukt");
+    return "email";
+  } catch {
+    // Resend nog niet geconfigureerd of tijdelijk down: open het mailprogramma
+    // zodat de aanvraag niet verloren gaat.
+    openMailto(fields);
+    return "mailto";
   }
 }

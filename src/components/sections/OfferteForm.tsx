@@ -12,16 +12,15 @@ const services = [
 ];
 
 export function OfferteForm() {
-  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = Object.fromEntries(
-      new FormData(e.currentTarget).entries(),
-    ) as Record<string, string>;
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
     if (data.company_website) return; // honeypot
-    setSending(true);
-    submitLead({
+    setStatus("sending");
+    const result = await submitLead({
       naam: data.naam,
       telefoon: data.telefoon,
       email: data.email,
@@ -29,7 +28,28 @@ export function OfferteForm() {
       dienst: data.dienst,
       bericht: data.bericht,
     });
-    window.setTimeout(() => setSending(false), 2500);
+    if (result === "email") {
+      setStatus("success");
+      form.reset();
+    } else {
+      setStatus("idle");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="rounded-2xl border border-water-200 bg-water-50 p-8 text-center">
+        <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-water-500 text-white">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M20 6L9 17l-5-5" />
+          </svg>
+        </div>
+        <h2 className="mt-4 text-xl font-bold text-navy-900">Offerteaanvraag verzonden!</h2>
+        <p className="mt-2 text-navy-800/80">
+          Bedankt voor uw aanvraag. We nemen zo spoedig mogelijk contact met u op.
+        </p>
+      </div>
+    );
   }
 
   const field =
@@ -85,15 +105,15 @@ export function OfferteForm() {
 
       <button
         type="submit"
-        disabled={sending}
+        disabled={status === "sending"}
         className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-water-500 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-water-600 disabled:opacity-60 sm:w-auto"
       >
-        {sending ? "Openen…" : "Verstuur offerteaanvraag"}
+        {status === "sending" ? "Versturen…" : "Verstuur offerteaanvraag"}
       </button>
 
       <p className="text-xs text-navy-800/60">
-        Op mobiel versturen we uw aanvraag via WhatsApp, op desktop via uw
-        e-mailprogramma. We gebruiken uw gegevens alleen om op uw aanvraag te reageren.
+        Op mobiel versturen we uw aanvraag via WhatsApp, op desktop via e-mail.
+        We gebruiken uw gegevens alleen om op uw aanvraag te reageren.
       </p>
     </form>
   );
