@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-type Status = "idle" | "sending" | "success" | "error";
+import { submitLead } from "@/lib/lead";
 
 const planningOpties = [
   "Zo snel mogelijk",
@@ -12,42 +11,23 @@ const planningOpties = [
 ];
 
 export function HeroForm() {
-  const [status, setStatus] = useState<Status>("idle");
+  const [sending, setSending] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("sending");
-    const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
-
-    try {
-      const res = await fetch("/api/offerte", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error("mislukt");
-      setStatus("success");
-      form.reset();
-    } catch {
-      setStatus("error");
-    }
-  }
-
-  if (status === "success") {
-    return (
-      <div className="rounded-2xl bg-white p-7 text-center shadow-2xl shadow-navy-950/30">
-        <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-accent-500 text-white">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M20 6L9 17l-5-5" />
-          </svg>
-        </div>
-        <h2 className="mt-4 text-lg font-bold text-navy-900">Aanvraag verzonden!</h2>
-        <p className="mt-2 text-sm text-navy-800/80">
-          Bedankt. We nemen zo snel mogelijk contact met u op.
-        </p>
-      </div>
-    );
+    const data = Object.fromEntries(
+      new FormData(e.currentTarget).entries(),
+    ) as Record<string, string>;
+    if (data.company_website) return; // honeypot
+    setSending(true);
+    submitLead({
+      naam: data.naam,
+      telefoon: data.telefoon,
+      email: data.email,
+      plaats: data.adres,
+      bericht: data.wanneer ? `Planning: ${data.wanneer}` : undefined,
+    });
+    window.setTimeout(() => setSending(false), 2500);
   }
 
   const field =
@@ -75,21 +55,15 @@ export function HeroForm() {
           ))}
         </select>
 
-        {status === "error" && (
-          <p className="rounded-lg bg-red-50 px-3 py-2 text-xs text-red-700">
-            Er ging iets mis. Probeer opnieuw of bel ons direct.
-          </p>
-        )}
-
         <button
           type="submit"
-          disabled={status === "sending"}
+          disabled={sending}
           className="w-full rounded-full bg-gradient-to-b from-accent-400 to-accent-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:to-accent-700 disabled:opacity-60"
         >
-          {status === "sending" ? "Verzenden…" : "Verstuur aanvraag"}
+          {sending ? "Openen…" : "Verstuur aanvraag"}
         </button>
         <p className="text-center text-[11px] leading-tight text-navy-800/55">
-          Door te versturen gaat u akkoord met ons privacybeleid.
+          Op mobiel versturen we uw aanvraag via WhatsApp, op desktop via e-mail.
         </p>
       </form>
     </div>

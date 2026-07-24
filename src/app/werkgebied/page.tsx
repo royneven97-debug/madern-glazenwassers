@@ -4,7 +4,7 @@ import { plaatsen, plaatsHref } from "@/lib/plaatsen";
 import { generatePageMetadata } from "@/lib/metadata";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { GoogleReviews } from "@/components/sections/GoogleReviews";
+import { LeadForm } from "@/components/sections/LeadForm";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Werkgebied | Glazenwasser in Apeldoorn en omgeving",
@@ -48,7 +48,7 @@ export default function WerkgebiedPage() {
         </div>
       </section>
 
-      <GoogleReviews />
+      <LeadForm />
 
       <div className="py-12">
         <CtaBand />

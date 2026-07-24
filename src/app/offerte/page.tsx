@@ -3,7 +3,6 @@ import { siteConfig } from "@/lib/site";
 import { generatePageMetadata } from "@/lib/metadata";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { OfferteForm } from "@/components/sections/OfferteForm";
-import { GoogleReviews } from "@/components/sections/GoogleReviews";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Gratis offerte aanvragen | Madern Glazenwassers Apeldoorn",
@@ -56,8 +55,6 @@ export default function OffertePage() {
           <OfferteForm />
         </div>
       </section>
-
-      <GoogleReviews />
     </>
   );
 }

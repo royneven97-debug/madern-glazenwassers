@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site";
 import { generatePageMetadata } from "@/lib/metadata";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Button } from "@/components/ui/Button";
-import { GoogleReviews } from "@/components/sections/GoogleReviews";
+import { LeadForm } from "@/components/sections/LeadForm";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Contact | Madern Glazenwassers Apeldoorn",
@@ -56,7 +56,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <GoogleReviews />
+      <LeadForm />
     </>
   );
 }

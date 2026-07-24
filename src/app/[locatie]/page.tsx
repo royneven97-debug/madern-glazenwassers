@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { GoogleReviews } from "@/components/sections/GoogleReviews";
+import { LeadForm } from "@/components/sections/LeadForm";
 
 // Alleen de gegenereerde glazenwasser-[plaats] slugs zijn geldig; al het andere → 404.
 export const dynamicParams = false;
@@ -108,7 +108,7 @@ export default async function LocatiePage({
         </div>
       </section>
 
-      <GoogleReviews />
+      <LeadForm defaultPlaats={p.name} />
 
       <div className="py-8">
         <Faq faqs={faqs} title={`Veelgestelde vragen glazenwasser ${p.name}`} />
