@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
 import { availableServices } from "@/lib/services";
@@ -214,6 +215,20 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Google reviews */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-bold text-navy-900">Wat klanten over ons zeggen</h2>
+          <p className="mt-3 text-pretty text-navy-800/75">
+            Echte Google-reviews van klanten in Apeldoorn en omgeving.
+          </p>
+        </div>
+        <div className="mt-10">
+          <div id="featurable-29a985ff-ac28-4115-8c64-381c15cc896c" data-featurable-async=""></div>
+        </div>
+        <Script src="https://featurable.com/assets/bundle.js" strategy="afterInteractive" />
       </section>
 
       {/* Osmosewater / waarom */}
