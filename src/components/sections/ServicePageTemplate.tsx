@@ -103,7 +103,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
               </div>
             ))}
 
-            {/* Werkgebied — interne links voor lokale SEO */}
+            {/* Werkgebied, interne links voor lokale SEO */}
             <div className="rounded-2xl border border-mist-200 bg-mist-50 p-6">
               <h2 className="text-xl font-bold text-navy-900">
                 {service.name} in Apeldoorn en omgeving

@@ -34,7 +34,7 @@ export default function DienstenPage() {
         <p className="mt-5 text-pretty text-lg text-navy-800/80">
           Madern Glazenwassers is uw vaste glazenwasser in Apeldoorn en omgeving.
           Van streepvrij glazenwassen voor particulier en zakelijk tot het
-          reinigen van etalages, zonnepanelen, gevels en dakgoten — alles met
+          reinigen van etalages, zonnepanelen, gevels en dakgoten, alles met
           gezuiverd osmosewater en een persoonlijke aanpak. Hieronder vindt u al
           onze diensten.
         </p>
@@ -69,7 +69,7 @@ export default function DienstenPage() {
         </div>
       </section>
 
-      {/* Werkgebied — interne links voor lokale SEO */}
+      {/* Werkgebied, interne links voor lokale SEO */}
       <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
         <div className="rounded-2xl border border-mist-200 bg-mist-50 p-6">
           <h2 className="text-xl font-bold text-navy-900">
@@ -77,7 +77,7 @@ export default function DienstenPage() {
           </h2>
           <p className="mt-2 text-navy-800/80">
             Apeldoorn is onze thuisbasis. Daarnaast bent u bij ons aan het juiste
-            adres in de hele regio — bekijk uw plaats:
+            adres in de hele regio, bekijk uw plaats:
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {plaatsen.map((p) => (

@@ -52,7 +52,7 @@ const homeFaqs = [
   },
   {
     q: "Werken jullie voor particulieren én bedrijven?",
-    a: "Ja. Madern verzorgt glasbewassing voor woningen, kantoren, bedrijfspanden en winkels in Apeldoorn en omgeving — eenmalig of met een vast schema.",
+    a: "Ja. Madern verzorgt glasbewassing voor woningen, kantoren, bedrijfspanden en winkels in Apeldoorn en omgeving, eenmalig of met een vast schema.",
   },
   {
     q: "Wat is osmosewater en waarom gebruiken jullie het?",
@@ -73,7 +73,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="bg-hero relative overflow-hidden">
         <div className="bg-glass-grid absolute inset-0 opacity-40" aria-hidden />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
           <div>
             <h1 className="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
               Glazenwasser <span className="text-accent-400">Apeldoorn</span>
@@ -83,7 +83,7 @@ export default function HomePage() {
             </p>
             <p className="mt-4 max-w-xl text-pretty text-lg text-mist-100/85">
               Madern Glazenwassers maakt uw ramen aan binnen- én buitenkant
-              streepvrij schoon — voor woningen, kantoren en winkels. Een
+              streepvrij schoon, voor woningen, kantoren en winkels. Een
               Apeldoorns bedrijf, door Apeldoorners.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -124,7 +124,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold text-navy-900">Onze diensten</h2>
           <p className="mt-3 text-pretty text-navy-800/75">
-            Van uw woonkamerramen tot een compleet bedrijfspand — Madern levert
+            Van uw woonkamerramen tot een compleet bedrijfspand, Madern levert
             vakwerk met een persoonlijke aanpak.
           </p>
         </div>
@@ -153,7 +153,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Feature — lokale glazenwasser */}
+      {/* Feature, lokale glazenwasser */}
       <section className="mx-auto max-w-6xl px-4 pb-4 sm:px-6">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="overflow-hidden rounded-3xl">
@@ -170,14 +170,14 @@ export default function HomePage() {
             <p className="mt-4 text-pretty leading-relaxed text-navy-800/85">
               Madern Glazenwassers is een jong, lokaal bedrijf, opgericht door een
               geboren en getogen Apeldoorner. We kennen de stad, de wijken en het
-              weer aan de rand van de Veluwe — en weten dus precies wat uw ramen
+              weer aan de rand van de Veluwe, en weten dus precies wat uw ramen
               nodig hebben om het hele jaar door helder te blijven.
             </p>
             <p className="mt-3 text-pretty leading-relaxed text-navy-800/85">
               Of het nu gaat om de ramen van uw woning, de etalage van uw winkel of
               de complete glasbewassing van een bedrijfspand: u krijgt bij ons een
               vast aanspreekpunt, eerlijke prijzen en vakwerk met een persoonlijke
-              aanpak. Afspraak is afspraak — en we komen, als het u beter uitkomt,
+              aanpak. Afspraak is afspraak, en we komen, als het u beter uitkomt,
               ook in het weekend langs.
             </p>
             <p className="mt-3 text-pretty leading-relaxed text-navy-800/85">
@@ -192,7 +192,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Ons werk — fotogalerij */}
+      {/* Ons werk, fotogalerij */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold text-navy-900">Ons werk in Apeldoorn</h2>
@@ -224,7 +224,7 @@ export default function HomePage() {
             <p className="mt-4 text-pretty text-navy-800/80">
               Wij werken met gezuiverd osmosewater voor een streepvrij en
               langdurig schoon resultaat zonder chemicaliën. Het water trekt vuil
-              en kalk aan en droogt vlekkeloos op — beter voor uw ramen, uw
+              en kalk aan en droogt vlekkeloos op, beter voor uw ramen, uw
               kozijnen én het milieu.
             </p>
             <ul className="mt-6 space-y-3">

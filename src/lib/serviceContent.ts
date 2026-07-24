@@ -17,7 +17,7 @@ export const serviceContent: Record<string, ServiceContent> = {
       {
         heading: "Schone ramen maken uw woning af",
         paragraphs: [
-          "Niets is zo zonde als een mooi huis met doffe, vieze ramen. Vuil, regenstrepen, stuifmeel en uitlaatgassen hechten zich ongemerkt aan het glas, waardoor er minder daglicht naar binnen valt en uw woning er minder verzorgd uitziet. Met schone ramen oogt uw huis direct frisser, lichter en uitnodigender — binnen én buiten.",
+          "Niets is zo zonde als een mooi huis met doffe, vieze ramen. Vuil, regenstrepen, stuifmeel en uitlaatgassen hechten zich ongemerkt aan het glas, waardoor er minder daglicht naar binnen valt en uw woning er minder verzorgd uitziet. Met schone ramen oogt uw huis direct frisser, lichter en uitnodigender, binnen én buiten.",
           "Madern Glazenwassers is gespecialiseerd in het wassen van ramen bij particulieren in Apeldoorn en omgeving. Of u nu in een rijtjeswoning, een twee-onder-een-kap of een vrijstaand huis woont: wij zorgen voor een streepvrij resultaat waar u dagelijks plezier van heeft. We werken netjes, op afspraak en met respect voor uw woning en tuin.",
         ],
       },
@@ -26,7 +26,7 @@ export const serviceContent: Record<string, ServiceContent> = {
         paragraphs: [
           "Wij wassen uw ramen met gezuiverd osmosewater. Bij dit proces wordt al het kalk en alle mineralen uit het water gefilterd. Het resultaat: het water droogt volledig vlekkeloos op, zonder strepen of kalkranden, en helemaal zonder agressieve schoonmaakmiddelen. Beter voor uw ramen, uw kozijnen en het milieu.",
           "Doordat er geen mineralen achterblijven, blijven uw ramen ook langer schoon dan bij traditioneel zemen met leidingwater. Stof en vuil hechten minder snel aan een echt schoon oppervlak, waardoor u langer geniet van kristalheldere ruiten.",
-          "Met onze watergevoede telescoopstelen bereiken we ook hoger gelegen ramen veilig vanaf de begane grond — zonder ladders tegen uw gevel en zonder risico voor uw beplanting.",
+          "Met onze watergevoede telescoopstelen bereiken we ook hoger gelegen ramen veilig vanaf de begane grond, zonder ladders tegen uw gevel en zonder risico voor uw beplanting.",
         ],
       },
       {
@@ -69,14 +69,14 @@ export const serviceContent: Record<string, ServiceContent> = {
       {
         heading: "Vaste contracten met flexibele frequentie",
         paragraphs: [
-          "Met een onderhoudscontract heeft u nergens omkijken naar. We spreken een vaste frequentie af — wekelijks, maandelijks, per kwartaal of een ander interval — en komen daarna automatisch langs. U krijgt een vast aanspreekpunt en een vast, transparant tarief.",
+          "Met een onderhoudscontract heeft u nergens omkijken naar. We spreken een vaste frequentie af, wekelijks, maandelijks, per kwartaal of een ander interval, en komen daarna automatisch langs. U krijgt een vast aanspreekpunt en een vast, transparant tarief.",
           "De frequentie stemmen we af op uw pand, de ligging en uw budget. Een winkel in het centrum van Apeldoorn met veel passage heeft baat bij vaker wassen dan een kantoor op een rustig bedrijventerrein. We adviseren u graag over de meest efficiënte aanpak.",
         ],
       },
       {
         heading: "Betrouwbaar en zonder uw werk te verstoren",
         paragraphs: [
-          "We begrijpen dat uw bedrijfsproces door moet gaan. Daarom plannen we het glazenwassen op momenten die u het beste uitkomen — vroeg in de ochtend, buiten openingstijden of in het weekend. We werken netjes, discreet en met oog voor de veiligheid van uw medewerkers en bezoekers.",
+          "We begrijpen dat uw bedrijfsproces door moet gaan. Daarom plannen we het glazenwassen op momenten die u het beste uitkomen, vroeg in de ochtend, buiten openingstijden of in het weekend. We werken netjes, discreet en met oog voor de veiligheid van uw medewerkers en bezoekers.",
           "Voor hoger gelegen ramen werken we waar mogelijk met watergevoede telescoopstelen vanaf de grond. Zo voorkomen we onnodige risico's en overlast, en blijft uw pand bereikbaar tijdens het werk.",
         ],
       },
@@ -84,7 +84,7 @@ export const serviceContent: Record<string, ServiceContent> = {
         heading: "Meer dan alleen glasbewassing",
         paragraphs: [
           "Naast het wassen van ramen kunnen we ook andere onderhoudsklussen aan uw pand verzorgen, zoals het reinigen van de gevel, de dakgoten of de zonnepanelen op het dak. Door dit te combineren in één onderhoudscontract bespaart u tijd en heeft u één vast aanspreekpunt voor het uiterlijk van uw pand.",
-          "Zo houdt u uw vastgoed niet alleen representatief, maar ook in goede staat — wat op de lange termijn kosten bespaart.",
+          "Zo houdt u uw vastgoed niet alleen representatief, maar ook in goede staat, wat op de lange termijn kosten bespaart.",
         ],
       },
       {
@@ -142,14 +142,14 @@ export const serviceContent: Record<string, ServiceContent> = {
       {
         heading: "Vuile zonnepanelen leveren minder op",
         paragraphs: [
-          "Zonnepanelen werken het best als er zoveel mogelijk zonlicht op de cellen valt. In de praktijk hopen stof, stuifmeel, mos, bladeren en vogelpoep zich op het oppervlak op — vooral op panelen die plat of onder een kleine hoek liggen, want daar spoelt de regen het vuil niet vanzelf af. Die vervuiling vermindert de opbrengst, soms met een paar tot wel tien procent of meer.",
+          "Zonnepanelen werken het best als er zoveel mogelijk zonlicht op de cellen valt. In de praktijk hopen stof, stuifmeel, mos, bladeren en vogelpoep zich op het oppervlak op, vooral op panelen die plat of onder een kleine hoek liggen, want daar spoelt de regen het vuil niet vanzelf af. Die vervuiling vermindert de opbrengst, soms met een paar tot wel tien procent of meer.",
           "Door uw zonnepanelen periodiek te laten reinigen, herstelt u die opbrengst. De investering verdient zichzelf vaak terug in extra opgewekte stroom.",
         ],
       },
       {
         heading: "Veilig en krasvrij gereinigd",
         paragraphs: [
-          "Zonnepanelen vragen om een voorzichtige aanpak. Wij reinigen ze met zacht, gezuiverd osmosewater en speciaal gereedschap dat geschikt is voor het kwetsbare oppervlak. Geen agressieve middelen, geen harde borstels en geen krassen — zodat de beschermende coating intact blijft.",
+          "Zonnepanelen vragen om een voorzichtige aanpak. Wij reinigen ze met zacht, gezuiverd osmosewater en speciaal gereedschap dat geschikt is voor het kwetsbare oppervlak. Geen agressieve middelen, geen harde borstels en geen krassen, zodat de beschermende coating intact blijft.",
           "Met onze watergevoede telescoopstelen reinigen we de panelen waar mogelijk veilig vanaf de grond of vanaf een veilig werkvlak, zonder onnodig over uw dak te lopen.",
         ],
       },
@@ -178,14 +178,14 @@ export const serviceContent: Record<string, ServiceContent> = {
       {
         heading: "Een schone gevel maakt uw pand weer fris",
         paragraphs: [
-          "De gevel is het grootste zichtbare oppervlak van uw woning of bedrijfspand. In de loop der jaren ontstaat er groene aanslag, algen, mos en vuil — vooral op het noorden, onder dakranden en in de buurt van bomen. Dat geeft een verwaarloosde indruk en kan op termijn het materiaal aantasten. Met een professionele gevelreiniging oogt uw pand weer als nieuw.",
+          "De gevel is het grootste zichtbare oppervlak van uw woning of bedrijfspand. In de loop der jaren ontstaat er groene aanslag, algen, mos en vuil, vooral op het noorden, onder dakranden en in de buurt van bomen. Dat geeft een verwaarloosde indruk en kan op termijn het materiaal aantasten. Met een professionele gevelreiniging oogt uw pand weer als nieuw.",
           "Madern verzorgt gevelreiniging voor particulieren en bedrijven in Apeldoorn en omgeving, met een aanpak die past bij uw type gevel.",
         ],
       },
       {
         heading: "De juiste methode voor elk materiaal",
         paragraphs: [
-          "Niet elke gevel vraagt om dezelfde aanpak. Baksteen, stucwerk, houten delen, beton of gevelbeplating reageren elk anders op reiniging. Wij beoordelen vooraf het materiaal en de mate van vervuiling en kiezen de juiste, veilige methode — van een zachte, lagedruk-behandeling tot gerichte verwijdering van algen en aanslag.",
+          "Niet elke gevel vraagt om dezelfde aanpak. Baksteen, stucwerk, houten delen, beton of gevelbeplating reageren elk anders op reiniging. Wij beoordelen vooraf het materiaal en de mate van vervuiling en kiezen de juiste, veilige methode, van een zachte, lagedruk-behandeling tot gerichte verwijdering van algen en aanslag.",
           "Zo bereiken we een mooi, egaal resultaat zonder de gevel te beschadigen.",
         ],
       },
@@ -198,7 +198,7 @@ export const serviceContent: Record<string, ServiceContent> = {
       {
         heading: "Vraag een vrijblijvende offerte aan",
         paragraphs: [
-          "Elke gevel is anders, dus de prijs bepalen we op maat. We komen graag langs om de situatie te bekijken en stellen een heldere, vrijblijvende offerte op. Vaak combineren klanten gevelreiniging met het wassen van de ramen of het reinigen van de dakgoten — handig en voordelig in één keer.",
+          "Elke gevel is anders, dus de prijs bepalen we op maat. We komen graag langs om de situatie te bekijken en stellen een heldere, vrijblijvende offerte op. Vaak combineren klanten gevelreiniging met het wassen van de ramen of het reinigen van de dakgoten, handig en voordelig in één keer.",
         ],
       },
     ],
@@ -214,7 +214,7 @@ export const serviceContent: Record<string, ServiceContent> = {
         heading: "Voorkom waterschade door verstopte dakgoten",
         paragraphs: [
           "Dakgoten hebben één belangrijke taak: regenwater gecontroleerd afvoeren. Raken ze verstopt met bladeren, mos en vuil, dan kan het water niet weg. Het loopt over de rand, langs de gevel naar beneden en kan zo leiden tot vochtplekken, schimmel en in het ergste geval lekkages en houtrot. Regelmatige dakgootreiniging voorkomt dure schade.",
-          "Madern reinigt dakgoten voor particulieren en bedrijven in Apeldoorn en omgeving — snel, grondig en veilig.",
+          "Madern reinigt dakgoten voor particulieren en bedrijven in Apeldoorn en omgeving, snel, grondig en veilig.",
         ],
       },
       {
@@ -232,7 +232,7 @@ export const serviceContent: Record<string, ServiceContent> = {
       {
         heading: "Het beste moment en de prijs",
         paragraphs: [
-          "Het najaar, ná de bladval, is doorgaans het beste moment om de dakgoten te laten reinigen; bij veel bomen in de buurt is twee keer per jaar verstandig. De prijs hangt af van de lengte en bereikbaarheid van de goten. Vraag vrijblijvend een offerte aan — vaak te combineren met gevelreiniging of glasbewassing.",
+          "Het najaar, ná de bladval, is doorgaans het beste moment om de dakgoten te laten reinigen; bij veel bomen in de buurt is twee keer per jaar verstandig. De prijs hangt af van de lengte en bereikbaarheid van de goten. Vraag vrijblijvend een offerte aan, vaak te combineren met gevelreiniging of glasbewassing.",
         ],
       },
     ],

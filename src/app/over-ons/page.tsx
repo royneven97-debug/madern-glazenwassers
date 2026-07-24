@@ -14,7 +14,7 @@ export const metadata: Metadata = generatePageMetadata({
   path: "/over-ons",
 });
 
-// Person-schema voor de oprichter — versterkt E-E-A-T.
+// Person-schema voor de oprichter, versterkt E-E-A-T.
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",

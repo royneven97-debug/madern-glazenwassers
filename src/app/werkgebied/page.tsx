@@ -22,7 +22,7 @@ export default function WerkgebiedPage() {
         </h1>
         <p className="mt-4 max-w-2xl text-pretty text-lg text-navy-800/80">
           Apeldoorn is onze thuisbasis. Vanuit hier verzorgen we glasbewassing in
-          de hele regio — van de wijken van Apeldoorn tot de omliggende dorpen op
+          de hele regio, van de wijken van Apeldoorn tot de omliggende dorpen op
           de Veluwe. Staat uw plaats er niet bij? Bel of mail ons gerust.
         </p>
 

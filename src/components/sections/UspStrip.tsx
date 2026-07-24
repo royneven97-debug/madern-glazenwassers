@@ -13,7 +13,7 @@ const usps = [
   },
   {
     title: "Flexibele afspraken",
-    body: "Op een moment dat u uitkomt — ook in het weekend.",
+    body: "Op een moment dat u uitkomt, ook in het weekend.",
     icon: (
       <>
         <rect x="3" y="4.5" width="18" height="16" rx="2" />

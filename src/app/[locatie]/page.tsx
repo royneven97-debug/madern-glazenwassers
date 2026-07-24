@@ -93,7 +93,7 @@ export default async function LocatiePage({
       </section>
 
       <div className="py-8">
-        <Faq faqs={faqs} title={`Veelgestelde vragen — ${p.name}`} />
+        <Faq faqs={faqs} title={`Veelgestelde vragen glazenwasser ${p.name}`} />
       </div>
 
       <div className="py-12">

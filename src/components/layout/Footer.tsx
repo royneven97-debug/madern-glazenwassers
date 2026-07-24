@@ -20,7 +20,7 @@ export function Footer() {
           />
           <p className="mt-4 max-w-xs text-sm text-mist-200/80">
             Professionele glazenwasser in Apeldoorn. Streepvrij schone ramen met
-            gezuiverd osmosewater — voor particulier en zakelijk.
+            gezuiverd osmosewater, voor particulier en zakelijk.
           </p>
           <p className="mt-4 text-sm">
             <a href={siteConfig.phone.href} className="font-semibold text-white hover:text-water-300">
@@ -77,7 +77,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-mist-200/60 sm:flex-row sm:px-6">
-          <p>© {year} {siteConfig.legalName} — Apeldoorn{siteConfig.kvk ? ` · KvK ${siteConfig.kvk}` : ""}</p>
+          <p>© {year} {siteConfig.legalName}, Apeldoorn{siteConfig.kvk ? ` · KvK ${siteConfig.kvk}` : ""}</p>
           <p>Streepvrij schoon met osmosewater 💧</p>
         </div>
       </div>

@@ -6,7 +6,7 @@ export type Plaats = {
   name: string;
   // Korte, unieke omschrijving van het gebied (verschijnt op de plaatspagina)
   intro: string;
-  // Lokaal detail: wijken/kernen of kenmerk — maakt de pagina uniek
+  // Lokaal detail: wijken/kernen of kenmerk, maakt de pagina uniek
   detail: string;
   primary?: boolean; // thuisbasis
 };
@@ -17,7 +17,7 @@ export const plaatsen: Plaats[] = [
     name: "Apeldoorn",
     primary: true,
     intro:
-      "Apeldoorn is onze thuisbasis. Madern is een Apeldoorns bedrijf, opgericht door een geboren en getogen Apeldoorner — we kennen de stad, de wijken en het weer aan de rand van de Veluwe als geen ander.",
+      "Apeldoorn is onze thuisbasis. Madern is een Apeldoorns bedrijf, opgericht door een geboren en getogen Apeldoorner, we kennen de stad, de wijken en het weer aan de rand van de Veluwe als geen ander.",
     detail:
       "Van het centrum en Zevenhuizen tot De Maten, Osseveld, Kerschoten en Zuidbroek: voor woningen, kantoren en winkels in heel Apeldoorn maken we de ramen streepvrij schoon.",
   },
@@ -35,7 +35,7 @@ export const plaatsen: Plaats[] = [
     intro:
       "Beekbergen en Lieren liggen op een steenworp van Apeldoorn, midden in het groen. Madern verzorgt hier de glasbewassing voor woningen en bedrijven.",
     detail:
-      "Van vrijstaande woningen aan de bosrand tot ondernemingen langs de doorgaande wegen — we komen graag langs voor een vrijblijvende offerte.",
+      "Van vrijstaande woningen aan de bosrand tot ondernemingen langs de doorgaande wegen, we komen graag langs voor een vrijblijvende offerte.",
   },
   {
     slug: "loenen",
@@ -59,7 +59,7 @@ export const plaatsen: Plaats[] = [
     intro:
       "Twello, in de gemeente Voorst tussen Apeldoorn en Deventer, hoort bij ons werkgebied. Madern maakt hier ramen en glaswerk helder met gezuiverd osmosewater.",
     detail:
-      "Of het nu om uw woning, kantoor of winkel gaat — we leveren een betrouwbaar, streepvrij resultaat.",
+      "Of het nu om uw woning, kantoor of winkel gaat, we leveren een betrouwbaar, streepvrij resultaat.",
   },
 ];
 

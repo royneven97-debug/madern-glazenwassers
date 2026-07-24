@@ -10,7 +10,7 @@ export type Service = {
   audience: "particulier" | "zakelijk" | "beide";
   // Korte naam (nav/cards)
   name: string;
-  // H1 — EXACT het zoekwoord (= slug zonder streepjes)
+  // H1, EXACT het zoekwoord (= slug zonder streepjes)
   title: string;
   // Voor metadata (<title>)
   metaTitle: string;
@@ -39,7 +39,7 @@ export const services: Service[] = [
       "Stralend schone ramen voor uw woning in Apeldoorn. Binnen- én buitenkant, streepvrij met osmosewater. Flexibele afspraken, ook in het weekend. Gratis offerte.",
     tagline: "Stralend schone ramen voor uw woning.",
     intro:
-      "Eerste indrukken tellen — ook bij uw eigen huis. Madern Glazenwassers maakt alle soorten ramen aan de binnen- en buitenkant perfect schoon, streepvrij en zonder gedoe. We werken met gezuiverd osmosewater voor een langdurig helder resultaat zonder chemicaliën.",
+      "Eerste indrukken tellen, ook bij uw eigen huis. Madern Glazenwassers maakt alle soorten ramen aan de binnen- en buitenkant perfect schoon, streepvrij en zonder gedoe. We werken met gezuiverd osmosewater voor een langdurig helder resultaat zonder chemicaliën.",
     keywords: [
       "glazenwasser particulier Apeldoorn",
       "ramen wassen Apeldoorn",
@@ -48,7 +48,7 @@ export const services: Service[] = [
     highlights: [
       {
         title: "Binnen én buiten",
-        body: "Alle soorten ramen, kozijnen en glasoppervlakken — aan beide kanten perfect schoon.",
+        body: "Alle soorten ramen, kozijnen en glasoppervlakken, aan beide kanten perfect schoon.",
       },
       {
         title: "Streepvrij met osmosewater",
@@ -56,7 +56,7 @@ export const services: Service[] = [
       },
       {
         title: "Vaste frequentie of eenmalig",
-        body: "Een vast schema (bijvoorbeeld 4–8 keer per jaar) of een eenmalige beurt — u kiest.",
+        body: "Een vast schema (bijvoorbeeld 4–8 keer per jaar) of een eenmalige beurt, u kiest.",
       },
     ],
     faqs: [
@@ -70,7 +70,7 @@ export const services: Service[] = [
       },
       {
         q: "Moet ik thuis zijn tijdens het glazenwassen?",
-        a: "Voor de buitenkant niet per se. Voor de binnenkant maken we een afspraak die u uitkomt — ook in het weekend mogelijk.",
+        a: "Voor de buitenkant niet per se. Voor de binnenkant maken we een afspraak die u uitkomt, ook in het weekend mogelijk.",
       },
     ],
   },
@@ -98,7 +98,7 @@ export const services: Service[] = [
       },
       {
         title: "Flexibele frequentie",
-        body: "Wekelijks, maandelijks of per kwartaal — afgestemd op uw pand en budget.",
+        body: "Wekelijks, maandelijks of per kwartaal, afgestemd op uw pand en budget.",
       },
       {
         title: "Betrouwbaar en discreet",
@@ -136,7 +136,7 @@ export const services: Service[] = [
     highlights: [
       {
         title: "Hoge frequentie mogelijk",
-        body: "Dagelijks of wekelijks — etalages worden snel vuil, wij houden ze helder.",
+        body: "Dagelijks of wekelijks, etalages worden snel vuil, wij houden ze helder.",
       },
       {
         title: "Voor of na openingstijd",
@@ -165,7 +165,7 @@ export const services: Service[] = [
       "Vuile zonnepanelen leveren minder op. Madern reinigt uw zonnepanelen in Apeldoorn streepvrij met osmosewater, veilig en zonder krassen. Vraag een offerte aan.",
     tagline: "Schone panelen, meer rendement.",
     intro:
-      "Stof, mos en vogelpoep verminderen de opbrengst van uw zonnepanelen. Madern reinigt uw panelen veilig en streepvrij met gezuiverd osmosewater — zonder agressieve middelen die de coating kunnen aantasten — zodat ze weer maximaal renderen.",
+      "Stof, mos en vogelpoep verminderen de opbrengst van uw zonnepanelen. Madern reinigt uw panelen veilig en streepvrij met gezuiverd osmosewater, zonder agressieve middelen die de coating kunnen aantasten, zodat ze weer maximaal renderen.",
     keywords: [
       "zonnepanelen reinigen Apeldoorn",
       "zonnepanelen schoonmaken Apeldoorn",
@@ -206,7 +206,7 @@ export const services: Service[] = [
       "Professionele gevelreiniging in Apeldoorn. Verwijder vuil, algen en groene aanslag van uw gevel voor een frisse uitstraling. Vraag een gratis offerte aan.",
     tagline: "Een frisse, schone gevel.",
     intro:
-      "Een schone gevel maakt uw hele pand weer fris. Madern verwijdert vuil, algen en groene aanslag van uw gevel met de juiste methode voor het materiaal — zorgvuldig en met een mooi, egaal resultaat.",
+      "Een schone gevel maakt uw hele pand weer fris. Madern verwijdert vuil, algen en groene aanslag van uw gevel met de juiste methode voor het materiaal, zorgvuldig en met een mooi, egaal resultaat.",
     keywords: ["gevelreiniging Apeldoorn", "gevel reinigen Apeldoorn"],
     highlights: [
       {
@@ -215,7 +215,7 @@ export const services: Service[] = [
       },
       {
         title: "Passend bij het materiaal",
-        body: "Baksteen, stucwerk of beplating — we kiezen de juiste, veilige methode.",
+        body: "Baksteen, stucwerk of beplating, we kiezen de juiste, veilige methode.",
       },
       {
         title: "Particulier én zakelijk",

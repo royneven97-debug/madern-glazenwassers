@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 /*
-  Madern Glazenwassers — design system
+  Madern Glazenwassers, design system
   Hoofdkleur: helder royal-blauw. Accent: warm oranje.
 */
 
 @theme {
-  /* Deep blue — donkere secties & koppen/tekst */
+  /* Deep blue, donkere secties & koppen/tekst */
   --color-navy-700: #163b72;
   --color-navy-800: #102f5d;
   --color-navy-900: #0c2750;
   --color-navy-950: #08183a;
 
-  /* Royal blue — hoofdkleur (links, accenten, hero) */
+  /* Royal blue, hoofdkleur (links, accenten, hero) */
   --color-water-50: #eef5ff;
   --color-water-100: #d9e9ff;
   --color-water-200: #bad6ff;
@@ -24,7 +24,7 @@
   --color-water-800: #15448f;
   --color-water-900: #163b72;
 
-  /* Oranje — accentkleur (CTA's, highlights, iconen) */
+  /* Oranje, accentkleur (CTA's, highlights, iconen) */
   --color-accent-50: #fff6ec;
   --color-accent-100: #ffe7c7;
   --color-accent-200: #ffce8f;

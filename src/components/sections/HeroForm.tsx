@@ -57,7 +57,7 @@ export function HeroForm() {
     <div className="rounded-2xl bg-white p-5 shadow-2xl shadow-navy-950/30 sm:p-6">
       <div className="mb-4">
         <h2 className="text-lg font-bold text-navy-900">Vraag een offerte aan</h2>
-        <p className="text-sm text-navy-800/70">Gratis &amp; vrijblijvend — reactie zo snel mogelijk.</p>
+        <p className="text-sm text-navy-800/70">Gratis &amp; vrijblijvend, reactie zo snel mogelijk.</p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-3">
         {/* honeypot */}

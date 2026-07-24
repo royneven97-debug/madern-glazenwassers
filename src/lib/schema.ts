@@ -67,7 +67,7 @@ export function localBusinessSchema() {
     ...(sameAs.length ? { sameAs } : {}),
   };
 
-  // Echte reviews alleen toevoegen als ze bestaan — nooit verzinnen.
+  // Echte reviews alleen toevoegen als ze bestaan, nooit verzinnen.
   if (siteConfig.reviews.enabled && siteConfig.reviews.reviewCount > 0) {
     schema.aggregateRating = {
       "@type": "AggregateRating",
@@ -108,7 +108,7 @@ export function serviceSchema(opts: {
   };
 }
 
-// ItemList van diensten — versterkt de /diensten hub-pagina.
+// ItemList van diensten, versterkt de /diensten hub-pagina.
 export function serviceListSchema(
   items: { name: string; path: string }[],
 ) {

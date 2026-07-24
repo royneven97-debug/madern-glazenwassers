@@ -67,7 +67,7 @@ export default function TarievenPage() {
         <p className="mt-6 text-sm text-navy-800/60">
           Ter oriëntatie: voor een rijtjeswoning rekent men landelijk doorgaans
           circa € 30–55 per beurt, voor een vrijstaande woning meer. Uw exacte
-          prijs hangt af van uw situatie — vraag vrijblijvend een offerte aan.
+          prijs hangt af van uw situatie, vraag vrijblijvend een offerte aan.
         </p>
 
         <div className="mt-8">

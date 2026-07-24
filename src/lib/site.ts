@@ -21,7 +21,7 @@ export const siteConfig = {
   email: "info@madernglazenwassers.nl",
   whatsapp: "https://wa.me/31622158498",
 
-  // Adres / vestiging — Madern is een Apeldoorns bedrijf zonder publiek bezoekadres.
+  // Adres / vestiging, Madern is een Apeldoorns bedrijf zonder publiek bezoekadres.
   // Voor LocalBusiness-schema gebruiken we de plaats + werkgebied (serviceArea).
   address: {
     streetAddress: "", // TODO: vestigingsadres invullen indien gewenst (mag privé blijven)
@@ -33,7 +33,7 @@ export const siteConfig = {
   // Gecoördinaten centrum Apeldoorn (voor LocalBusiness geo + kaart)
   geo: { lat: 52.2112, lng: 5.9699 },
 
-  // Wettelijke gegevens — placeholders, door Roy aanvullen
+  // Wettelijke gegevens, placeholders, door Roy aanvullen
   kvk: "", // TODO: KvK-nummer
   btw: "", // TODO: BTW-nummer
 
@@ -46,14 +46,14 @@ export const siteConfig = {
 
   priceRange: "€€",
 
-  // Social / externe profielen (vul aan zodra beschikbaar — versterkt sameAs in schema)
+  // Social / externe profielen (vul aan zodra beschikbaar, versterkt sameAs in schema)
   social: {
     google: "", // TODO: link Google Bedrijfsprofiel
     facebook: "",
     instagram: "",
   },
 
-  // Reviews — NIET verzinnen. Pas invullen met echte cijfers uit Google Bedrijfsprofiel.
+  // Reviews, NIET verzinnen. Pas invullen met echte cijfers uit Google Bedrijfsprofiel.
   reviews: {
     enabled: false, // op true zetten zodra er echte reviews zijn
     ratingValue: 0,
