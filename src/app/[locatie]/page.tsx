@@ -75,6 +75,21 @@ export default async function LocatiePage({
           </Button>
         </div>
 
+        {p.sections && p.sections.length > 0 && (
+          <div className="mt-12 space-y-8">
+            {p.sections.map((sec) => (
+              <div key={sec.heading}>
+                <h2 className="text-2xl font-bold text-navy-900">{sec.heading}</h2>
+                {sec.paragraphs.map((para, i) => (
+                  <p key={i} className="mt-3 text-pretty leading-relaxed text-navy-800/85">
+                    {para}
+                  </p>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+
         <h2 className="mt-12 text-2xl font-bold text-navy-900">
           Onze diensten in {p.name}
         </h2>
