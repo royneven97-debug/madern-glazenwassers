@@ -21,6 +21,15 @@ export function localBusinessSchema() {
     priceRange: siteConfig.priceRange,
     image: `${siteConfig.url}/madern-glazenwassers-logo.png`,
     logo: `${siteConfig.url}/madern-glazenwassers-logo.png`,
+    ...(siteConfig.kvk
+      ? {
+          identifier: {
+            "@type": "PropertyValue",
+            propertyID: "KvK",
+            value: siteConfig.kvk,
+          },
+        }
+      : {}),
     address: {
       "@type": "PostalAddress",
       ...(siteConfig.address.streetAddress

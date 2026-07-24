@@ -34,7 +34,7 @@ export const siteConfig = {
   geo: { lat: 52.2112, lng: 5.9699 },
 
   // Wettelijke gegevens, placeholders, door Roy aanvullen
-  kvk: "", // TODO: KvK-nummer
+  kvk: "98660519",
   btw: "", // TODO: BTW-nummer
 
   // Openingstijden (Mo-Fr 08-18, Za op afspraak). Aanpassen indien nodig.
