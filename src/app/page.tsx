@@ -18,6 +18,33 @@ export const metadata: Metadata = generatePageMetadata({
   path: "/",
 });
 
+const werkFotos = [
+  {
+    src: "/images/werk-glazenwasser-woning-apeldoorn.jpg",
+    alt: "Glazenwasser van Madern wast de ramen van een woning in Apeldoorn vanaf een ladder",
+  },
+  {
+    src: "/images/werk-dakgoot-reinigen-apeldoorn.jpg",
+    alt: "Glazenwasser reinigt de dakgoot en dakrand van een woning in Apeldoorn met een telescoopsteel",
+  },
+  {
+    src: "/images/werk-glasbewassing-bedrijfspand-apeldoorn.jpg",
+    alt: "Glazenwasser maakt de ramen van een bedrijfspand in Apeldoorn schoon met een watergevoede steel",
+  },
+  {
+    src: "/images/werk-bedrijfspand-schoon-apeldoorn.jpg",
+    alt: "Bedrijfspand in Apeldoorn met streepvrij schone ramen na glasbewassing door Madern",
+  },
+  {
+    src: "/images/werk-glazenwasser-hoogte-apeldoorn.jpg",
+    alt: "Glazenwasser van Madern werkt veilig op hoogte bij een woning in Apeldoorn",
+  },
+  {
+    src: "/images/werk-zakelijk-pand-apeldoorn.jpg",
+    alt: "Zakelijk pand in Apeldoorn dat Madern Glazenwassers onderhoudt",
+  },
+];
+
 const homeFaqs = [
   {
     q: "Wat kost een glazenwasser in Apeldoorn?",
@@ -162,6 +189,30 @@ export default function HomePage() {
               <Button href="/over-ons" variant="secondary">Lees ons verhaal</Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Ons werk — fotogalerij */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-bold text-navy-900">Ons werk in Apeldoorn</h2>
+          <p className="mt-3 text-pretty text-navy-800/75">
+            Een impressie van recente klussen bij woningen en bedrijfspanden in
+            Apeldoorn en omgeving.
+          </p>
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
+          {werkFotos.map((f) => (
+            <div key={f.src} className="aspect-[4/3] overflow-hidden rounded-2xl">
+              <Image
+                src={f.src}
+                alt={f.alt}
+                width={600}
+                height={450}
+                className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          ))}
         </div>
       </section>
 
