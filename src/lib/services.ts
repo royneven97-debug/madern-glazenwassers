@@ -32,8 +32,8 @@ export const services: Service[] = [
     slug: "glazenwassen-particulier",
     available: true,
     audience: "particulier",
-    name: "Glazenwassen particulier",
-    title: "Glazenwassen particulier",
+    name: "Glazenwasser particulier",
+    title: "Glazenwasser particulier",
     metaTitle: "Glazenwasser particulier Apeldoorn | Ramen wassen | Madern",
     metaDescription:
       "Stralend schone ramen voor uw woning in Apeldoorn. Binnen- én buitenkant, streepvrij met osmosewater. Flexibele afspraken, ook in het weekend. Gratis offerte.",

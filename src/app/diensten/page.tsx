@@ -7,6 +7,7 @@ import { generatePageMetadata } from "@/lib/metadata";
 import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { GoogleReviews } from "@/components/sections/GoogleReviews";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceListSchema } from "@/lib/schema";
 
@@ -45,6 +46,8 @@ export default function DienstenPage() {
           </Button>
         </div>
       </section>
+
+      <GoogleReviews />
 
       <section className="mx-auto max-w-6xl px-4 pb-4 sm:px-6">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { GoogleReviews } from "@/components/sections/GoogleReviews";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceSchema } from "@/lib/schema";
 
@@ -73,6 +74,8 @@ export function ServicePageTemplate({ service }: { service: Service }) {
           </div>
         </div>
       </section>
+
+      <GoogleReviews />
 
       {/* Highlights */}
       {service.highlights.length > 0 && (

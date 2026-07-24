@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Button } from "@/components/ui/Button";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { GoogleReviews } from "@/components/sections/GoogleReviews";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Tarieven glazenwasser Apeldoorn | Wat kost ramen wassen? | Madern",
@@ -74,6 +75,8 @@ export default function TarievenPage() {
           <Button href="/offerte" size="lg">Vraag uw gratis offerte aan</Button>
         </div>
       </section>
+
+      <GoogleReviews />
 
       <div className="py-8">
         <Faq faqs={faqs} />

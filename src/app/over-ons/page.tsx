@@ -5,6 +5,7 @@ import { generatePageMetadata } from "@/lib/metadata";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { GoogleReviews } from "@/components/sections/GoogleReviews";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = generatePageMetadata({
@@ -92,6 +93,8 @@ export default function OverOnsPage() {
           <Button href="/contact" size="lg" variant="ghost">Neem contact op</Button>
         </div>
       </section>
+
+      <GoogleReviews />
 
       <div className="py-12">
         <CtaBand />
