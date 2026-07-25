@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Service } from "@/lib/services";
@@ -13,9 +14,32 @@ import { LeadForm } from "@/components/sections/LeadForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceSchema } from "@/lib/schema";
 
+// Generieke werkfoto's om de long-form tekst mee af te wisselen.
+const werkbeelden = [
+  { src: "/images/werk-glazenwasser-woning-apeldoorn.jpg", alt: "Glazenwasser van Madern wast de ramen van een woning in Apeldoorn" },
+  { src: "/images/werk-glazenwasser-hoogte-apeldoorn.jpg", alt: "Glazenwasser van Madern werkt veilig op hoogte in Apeldoorn" },
+  { src: "/images/werk-glasbewassing-bedrijfspand-apeldoorn.jpg", alt: "Glazenwasser reinigt de ramen van een bedrijfspand in Apeldoorn" },
+  { src: "/images/werk-dakgoot-reinigen-apeldoorn.jpg", alt: "Glazenwasser reinigt de dakgoot van een woning in Apeldoorn" },
+  { src: "/images/werk-bedrijfspand-schoon-apeldoorn.jpg", alt: "Bedrijfspand in Apeldoorn met streepvrij schone ramen" },
+  { src: "/images/werk-zakelijk-pand-apeldoorn.jpg", alt: "Zakelijk pand in Apeldoorn dat Madern Glazenwassers onderhoudt" },
+];
+
+const usps = [
+  "Streepvrij met osmosewater",
+  "Flexibel, ook in het weekend",
+  "Eerlijke prijs vooraf",
+  "Persoonlijk contact",
+];
+
 export function ServicePageTemplate({ service }: { service: Service }) {
   const related = availableServices.filter((s) => s.slug !== service.slug).slice(0, 3);
   const content = getServiceContent(service.slug);
+
+  // Kies per dienst een afwisselende set werkfoto's (deterministisch, maar niet overal gelijk).
+  const offset =
+    [...service.slug].reduce((a, c) => a + c.charCodeAt(0), 0) % werkbeelden.length;
+  const beeldNa = (idx: number) =>
+    werkbeelden[(offset + idx) % werkbeelden.length];
 
   return (
     <>
@@ -30,8 +54,8 @@ export function ServicePageTemplate({ service }: { service: Service }) {
 
       {/* Hero */}
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:py-14">
-        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          <div>
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
+          <div className="flex flex-col justify-center">
             <h1 className="text-balance text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl lg:text-5xl">
               {service.title}
             </h1>
@@ -44,34 +68,30 @@ export function ServicePageTemplate({ service }: { service: Service }) {
                 Of bel {siteConfig.phone.display}
               </Button>
             </div>
+            <ul className="mt-8 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
+              {usps.map((u) => (
+                <li key={u} className="flex items-start gap-2.5 text-navy-900">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 shrink-0 text-water-500">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  {u}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="space-y-5">
-            {content?.image && (
-              <div className="overflow-hidden rounded-3xl">
-                <Image
-                  src={content.image.src}
-                  alt={content.image.alt}
-                  width={800}
-                  height={600}
-                  className="h-full w-full object-cover"
-                  priority
-                />
-              </div>
-            )}
-            <div className="rounded-3xl border border-mist-200 bg-mist-50 p-7">
-              <ul className="space-y-3 text-navy-900">
-                {["Streepvrij met osmosewater", "Flexibel, ook in het weekend", "Eerlijke prijs vooraf", "Persoonlijk contact"].map((u) => (
-                  <li key={u} className="flex items-start gap-2.5">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 text-water-500">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                    {u}
-                  </li>
-                ))}
-              </ul>
+          {content?.image && (
+            <div className="overflow-hidden rounded-3xl lg:h-full">
+              <Image
+                src={content.image.src}
+                alt={content.image.alt}
+                width={800}
+                height={800}
+                className="h-full min-h-64 w-full object-cover"
+                priority
+              />
             </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -91,20 +111,37 @@ export function ServicePageTemplate({ service }: { service: Service }) {
         </section>
       )}
 
-      {/* Long-form content */}
+      {/* Long-form content, afgewisseld met werkfoto's */}
       {content && content.sections.length > 0 && (
         <section className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
           <div className="space-y-10">
-            {content.sections.map((sec) => (
-              <div key={sec.heading}>
-                <h2 className="text-2xl font-bold text-navy-900">{sec.heading}</h2>
-                {sec.paragraphs.map((p, i) => (
-                  <p key={i} className="mt-3 text-pretty leading-relaxed text-navy-800/85">
-                    {p}
-                  </p>
-                ))}
-              </div>
-            ))}
+            {content.sections.map((sec, idx) => {
+              // Toon een werkfoto na het 1e en 3e tekstblok.
+              const beeld = idx === 0 ? beeldNa(0) : idx === 2 ? beeldNa(3) : null;
+              return (
+                <Fragment key={sec.heading}>
+                  <div>
+                    <h2 className="text-2xl font-bold text-navy-900">{sec.heading}</h2>
+                    {sec.paragraphs.map((p, i) => (
+                      <p key={i} className="mt-3 text-pretty leading-relaxed text-navy-800/85">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                  {beeld && (
+                    <div className="overflow-hidden rounded-3xl">
+                      <Image
+                        src={beeld.src}
+                        alt={beeld.alt}
+                        width={1000}
+                        height={600}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  )}
+                </Fragment>
+              );
+            })}
 
             {/* Werkgebied, interne links voor lokale SEO */}
             <div className="rounded-2xl border border-mist-200 bg-mist-50 p-6">
