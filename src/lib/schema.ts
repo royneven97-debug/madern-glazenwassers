@@ -133,6 +133,29 @@ export function serviceListSchema(
   };
 }
 
+export function articleSchema(opts: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified?: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: opts.title,
+    description: opts.description,
+    url: `${siteConfig.url}${opts.path}`,
+    mainEntityOfPage: `${siteConfig.url}${opts.path}`,
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified || opts.datePublished,
+    ...(opts.image ? { image: `${siteConfig.url}${opts.image}` } : {}),
+    author: { "@type": "Person", name: siteConfig.founder },
+    publisher: { "@id": businessId },
+  };
+}
+
 export function faqSchema(faqs: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

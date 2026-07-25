@@ -13,6 +13,7 @@ const nav = [
   { href: "/tarieven", label: "Tarieven" },
   { href: "/werkgebied", label: "Werkgebied" },
   { href: "/over-ons", label: "Over ons" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export function Header() {

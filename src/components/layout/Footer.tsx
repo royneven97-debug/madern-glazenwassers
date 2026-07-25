@@ -65,9 +65,11 @@ export function Footer() {
           <h3 className="text-sm font-semibold uppercase tracking-wide text-water-300">Bedrijf</h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link href="/over-ons" className="text-mist-200/80 hover:text-white">Over ons</Link></li>
+            <li><Link href="/blog" className="text-mist-200/80 hover:text-white">Blog &amp; tips</Link></li>
             <li><Link href="/tarieven" className="text-mist-200/80 hover:text-white">Tarieven</Link></li>
             <li><Link href="/offerte" className="text-mist-200/80 hover:text-white">Offerte aanvragen</Link></li>
             <li><Link href="/contact" className="text-mist-200/80 hover:text-white">Contact</Link></li>
+            <li><Link href="/privacy" className="text-mist-200/80 hover:text-white">Privacybeleid</Link></li>
           </ul>
           <p className="mt-4 text-xs text-mist-200/60">
             {siteConfig.openingHoursHuman}
