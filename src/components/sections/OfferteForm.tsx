@@ -112,8 +112,9 @@ export function OfferteForm() {
       </button>
 
       <p className="text-xs text-navy-800/60">
-        Op mobiel versturen we uw aanvraag via WhatsApp, op desktop via e-mail.
-        We gebruiken uw gegevens alleen om op uw aanvraag te reageren.
+        Door dit formulier te versturen gaat u akkoord met ons{" "}
+        <a href="/privacy" className="underline hover:text-navy-900">privacybeleid</a>. We
+        gebruiken uw gegevens alleen om op uw aanvraag te reageren.
       </p>
     </form>
   );

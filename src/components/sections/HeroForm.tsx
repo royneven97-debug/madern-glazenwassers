@@ -83,7 +83,8 @@ export function HeroForm() {
           {status === "sending" ? "Versturen…" : "Verstuur aanvraag"}
         </button>
         <p className="text-center text-[11px] leading-tight text-navy-800/55">
-          Op mobiel versturen we uw aanvraag via WhatsApp, op desktop via e-mail.
+          Door te versturen gaat u akkoord met ons{" "}
+          <a href="/privacy" className="underline hover:text-navy-900">privacybeleid</a>.
         </p>
       </form>
     </div>
