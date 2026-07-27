@@ -60,8 +60,19 @@ function openMailto(fields: LeadFields): void {
 export async function submitLead(fields: LeadFields): Promise<LeadResult> {
   if (typeof window === "undefined") return "mailto";
 
-  // Mobiel/touch: direct via WhatsApp.
+  // Mobiel/touch: WhatsApp openen én een e-mailmelding versturen. `keepalive`
+  // zorgt dat het verzoek doorloopt terwijl de browser naar WhatsApp navigeert.
   if (prefersWhatsApp()) {
+    try {
+      void fetch("/api/offerte", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
+        keepalive: true,
+      });
+    } catch {
+      // stil: WhatsApp blijft de primaire route op mobiel
+    }
     openWhatsApp(fields);
     return "whatsapp";
   }
