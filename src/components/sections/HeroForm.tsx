@@ -3,11 +3,12 @@
 import { useState } from "react";
 import { submitLead } from "@/lib/lead";
 
-const planningOpties = [
-  "Zo snel mogelijk",
-  "Binnen 1–2 weken",
-  "Deze maand",
-  "Maakt niet uit / flexibel",
+const diensten = [
+  "Glazenwassen woning",
+  "Glazenwassen bedrijf/kantoor",
+  "Etalage / winkelruiten",
+  "Zonnepanelen reinigen",
+  "Anders / weet ik nog niet",
 ];
 
 export function HeroForm() {
@@ -22,9 +23,7 @@ export function HeroForm() {
     const result = await submitLead({
       naam: data.naam,
       telefoon: data.telefoon,
-      email: data.email,
-      plaats: data.adres,
-      bericht: data.wanneer ? `Planning: ${data.wanneer}` : undefined,
+      dienst: data.dienst,
     });
     if (result === "email") {
       setStatus("success");
@@ -36,7 +35,7 @@ export function HeroForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl bg-white p-7 text-center shadow-2xl shadow-navy-950/30">
+      <div className="rounded-2xl border border-mist-200 bg-white p-7 text-center shadow-xl shadow-navy-900/10">
         <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-accent-500 text-white">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M20 6L9 17l-5-5" />
@@ -54,7 +53,7 @@ export function HeroForm() {
     "w-full rounded-lg border border-mist-200 bg-white px-3.5 py-2.5 text-sm text-navy-900 outline-none focus:border-water-400 focus:ring-2 focus:ring-water-200";
 
   return (
-    <div className="rounded-2xl bg-white p-5 shadow-2xl shadow-navy-950/30 sm:p-6">
+    <div className="rounded-2xl border border-mist-200 bg-white p-6 shadow-xl shadow-navy-900/10">
       <div className="mb-4">
         <h2 className="text-lg font-bold text-navy-900">Vraag een offerte aan</h2>
         <p className="text-sm text-navy-800/70">Gratis &amp; vrijblijvend, reactie zo snel mogelijk.</p>
@@ -64,14 +63,10 @@ export function HeroForm() {
         <input type="text" name="company_website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
 
         <input name="naam" required className={field} placeholder="Naam *" aria-label="Naam" />
-        <div className="grid gap-3 sm:grid-cols-2">
-          <input name="email" type="email" className={field} placeholder="E-mailadres" aria-label="E-mailadres" />
-          <input name="telefoon" required type="tel" className={field} placeholder="Telefoonnummer *" aria-label="Telefoonnummer" />
-        </div>
-        <input name="adres" className={field} placeholder="Adres (straat, plaats)" aria-label="Adres" />
-        <select name="wanneer" className={field} defaultValue={planningOpties[0]} aria-label="Wanneer wilt u een afspraak inplannen?">
-          {planningOpties.map((o) => (
-            <option key={o}>{o}</option>
+        <input name="telefoon" required type="tel" className={field} placeholder="Telefoonnummer *" aria-label="Telefoonnummer" />
+        <select name="dienst" className={field} defaultValue={diensten[0]} aria-label="Welke dienst?">
+          {diensten.map((d) => (
+            <option key={d}>{d}</option>
           ))}
         </select>
 

@@ -72,17 +72,16 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-hero relative overflow-hidden">
-        <div className="bg-glass-grid absolute inset-0 opacity-40" aria-hidden />
+      <section className="relative overflow-hidden border-b border-mist-200 bg-gradient-to-b from-water-50 via-mist-50 to-white">
         <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
           <div>
-            <h1 className="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Glazenwasser <span className="text-accent-400">Apeldoorn</span>
+            <h1 className="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-navy-900 sm:text-5xl lg:text-6xl">
+              Glazenwasser <span className="text-accent-500">Apeldoorn</span>
             </h1>
-            <p className="mt-4 text-pretty text-xl font-semibold text-water-100">
+            <p className="mt-4 text-pretty text-xl font-semibold text-water-700">
               Stralend schone ramen, streepvrij met osmosewater.
             </p>
-            <p className="mt-4 max-w-xl text-pretty text-lg text-mist-100/85">
+            <p className="mt-4 max-w-xl text-pretty text-lg text-navy-800/75">
               Madern Glazenwassers maakt uw ramen aan binnen- én buitenkant
               streepvrij schoon, voor woningen, kantoren en winkels. Een
               Apeldoorns bedrijf, door Apeldoorners.
@@ -90,7 +89,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href={siteConfig.phone.href}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-navy-900 transition-colors hover:bg-water-50"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-navy-800"
               >
                 <PhoneIcon /> Bel {siteConfig.phone.display}
               </a>
@@ -103,7 +102,7 @@ export default function HomePage() {
                 <WhatsAppIcon /> WhatsApp
               </a>
             </div>
-            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-mist-100/80">
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-navy-800/70">
               <li className="flex items-center gap-2"><Check /> Binnen &amp; buiten</li>
               <li className="flex items-center gap-2"><Check /> Ook in het weekend</li>
               <li className="flex items-center gap-2"><Check /> Particulier &amp; zakelijk</li>

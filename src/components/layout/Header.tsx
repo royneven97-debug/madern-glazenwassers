@@ -16,6 +16,12 @@ const nav = [
   { href: "/blog", label: "Blog" },
 ];
 
+// Op desktop een compactere set (Particulier/Zakelijk zitten al onder Diensten);
+// het volledige menu blijft op mobiel beschikbaar.
+const desktopNav = nav.filter(
+  (i) => i.href !== "/glazenwassen-particulier" && i.href !== "/glazenwassen-zakelijk",
+);
+
 export function Header() {
   const [open, setOpen] = useState(false);
 
@@ -37,11 +43,11 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {nav.map((item) => (
+          {desktopNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full px-3 py-2 text-sm font-medium text-navy-800 hover:bg-mist-100"
+              className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-navy-800 hover:bg-mist-100"
             >
               {item.label}
             </Link>
@@ -51,11 +57,11 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href={siteConfig.phone.href}
-            className="hidden text-sm font-semibold text-navy-900 hover:text-water-600 sm:inline"
+            className="hidden whitespace-nowrap text-sm font-semibold text-navy-900 hover:text-water-600 xl:inline"
           >
             {siteConfig.phone.display}
           </a>
-          <Button href="/offerte" className="hidden sm:inline-flex">
+          <Button href="/offerte" className="hidden whitespace-nowrap sm:inline-flex">
             Gratis offerte
           </Button>
           <button
