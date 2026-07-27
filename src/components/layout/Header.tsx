@@ -32,9 +32,9 @@ export function Header() {
           <Image
             src="/madern-glazenwassers-logo.png"
             alt="Madern Glazenwassers logo"
-            width={40}
-            height={40}
-            className="h-10 w-10 rounded-lg object-cover"
+            width={48}
+            height={48}
+            className="h-12 w-12 rounded-lg object-cover"
             priority
           />
           <span className="text-lg font-bold tracking-tight text-navy-900">
