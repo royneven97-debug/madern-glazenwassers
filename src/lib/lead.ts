@@ -1,7 +1,6 @@
-// Client-side lead-afhandeling:
-// - mobiel/touch -> opent WhatsApp met de klantgegevens (owner krijgt een appje)
-// - desktop      -> e-mail via de Resend-API (server-side); valt terug op mailto
-//                   als de API (nog) niet is geconfigureerd
+// Formulier-afhandeling: elke aanvraag gaat via e-mail (Resend, server-side)
+// naar de owner. De klant kan zelf apart contact opnemen via de WhatsApp-knop;
+// het formulier stuurt bewust GEEN WhatsApp namens de klant.
 import { siteConfig } from "./site";
 
 export type LeadFields = {
@@ -13,7 +12,7 @@ export type LeadFields = {
   bericht?: string;
 };
 
-export type LeadResult = "whatsapp" | "email" | "mailto";
+export type LeadResult = "email" | "mailto";
 
 const LABELS: [keyof LeadFields, string][] = [
   ["naam", "Naam"],
@@ -34,22 +33,6 @@ function buildMessage(fields: LeadFields, pageUrl: string): string {
   return lines.join("\n");
 }
 
-// Touch/mobiel? Dan WhatsApp, anders e-mail.
-function prefersWhatsApp(): boolean {
-  if (typeof navigator === "undefined") return false;
-  const ua = navigator.userAgent || "";
-  const mobileUA = /Android|iPhone|iPod|Mobile|Windows Phone/i.test(ua);
-  const coarse =
-    typeof window !== "undefined" && !!window.matchMedia?.("(pointer: coarse)")?.matches;
-  return mobileUA || coarse;
-}
-
-function openWhatsApp(fields: LeadFields): void {
-  const waNumber = siteConfig.phone.e164.replace(/\D/g, "");
-  const message = buildMessage(fields, window.location.href);
-  window.location.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
-}
-
 function openMailto(fields: LeadFields): void {
   const message = buildMessage(fields, window.location.href);
   window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
@@ -60,24 +43,7 @@ function openMailto(fields: LeadFields): void {
 export async function submitLead(fields: LeadFields): Promise<LeadResult> {
   if (typeof window === "undefined") return "mailto";
 
-  // Mobiel/touch: WhatsApp openen én een e-mailmelding versturen. `keepalive`
-  // zorgt dat het verzoek doorloopt terwijl de browser naar WhatsApp navigeert.
-  if (prefersWhatsApp()) {
-    try {
-      void fetch("/api/offerte", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(fields),
-        keepalive: true,
-      });
-    } catch {
-      // stil: WhatsApp blijft de primaire route op mobiel
-    }
-    openWhatsApp(fields);
-    return "whatsapp";
-  }
-
-  // Desktop: e-mail via Resend (server-side).
+  // Altijd via e-mail (Resend, server-side).
   try {
     const res = await fetch("/api/offerte", {
       method: "POST",
@@ -87,8 +53,7 @@ export async function submitLead(fields: LeadFields): Promise<LeadResult> {
     if (!res.ok) throw new Error("mislukt");
     return "email";
   } catch {
-    // Resend nog niet geconfigureerd of tijdelijk down: open het mailprogramma
-    // zodat de aanvraag niet verloren gaat.
+    // Resend tijdelijk niet bereikbaar: open het mailprogramma als terugval.
     openMailto(fields);
     return "mailto";
   }
