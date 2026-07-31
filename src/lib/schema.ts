@@ -156,6 +156,40 @@ export function articleSchema(opts: {
   };
 }
 
+export function jobPostingSchema(opts: {
+  title: string;
+  description: string;
+  datePosted: string;
+  validThrough?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: opts.title,
+    description: opts.description,
+    datePosted: opts.datePosted,
+    ...(opts.validThrough ? { validThrough: opts.validThrough } : {}),
+    employmentType: ["FULL_TIME", "PART_TIME"],
+    hiringOrganization: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      sameAs: siteConfig.url,
+      logo: `${siteConfig.url}/madern-glazenwassers-logo.png`,
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: siteConfig.address.city,
+        addressRegion: siteConfig.address.region,
+        addressCountry: siteConfig.address.country,
+      },
+    },
+    applicantLocationRequirements: { "@type": "Country", name: "Nederland" },
+    directApply: false,
+  };
+}
+
 export function faqSchema(faqs: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

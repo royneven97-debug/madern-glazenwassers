@@ -279,6 +279,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Werken bij, compacte oproep */}
+      <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+        <div className="flex flex-col items-start gap-4 rounded-3xl border border-mist-200 bg-mist-50 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <div>
+            <h2 className="text-xl font-bold text-navy-900">We zoeken glazenwassers</h2>
+            <p className="mt-1 text-pretty text-navy-800/75">
+              Word jij ons nieuwe collega in Apeldoorn? Geen ervaring nodig, wij leiden je op.
+            </p>
+          </div>
+          <Button href="/werken-bij" variant="secondary" className="shrink-0">
+            Bekijk de vacature
+          </Button>
+        </div>
+      </section>
+
       <Faq faqs={homeFaqs} />
 
       <div className="py-16">

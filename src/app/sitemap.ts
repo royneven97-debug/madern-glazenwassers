@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/offerte", priority: 0.9 },
     { path: "/contact", priority: 0.6 },
     { path: "/blog", priority: 0.7 },
+    { path: "/werken-bij", priority: 0.6 },
     { path: "/privacy", priority: 0.3 },
   ];
 

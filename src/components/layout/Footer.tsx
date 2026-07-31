@@ -65,6 +65,7 @@ export function Footer() {
           <h3 className="text-sm font-semibold uppercase tracking-wide text-water-300">Bedrijf</h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link href="/over-ons" className="text-mist-200/80 hover:text-white">Over ons</Link></li>
+            <li><Link href="/werken-bij" className="text-mist-200/80 hover:text-white">Werken bij</Link></li>
             <li><Link href="/blog" className="text-mist-200/80 hover:text-white">Blog &amp; tips</Link></li>
             <li><Link href="/tarieven" className="text-mist-200/80 hover:text-white">Tarieven</Link></li>
             <li><Link href="/offerte" className="text-mist-200/80 hover:text-white">Offerte aanvragen</Link></li>
