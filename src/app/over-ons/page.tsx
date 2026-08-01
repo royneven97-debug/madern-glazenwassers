@@ -46,7 +46,7 @@ export default function OverOnsPage() {
           <div className="overflow-hidden rounded-2xl">
             <Image
               src="/michael-oprichter-glazenwasser-apeldoorn.jpg"
-              alt="Michael, oprichter en glazenwasser van Madern Glazenwassers in Apeldoorn, bij de bedrijfsauto"
+              alt="Michael, oprichter en glazenwasser van Madern Glazenwassers, bij een woning in Apeldoorn met de telescoopsteel en bedrijfsbus achter zich"
               width={720}
               height={1100}
               className="h-full w-full object-cover"

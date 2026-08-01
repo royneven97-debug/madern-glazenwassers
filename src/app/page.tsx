@@ -22,27 +22,27 @@ export const metadata: Metadata = generatePageMetadata({
 const werkFotos = [
   {
     src: "/images/werk-glazenwasser-woning-apeldoorn.jpg",
-    alt: "Glazenwasser van Madern wast de ramen van een woning in Apeldoorn vanaf een ladder",
+    alt: "Glazenwasser van Madern werkt vanaf een ladder met een watergevoede telescoopsteel aan de dakrand van een woning in Apeldoorn",
   },
   {
     src: "/images/werk-dakgoot-reinigen-apeldoorn.jpg",
-    alt: "Glazenwasser reinigt de dakgoot en dakrand van een woning in Apeldoorn met een telescoopsteel",
+    alt: "Dakgoot van een woning in Apeldoorn wordt vanaf een ladder gereinigd met een watergevoede telescoopsteel",
   },
   {
     src: "/images/werk-glasbewassing-bedrijfspand-apeldoorn.jpg",
-    alt: "Glazenwasser maakt de ramen van een bedrijfspand in Apeldoorn schoon met een watergevoede steel",
+    alt: "Watergevoede telescoopsteel tegen de gevel van een bedrijfspand bij Apeldoorn tijdens de glasbewassing",
   },
   {
     src: "/images/werk-bedrijfspand-schoon-apeldoorn.jpg",
-    alt: "Bedrijfspand in Apeldoorn met streepvrij schone ramen na glasbewassing door Madern",
+    alt: "Bedrijfspand op een bedrijventerrein bij Apeldoorn met schone ramen en gevelreclame na onderhoud door Madern",
   },
   {
     src: "/images/werk-glazenwasser-hoogte-apeldoorn.jpg",
-    alt: "Glazenwasser van Madern werkt veilig op hoogte bij een woning in Apeldoorn",
+    alt: "Michael van Madern Glazenwassers op hoogte bij een woning in Apeldoorn, met de bedrijfsbus en ladders op de achtergrond",
   },
   {
     src: "/images/werk-zakelijk-pand-apeldoorn.jpg",
-    alt: "Zakelijk pand in Apeldoorn dat Madern Glazenwassers onderhoudt",
+    alt: "Zakelijk pand op een bedrijventerrein bij Apeldoorn waar Madern Glazenwassers de glasbewassing verzorgt",
   },
 ];
 
@@ -161,7 +161,7 @@ export default function HomePage() {
           <div className="overflow-hidden rounded-3xl">
             <Image
               src="/images/glazenwasser-apeldoorn-aan-het-werk.jpg"
-              alt="Glazenwasser van Madern reinigt met een watergevoede telescoopsteel de glasgevel van een bedrijfspand in Apeldoorn"
+              alt="Glazenwasser Apeldoorn: watergevoede telescoopsteel van Madern tegen de glasgevel van een kantoorpand tijdens de glasbewassing"
               width={900}
               height={650}
               className="h-full w-full object-cover"

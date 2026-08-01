@@ -30,7 +30,7 @@ export const blogArticles: BlogArticle[] = [
     datePublished: "2026-07-25",
     image: {
       src: "/images/werk-glazenwasser-woning-apeldoorn.jpg",
-      alt: "Glazenwasser wast de ramen van een woning in Apeldoorn",
+      alt: "Glazenwasser van Madern wast vanaf een ladder de ramen van een woning in Apeldoorn met een telescoopsteel",
     },
     intro:
       "Het is een van de vragen die we het vaakst krijgen: hoe vaak moet je je ramen nu eigenlijk laten wassen? Er is geen vast antwoord dat voor iedereen klopt, want het hangt af van uw situatie. In dit artikel zetten we op een rij waar de ideale frequentie van afhangt en geven we een praktische richtlijn.",
@@ -86,7 +86,7 @@ export const blogArticles: BlogArticle[] = [
     datePublished: "2026-07-25",
     image: {
       src: "/images/glazenwasser-apeldoorn-aan-het-werk.jpg",
-      alt: "Glazenwasser reinigt glas streepvrij met een watergevoede telescoopsteel in Apeldoorn",
+      alt: "Glasgevel van een kantoorpand in Apeldoorn wordt streepvrij gereinigd met osmosewater en een watergevoede telescoopsteel",
     },
     intro:
       "Steeds meer glazenwassers werken met osmosewater in plaats van leidingwater en zeem. Maar wat is osmosewater precies, en waarom is het beter voor uw ramen? In dit artikel leggen we het helder uit.",

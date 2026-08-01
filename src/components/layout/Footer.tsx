@@ -13,7 +13,7 @@ export function Footer() {
         <div>
           <Image
             src="/madern-glazenwassers-logo.png"
-            alt="Madern Glazenwassers logo"
+            alt="Logo van Madern Glazenwassers, glazenwasser en glasbewassing in Apeldoorn"
             width={112}
             height={112}
             className="h-24 w-24 rounded-2xl object-cover ring-1 ring-white/10"

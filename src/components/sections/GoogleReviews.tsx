@@ -63,7 +63,7 @@ function ReviewCard({ review }: { review: ReactGoogleReview }) {
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={reviewer.profilePhotoUrl}
-            alt={reviewer.displayName}
+            alt={`Profielfoto van ${reviewer.displayName}, klant van Madern Glazenwassers`}
             width={40}
             height={40}
             loading="lazy"

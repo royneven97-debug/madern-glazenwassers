@@ -31,7 +31,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2.5" aria-label="Madern Glazenwassers home">
           <Image
             src="/madern-glazenwassers-logo.png"
-            alt="Madern Glazenwassers logo"
+            alt="Logo van Madern Glazenwassers, glazenwasser in Apeldoorn"
             width={80}
             height={80}
             className="h-16 w-16 rounded-lg object-cover sm:h-20 sm:w-20"

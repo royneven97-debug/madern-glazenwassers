@@ -16,12 +16,12 @@ import { serviceSchema } from "@/lib/schema";
 
 // Generieke werkfoto's om de long-form tekst mee af te wisselen.
 const werkbeelden = [
-  { src: "/images/werk-glazenwasser-woning-apeldoorn.jpg", alt: "Glazenwasser van Madern wast de ramen van een woning in Apeldoorn" },
-  { src: "/images/werk-glazenwasser-hoogte-apeldoorn.jpg", alt: "Glazenwasser van Madern werkt veilig op hoogte in Apeldoorn" },
-  { src: "/images/werk-glasbewassing-bedrijfspand-apeldoorn.jpg", alt: "Glazenwasser reinigt de ramen van een bedrijfspand in Apeldoorn" },
-  { src: "/images/werk-dakgoot-reinigen-apeldoorn.jpg", alt: "Glazenwasser reinigt de dakgoot van een woning in Apeldoorn" },
-  { src: "/images/werk-bedrijfspand-schoon-apeldoorn.jpg", alt: "Bedrijfspand in Apeldoorn met streepvrij schone ramen" },
-  { src: "/images/werk-zakelijk-pand-apeldoorn.jpg", alt: "Zakelijk pand in Apeldoorn dat Madern Glazenwassers onderhoudt" },
+  { src: "/images/werk-glazenwasser-woning-apeldoorn.jpg", alt: "Glazenwasser aan het werk bij een woning in Apeldoorn met een watergevoede telescoopsteel op een ladder" },
+  { src: "/images/werk-glazenwasser-hoogte-apeldoorn.jpg", alt: "Michael van Madern Glazenwassers werkt veilig op hoogte bij een woning in Apeldoorn" },
+  { src: "/images/werk-glasbewassing-bedrijfspand-apeldoorn.jpg", alt: "Glasbewassing bij een bedrijfspand bij Apeldoorn met een watergevoede telescoopsteel" },
+  { src: "/images/werk-dakgoot-reinigen-apeldoorn.jpg", alt: "Dakgootreiniging bij een woning in Apeldoorn vanaf een ladder met telescoopsteel" },
+  { src: "/images/werk-bedrijfspand-schoon-apeldoorn.jpg", alt: "Bedrijfspand bij Apeldoorn met schone ramen na glasbewassing door Madern Glazenwassers" },
+  { src: "/images/werk-zakelijk-pand-apeldoorn.jpg", alt: "Zakelijk pand op een bedrijventerrein bij Apeldoorn dat Madern Glazenwassers onderhoudt" },
 ];
 
 const usps = [
