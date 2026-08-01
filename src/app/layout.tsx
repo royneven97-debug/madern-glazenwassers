@@ -5,7 +5,8 @@ import { siteConfig } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { localBusinessSchema, websiteSchema } from "@/lib/schema";
+import { localBusinessSchema, websiteSchema, founderSchema } from "@/lib/schema";
+import { getReviewAggregate } from "@/lib/reviews";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -20,7 +21,11 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description: siteConfig.shortDescription,
-  alternates: { canonical: "/" },
+  // Maakt /llms.txt vindbaar voor AI-crawlers vanuit de <head>.
+  alternates: {
+    canonical: "/",
+    types: { "text/plain": [{ url: "/llms.txt", title: "llms.txt" }] },
+  },
   openGraph: {
     type: "website",
     locale: "nl_NL",
@@ -31,13 +36,23 @@ export const metadata: Metadata = {
   icons: { icon: "/icon.png" },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // Echte Google-reviewcijfers, 24 uur gecached. Bij een storing bij Featurable
+  // vervalt aggregateRating stilletjes in plaats van dat de build breekt.
+  const reviews = await getReviewAggregate();
+
   return (
     <html lang="nl" className={`${jakarta.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-white">
-        <JsonLd schema={[localBusinessSchema(), websiteSchema()]} />
+        <JsonLd
+          schema={[
+            localBusinessSchema(reviews),
+            websiteSchema(),
+            founderSchema(),
+          ]}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

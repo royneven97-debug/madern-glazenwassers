@@ -81,13 +81,15 @@ export function ServicePageTemplate({ service }: { service: Service }) {
           </div>
 
           {content?.image && (
-            <div className="overflow-hidden rounded-3xl lg:h-full">
+            // Op mobiel een vaste 4:3-verhouding: staande foto's werden anders
+            // tot een smalle strook gecropt en sneden de glazenwasser eruit.
+            <div className="aspect-[4/3] overflow-hidden rounded-3xl sm:aspect-[3/2] lg:aspect-auto lg:h-full">
               <Image
                 src={content.image.src}
                 alt={content.image.alt}
                 width={800}
                 height={800}
-                className="h-full min-h-64 w-full object-cover"
+                className="h-full w-full object-cover"
                 priority
               />
             </div>

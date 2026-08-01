@@ -204,8 +204,15 @@ export default function HomePage() {
           </p>
         </div>
         <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
-          {werkFotos.map((f) => (
-            <div key={f.src} className="aspect-[4/3] overflow-hidden rounded-2xl">
+          {werkFotos.map((f, i) => (
+            // De eerste foto over de volle breedte op mobiel: twee kolommen
+            // leveren daar thumbnails van ~170px op, te klein om het werk te tonen.
+            <div
+              key={f.src}
+              className={`aspect-[4/3] overflow-hidden rounded-2xl ${
+                i === 0 ? "col-span-2 md:col-span-1" : ""
+              }`}
+            >
               <Image
                 src={f.src}
                 alt={f.alt}

@@ -3,15 +3,30 @@
 
 import { siteConfig } from "./site";
 import { plaatsen } from "./plaatsen";
+import type { ReviewAggregate } from "./reviews";
 
 const businessId = `${siteConfig.url}/#localbusiness`;
+const founderId = `${siteConfig.url}/#founder`;
 
-export function localBusinessSchema() {
+// Echte werkfoto's. Google toont in lokale resultaten liever een foto van het
+// werk dan een logo, dus die staan hier bovenaan.
+const businessPhotos = [
+  "/images/glazenwasser-apeldoorn-aan-het-werk.jpg",
+  "/images/werk-glazenwasser-woning-apeldoorn.jpg",
+  "/images/werk-glasbewassing-bedrijfspand-apeldoorn.jpg",
+  "/images/werk-dakgoot-reinigen-apeldoorn.jpg",
+  "/images/gevelreiniging-voor-na-apeldoorn.jpg",
+  "/madern-glazenwassers-logo.png",
+];
+
+export function localBusinessSchema(reviews?: ReviewAggregate | null) {
   const sameAs = Object.values(siteConfig.social).filter(Boolean);
 
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    // Specifieker dan LocalBusiness: glazenwassen valt onder
+    // HomeAndConstructionBusiness, dat helpt Google de branche te plaatsen.
+    "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
     "@id": businessId,
     name: siteConfig.name,
     description: siteConfig.shortDescription,
@@ -19,8 +34,10 @@ export function localBusinessSchema() {
     telephone: siteConfig.phone.e164,
     email: siteConfig.email,
     priceRange: siteConfig.priceRange,
-    image: `${siteConfig.url}/madern-glazenwassers-logo.png`,
+    image: businessPhotos.map((p) => `${siteConfig.url}${p}`),
     logo: `${siteConfig.url}/madern-glazenwassers-logo.png`,
+    founder: { "@id": founderId },
+    foundingDate: String(siteConfig.foundingYear),
     ...(siteConfig.kvk
       ? {
           identifier: {
@@ -47,9 +64,7 @@ export function localBusinessSchema() {
       latitude: siteConfig.geo.lat,
       longitude: siteConfig.geo.lng,
     },
-    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      `${siteConfig.name} ${siteConfig.address.city}`,
-    )}`,
+    hasMap: `https://www.google.com/maps/place/?q=place_id:${siteConfig.reviews.googlePlaceId}`,
     areaServed: plaatsen.map((p) => ({
       "@type": "City",
       name: p.name,
@@ -77,15 +92,50 @@ export function localBusinessSchema() {
   };
 
   // Echte reviews alleen toevoegen als ze bestaan, nooit verzinnen.
-  if (siteConfig.reviews.enabled && siteConfig.reviews.reviewCount > 0) {
+  // De cijfers komen live uit het Google Bedrijfsprofiel (lib/reviews.ts).
+  if (reviews && reviews.reviewCount > 0) {
     schema.aggregateRating = {
       "@type": "AggregateRating",
-      ratingValue: siteConfig.reviews.ratingValue,
-      reviewCount: siteConfig.reviews.reviewCount,
+      ratingValue: reviews.ratingValue,
+      reviewCount: reviews.reviewCount,
+      bestRating: 5,
+      worstRating: 1,
     };
   }
 
   return schema;
+}
+
+// Person voor de oprichter: versterkt E-E-A-T en koppelt een echt mens aan het
+// bedrijf in plaats van alleen een handelsnaam.
+export function founderSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": founderId,
+    name: siteConfig.founder,
+    jobTitle: "Oprichter en glazenwasser",
+    image: `${siteConfig.url}/michael-oprichter-glazenwasser-apeldoorn.jpg`,
+    url: `${siteConfig.url}/over-ons`,
+    worksFor: { "@id": businessId },
+    knowsAbout: [
+      "Glazenwassen",
+      "Glasbewassing",
+      "Reinigen met osmosewater",
+      "Gevelreiniging",
+      "Dakgootreiniging",
+      "Zonnepanelen reinigen",
+    ],
+    homeLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: siteConfig.address.city,
+        addressRegion: siteConfig.address.region,
+        addressCountry: siteConfig.address.country,
+      },
+    },
+  };
 }
 
 export function websiteSchema() {

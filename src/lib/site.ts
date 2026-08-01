@@ -48,17 +48,18 @@ export const siteConfig = {
 
   // Social / externe profielen (vul aan zodra beschikbaar, versterkt sameAs in schema)
   social: {
-    google: "", // TODO: link Google Bedrijfsprofiel
-    facebook: "",
-    instagram: "",
+    google: "https://www.google.com/maps/place/?q=place_id:ChIJUXBDc9fTVigRWwhR1eH6xSk",
+    facebook: "", // TODO
+    instagram: "", // TODO
   },
 
-  // Reviews, NIET verzinnen. Pas invullen met echte cijfers uit Google Bedrijfsprofiel.
+  // Reviews. NOOIT handmatig invullen: rating en aantal worden live uit het
+  // Google Bedrijfsprofiel gehaald via Featurable (zie lib/reviews.ts).
   reviews: {
-    enabled: false, // op true zetten zodra er echte reviews zijn
-    ratingValue: 0,
-    reviewCount: 0,
-    source: "Google",
+    googlePlaceId: "ChIJUXBDc9fTVigRWwhR1eH6xSk",
+    featurableWidgetId: "29a985ff-ac28-4115-8c64-381c15cc896c",
+    writeReviewUrl:
+      "https://search.google.com/local/writereview?placeid=ChIJUXBDc9fTVigRWwhR1eH6xSk",
   },
 } as const;
 

@@ -2,10 +2,12 @@
 
 import { ReactGoogleReviews, type ReactGoogleReview } from "react-google-reviews";
 import "react-google-reviews/dist/index.css";
+import { siteConfig } from "@/lib/site";
 
 // Featurable-widget-ID (gekoppeld aan het Google Bedrijfsprofiel van Madern).
-// Reviews komen live uit Featurable; nooit handmatig verzinnen.
-const FEATURABLE_WIDGET_ID = "29a985ff-ac28-4115-8c64-381c15cc896c";
+// Reviews komen live uit Featurable; nooit handmatig verzinnen. Hetzelfde ID
+// voedt de aggregateRating in het LocalBusiness-schema (lib/reviews.ts).
+const FEATURABLE_WIDGET_ID = siteConfig.reviews.featurableWidgetId;
 
 function relativeDateNL(iso: string | null): string {
   if (!iso) return "";

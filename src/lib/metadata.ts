@@ -28,7 +28,12 @@ export function generatePageMetadata({
   return {
     title: fullTitle,
     description,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      // Verwijst AI-crawlers naar /llms.txt. Moet hier staan: alternates uit een
+      // page overschrijft die van de root layout volledig.
+      types: { "text/plain": [{ url: `${siteConfig.url}/llms.txt`, title: "llms.txt" }] },
+    },
     robots: index
       ? { index: true, follow: true }
       : { index: false, follow: true },
