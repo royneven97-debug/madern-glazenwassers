@@ -286,6 +286,42 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Vind ons op Google */}
+      <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+        <div className="grid overflow-hidden rounded-3xl border border-mist-200 bg-white lg:grid-cols-2">
+          <div className="h-72 w-full lg:h-auto lg:min-h-[320px]">
+            <iframe
+              src={`https://www.google.com/maps?q=place_id:${siteConfig.reviews.googlePlaceId}&output=embed`}
+              title="Madern Glazenwassers op Google Maps"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-full w-full border-0"
+            />
+          </div>
+          <div className="flex flex-col justify-center p-8 sm:p-10">
+            <h2 className="text-2xl font-bold text-navy-900 sm:text-3xl">Vind ons op Google</h2>
+            <p className="mt-3 text-pretty text-navy-800/80">
+              Madern Glazenwassers is actief in {primaryPlaats.name} en de hele
+              regio. Bekijk ons Google Bedrijfsprofiel voor reviews,
+              openingstijden en de routebeschrijving.
+            </p>
+            <p className="mt-4 text-sm font-semibold text-navy-800/70">
+              {siteConfig.openingHoursHuman}
+            </p>
+            <div className="mt-6">
+              <a
+                href={siteConfig.social.google}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+              >
+                Bekijk op Google
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Werken bij, compacte oproep */}
       <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
         <div className="flex flex-col items-start gap-4 rounded-3xl border border-mist-200 bg-mist-50 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
