@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { submitLead } from "@/lib/lead";
 
 const diensten = [
@@ -79,7 +80,7 @@ export function HeroForm() {
         </button>
         <p className="text-center text-[11px] leading-tight text-navy-800/55">
           Door te versturen gaat u akkoord met ons{" "}
-          <a href="/privacy" className="underline hover:text-navy-900">privacybeleid</a>.
+          <Link href="/privacy" className="underline hover:text-navy-900">privacybeleid</Link>.
         </p>
       </form>
     </div>
