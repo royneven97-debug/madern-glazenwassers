@@ -60,15 +60,29 @@ for (const [oud, nieuw] of RENAMED) {
 }
 
 // --- 4. Doelzoekwoorden moeten daadwerkelijk in de paginatekst staan ---
-const CONTENT = read("src/lib/serviceContent.ts").toLowerCase();
+// Paginatekst = long-form content + de intro's/FAQ's uit de services-registry.
+const CONTENT = (read("src/lib/serviceContent.ts") + read("src/lib/services.ts"))
+  .toLowerCase()
+  .replace(/\s+/g, " ");
 const VERPLICHT = [
   ["dakgoot schoonmaken", "dakgoot-cluster (2.600/mnd)"],
   ["dakgoten schoonmaken", "dakgoot-cluster (800/mnd)"],
   ["zonnepanelen schoonmaken", "zonnepanelen-cluster (4.400/mnd)"],
   ["glasbewassing", "glasbewassing (1.400/mnd)"],
+  // Koopvarianten: lager volume, maar wie "laten" typt wil inhuren in plaats van
+  // zelf doen. Per bezoeker dus meer waard dan het volume suggereert.
+  ["dakgoten laten schoonmaken", "koopvariant dakgoot (100/mnd)"],
+  ["dakgoot laten schoonmaken", "koopvariant dakgoot (70/mnd)"],
+  ["zonnepanelen laten reinigen", "koopvariant zonnepanelen (250/mnd)"],
+  ["zonnepanelen laten schoonmaken", "koopvariant zonnepanelen (200/mnd)"],
+  ["dakkapel laten reinigen", "koopvariant dakkapel (150/mnd)"],
+  ["dakkapel laten schoonmaken", "koopvariant dakkapel (70/mnd)"],
+  ["zonnepanelen zelf te wassen", "variant zonnepanelen wassen (250/mnd)"],
+  ["dakkapel schoonmaken", "dakkapel-cluster (450/mnd)"],
+  ["osmose glasbewassing", "osmose-koppeling (100/mnd)"],
 ];
 for (const [term, waarom] of VERPLICHT) {
-  check(CONTENT.includes(term), `zoekterm "${term}" ontbreekt in serviceContent.ts — ${waarom}`);
+  check(CONTENT.includes(term), `zoekterm "${term}" ontbreekt in de paginatekst — ${waarom}`);
 }
 
 // --- 5. Geen em-dashes in klantgerichte teksten ---
