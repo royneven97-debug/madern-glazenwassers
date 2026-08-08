@@ -26,6 +26,54 @@ export const plaatsen: Plaats[] = [
       "Van het centrum en Zevenhuizen tot De Maten, Osseveld, Kerschoten en Zuidbroek: voor woningen, kantoren en winkels in heel Apeldoorn maken we de ramen streepvrij schoon.",
   },
   {
+    slug: "apeldoorn-de-maten",
+    name: "Apeldoorn De Maten",
+    intro:
+      "De Maten is met afstand de grootste wijk van Apeldoorn, gebouwd in de jaren zeventig en tachtig en opgezet rond woonerven, water en veel groen. Madern wast hier de ramen van honderden eengezinswoningen, hoekwoningen en appartementen.",
+    detail:
+      "Van Matenhoeve en Matendonk tot Matenveld en de flats langs de Laan van de Dierenriem: wij kennen de wijk en plannen onze routes zo dat we meerdere adressen in dezelfde straat op één dag doen.",
+    sections: [
+      {
+        heading: "Glazenwasser in De Maten",
+        paragraphs: [
+          "De woningen in De Maten hebben vaak grote raampartijen aan de tuinzijde en veel kozijnwerk, precies het soort glas waar strepen en kalkranden meteen opvallen. Wij wassen uw ramen met gezuiverd osmosewater, dat volledig vlekkeloos opdroogt en geen mineralen achterlaat. Daardoor blijven ze ook langer helder dan bij zemen met leidingwater.",
+          "Doordat De Maten een compacte wijk is met veel gelijkvormige woningen, kunnen we hier scherp plannen. Woont u in dezelfde straat als een bestaande klant, dan kunnen we uw ramen vaak in dezelfde ronde meenemen, wat de prijs per beurt gunstig houdt.",
+        ],
+      },
+      {
+        heading: "Veel groen en water, dus sneller vuil",
+        paragraphs: [
+          "De wijk is bewust groen aangelegd, met plantsoenen, bomen langs de woonerven en de vijverpartijen rond de Matenpoort. Dat is prettig wonen, maar het betekent ook stuifmeel in het voorjaar, bladresten in het najaar en groene aanslag op noordgevels. Voor de meeste woningen in De Maten adviseren we vier tot zes beurten per jaar.",
+          "Naast de ramen verzorgen we in De Maten ook het schoonmaken van dakgoten en zonnepanelen. Door dat in één afspraak te combineren bent u er in één keer vanaf en heeft u één aanspreekpunt voor het onderhoud van uw woning.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "apeldoorn-zuid",
+    name: "Apeldoorn Zuid",
+    intro:
+      "Apeldoorn Zuid loopt van Kerschoten en de Sprengenweg tot aan Ugchelen en de zuidelijke rand van de stad. Het is een gevarieerd deel van Apeldoorn, met vooroorlogse woningen, jaren dertig panden en ruime villa's tegen de bossen aan.",
+    detail:
+      "Juist die variatie maakt het werk hier afwisselend: van hoge schuiframen in een oud herenhuis tot moderne kozijnen in een nieuwbouwwoning, wij hebben er het juiste materiaal voor.",
+    sections: [
+      {
+        heading: "Glazenwasser in Apeldoorn Zuid",
+        paragraphs: [
+          "In het zuiden van Apeldoorn staan veel woningen met karakter: hoge ramen, glas in lood, erkers en serres. Dat vraagt om zorgvuldigheid, want oud glas en verweerde kozijnen zijn kwetsbaarder dan modern isolatieglas. Wij werken met zacht osmosewater en watergevoede telescoopstelen, zodat we ook hoger gelegen ramen veilig vanaf de begane grond bereiken, zonder ladders tegen uw gevel.",
+          "Voor woningen met veel glasoppervlak is een vast schema meestal het voordeligst. U betaalt dan een gunstiger tarief per beurt en heeft er verder geen omkijken naar.",
+        ],
+      },
+      {
+        heading: "Tegen de bossen aan",
+        paragraphs: [
+          "Hoe dichter u bij Ugchelen en de Veluwse bossen woont, hoe sneller ramen groen en stoffig worden. Stuifmeel, bladresten en algen hechten zich aan het glas en aan de gevel, zeker op de noordkant. Bewoners van Apeldoorn Zuid kiezen daarom vaak voor een iets hogere frequentie dan gemiddeld.",
+          "Ook gevelreiniging en het schoonmaken van dakgoten spelen hier meer dan elders in de stad. We bekijken tijdens een gratis inventarisatie wat uw woning nodig heeft en stellen daar een passend voorstel bij op.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "ugchelen",
     name: "Ugchelen",
     intro:
