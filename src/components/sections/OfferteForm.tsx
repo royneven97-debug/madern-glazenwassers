@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { submitLead } from "@/lib/lead";
 
 const services = [
@@ -113,7 +114,7 @@ export function OfferteForm() {
 
       <p className="text-xs text-navy-800/60">
         Door dit formulier te versturen gaat u akkoord met ons{" "}
-        <a href="/privacy" className="underline hover:text-navy-900">privacybeleid</a>. We
+        <Link href="/privacy" className="underline hover:text-navy-900">privacybeleid</Link>. We
         gebruiken uw gegevens alleen om op uw aanvraag te reageren.
       </p>
     </form>

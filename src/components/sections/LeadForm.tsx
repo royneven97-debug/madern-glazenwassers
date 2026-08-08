@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { submitLead } from "@/lib/lead";
 
@@ -111,7 +112,7 @@ export function LeadForm({ title, dienst, defaultPlaats = "Apeldoorn" }: Props) 
 
             <p className="text-center text-xs text-navy-800/55">
               Door te versturen gaat u akkoord met ons{" "}
-              <a href="/privacy" className="underline hover:text-navy-900">privacybeleid</a>.
+              <Link href="/privacy" className="underline hover:text-navy-900">privacybeleid</Link>.
             </p>
           </form>
         )}
