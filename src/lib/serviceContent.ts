@@ -204,17 +204,17 @@ export const serviceContent: Record<string, ServiceContent> = {
     ],
   },
 
-  dakgootreiniging: {
+  "dakgoot-schoonmaken": {
     image: {
       src: "/images/dakgootreiniging-apeldoorn.jpg",
-      alt: "Medewerker van Madern reinigt vanaf een ladder de dakgoot en dakrand van een woning in Apeldoorn met een telescoopsteel",
+      alt: "Medewerker van Madern maakt vanaf een ladder de dakgoot en dakrand van een woning in Apeldoorn schoon met een telescoopsteel",
     },
     sections: [
       {
         heading: "Voorkom waterschade door verstopte dakgoten",
         paragraphs: [
-          "Dakgoten hebben één belangrijke taak: regenwater gecontroleerd afvoeren. Raken ze verstopt met bladeren, mos en vuil, dan kan het water niet weg. Het loopt over de rand, langs de gevel naar beneden en kan zo leiden tot vochtplekken, schimmel en in het ergste geval lekkages en houtrot. Regelmatige dakgootreiniging voorkomt dure schade.",
-          "Madern reinigt dakgoten voor particulieren en bedrijven in Apeldoorn en omgeving, snel, grondig en veilig.",
+          "Dakgoten hebben één belangrijke taak: regenwater gecontroleerd afvoeren. Raken ze verstopt met bladeren, mos en vuil, dan kan het water niet weg. Het loopt over de rand, langs de gevel naar beneden en kan zo leiden tot vochtplekken, schimmel en in het ergste geval lekkages en houtrot. Regelmatig de dakgoot schoonmaken voorkomt dure schade.",
+          "Madern maakt dakgoten schoon voor particulieren en bedrijven in Apeldoorn en omgeving, snel, grondig en veilig.",
         ],
       },
       {
@@ -232,7 +232,14 @@ export const serviceContent: Record<string, ServiceContent> = {
       {
         heading: "Het beste moment en de prijs",
         paragraphs: [
-          "Het najaar, ná de bladval, is doorgaans het beste moment om de dakgoten te laten reinigen; bij veel bomen in de buurt is twee keer per jaar verstandig. De prijs hangt af van de lengte en bereikbaarheid van de goten. Vraag vrijblijvend een offerte aan, vaak te combineren met gevelreiniging of glasbewassing.",
+          "Het najaar, ná de bladval, is doorgaans het beste moment om de dakgoten te laten schoonmaken; bij veel bomen in de buurt is twee keer per jaar verstandig. De prijs hangt af van de lengte en bereikbaarheid van de goten. Vraag vrijblijvend een offerte aan, vaak te combineren met gevelreiniging of glasbewassing.",
+        ],
+      },
+      {
+        heading: "Dakgoten schoonmaken in Apeldoorn en omgeving",
+        paragraphs: [
+          "Wij komen voor het schoonmaken van dakgoten in heel Apeldoorn en de omliggende dorpen, van Ugchelen en Beekbergen tot Twello, Vaassen en Loenen. Juist aan de rand van de Veluwe zitten veel woningen dicht op de bomen, waardoor goten in het najaar razendsnel vollopen met blad en naalden.",
+          "We halen het blad en slib eruit, spoelen de goot door en controleren of de regenpijp vrij is. Zo weet u zeker dat het water er ook echt uit kan. Op verzoek combineren we het schoonmaken van de dakgoot met de glasbewassing of gevelreiniging in dezelfde afspraak.",
         ],
       },
     ],

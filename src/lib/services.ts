@@ -230,18 +230,24 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "dakgootreiniging",
+    slug: "dakgoot-schoonmaken",
     available: true,
     audience: "beide",
-    name: "Dakgootreiniging",
-    title: "Dakgootreiniging",
-    metaTitle: "Dakgootreiniging Apeldoorn | Voorkom waterschade | Madern",
+    name: "Dakgoot schoonmaken",
+    title: "Dakgoot schoonmaken",
+    metaTitle: "Dakgoot schoonmaken Apeldoorn | Voorkom waterschade | Madern",
     metaDescription:
-      "Verstopte dakgoten voorkomen lekkage en waterschade. Madern reinigt uw dakgoten in Apeldoorn snel en veilig. Vraag een gratis, vrijblijvende offerte aan.",
+      "Dakgoot schoonmaken in Apeldoorn? Madern haalt blad, mos en vuil uit uw dakgoten en voorkomt zo lekkage en waterschade. Vraag een gratis offerte aan.",
     tagline: "Voorkom waterschade door verstopping.",
     intro:
-      "Verstopte dakgoten kunnen leiden tot lekkage en waterschade. Madern reinigt uw dakgoten veilig en grondig, verwijdert blad en vuil, zodat het regenwater weer vrij kan wegstromen.",
-    keywords: ["dakgootreiniging Apeldoorn", "dakgoot reinigen Apeldoorn"],
+      "Verstopte dakgoten kunnen leiden tot lekkage en waterschade. Madern maakt uw dakgoten veilig en grondig schoon, verwijdert blad en vuil, zodat het regenwater weer vrij kan wegstromen.",
+    keywords: [
+      "dakgoot schoonmaken Apeldoorn",
+      "dakgoten schoonmaken Apeldoorn",
+      "dakgoot schoonmaken Twello",
+      "dakgoot laten schoonmaken",
+      "dakgoot reinigen Apeldoorn",
+    ],
     highlights: [
       {
         title: "Voorkom lekkage",
@@ -258,8 +264,16 @@ export const services: Service[] = [
     ],
     faqs: [
       {
-        q: "Wanneer kan ik mijn dakgoten het beste laten reinigen?",
+        q: "Wanneer kan ik mijn dakgoot het beste laten schoonmaken?",
         a: "Meestal in het najaar, ná de bladval, en eventueel in het voorjaar. Bij veel bomen in de buurt is twee keer per jaar verstandig.",
+      },
+      {
+        q: "Wat kost dakgoot schoonmaken?",
+        a: "Dat hangt af van de lengte van de goten, de hoogte en de bereikbaarheid. U ontvangt vooraf altijd een gratis, vrijblijvende offerte, zodat u niet voor verrassingen komt te staan.",
+      },
+      {
+        q: "Hoe vaak moet je dakgoten schoonmaken?",
+        a: "Voor de meeste woningen volstaat één keer per jaar. Staan er bomen vlak bij het dak, dan is twee keer per jaar verstandig omdat de goten dan sneller dichtslibben.",
       },
     ],
   },

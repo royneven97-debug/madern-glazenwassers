@@ -7,7 +7,9 @@ const root = process.cwd();
 const errors = [];
 const check = (ok, msg) => { if (!ok) errors.push(msg); };
 
-const read = (p) => readFileSync(join(root, p), "utf8");
+// Regeleindes normaliseren: op Windows zet git bestanden met CRLF terug (autocrlf),
+// waardoor patronen als "\n  {\n" niet meer matchen en de check onterecht faalt.
+const read = (p) => readFileSync(join(root, p), "utf8").replace(/\r\n/g, "\n");
 
 // --- 1. Elke available service heeft een routemap die exact op de slug matcht ---
 const servicesSrc = read("src/lib/services.ts");
