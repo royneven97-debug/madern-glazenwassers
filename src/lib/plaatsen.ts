@@ -79,7 +79,7 @@ export const plaatsen: Plaats[] = [
       {
         heading: "Landelijk wonen vraagt meer onderhoud",
         paragraphs: [
-          "Naast ramen verzorgen we in Beekbergen en Lieren ook gevelreiniging, dakgootreiniging en het reinigen van zonnepanelen. In een groene omgeving hopen mos en bladeren zich nu eenmaal sneller op. Door meerdere klussen te combineren in één afspraak bespaart u tijd en heeft u één vast aanspreekpunt voor het onderhoud van uw woning of bedrijf.",
+          "Naast ramen verzorgen we in Beekbergen en Lieren ook gevelreiniging, het schoonmaken van dakgoten en het schoonmaken van zonnepanelen. In een groene omgeving hopen mos en bladeren zich nu eenmaal sneller op. Door meerdere klussen te combineren in één afspraak bespaart u tijd en heeft u één vast aanspreekpunt voor het onderhoud van uw woning of bedrijf.",
         ],
       },
     ],

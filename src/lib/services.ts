@@ -42,7 +42,8 @@ export const services: Service[] = [
       "Eerste indrukken tellen, ook bij uw eigen huis. Madern Glazenwassers maakt alle soorten ramen aan de binnen- en buitenkant perfect schoon, streepvrij en zonder gedoe. We werken met gezuiverd osmosewater voor een langdurig helder resultaat zonder chemicaliën.",
     keywords: [
       "glazenwasser particulier Apeldoorn",
-      "ramen wassen Apeldoorn",
+      "glasbewassing Apeldoorn",
+      "glasbewassing particulier",
       "ramen laten wassen",
     ],
     highlights: [

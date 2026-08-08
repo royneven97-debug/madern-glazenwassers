@@ -30,6 +30,13 @@ export const serviceContent: Record<string, ServiceContent> = {
         ],
       },
       {
+        heading: "Glasbewassing in Apeldoorn voor particulieren",
+        paragraphs: [
+          "Glasbewassing is het vakwoord voor wat u waarschijnlijk gewoon ramen wassen noemt: het professioneel schoonmaken van al het glas aan uw woning. Bij Madern betekent dat ramen, kozijnen, deuren, serres en dakramen, aan de binnen- en de buitenkant, met gezuiverd osmosewater.",
+          "Veel mensen denken dat glasbewassing alleen iets is voor kantoren en winkels. Dat klopt niet: juist bij woningen levert het veel op, omdat u er elke dag doorheen kijkt. Wij werken met vaste schema's voor particulieren in heel Apeldoorn, van De Maten en Zevenhuizen tot Ugchelen en Beekbergen.",
+        ],
+      },
+      {
         heading: "Binnen- en buitenkant, inclusief kozijnen",
         paragraphs: [
           "We maken niet alleen de buitenkant van uw ramen schoon, maar op verzoek ook de binnenkant. Vingerafdrukken, aanslag en stof verdwijnen, zodat het glas aan beide zijden helder is. Ook uw kozijnen, vensterbanken en het glaswerk van deuren en serres nemen we graag mee.",
