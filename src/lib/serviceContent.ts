@@ -251,6 +251,42 @@ export const serviceContent: Record<string, ServiceContent> = {
       },
     ],
   },
+
+  "dakkapel-reinigen": {
+    image: {
+      src: "/images/werk-glazenwasser-woning-apeldoorn.jpg",
+      alt: "Glazenwasser van Madern reinigt vanaf een ladder met een watergevoede telescoopsteel de dakrand en bovenste geveldelen van een woning in Apeldoorn",
+    },
+    sections: [
+      {
+        heading: "Waarom een dakkapel zo snel vies wordt",
+        paragraphs: [
+          "Een dakkapel staat vrij, vangt alle regen en wind op en droogt na een bui traag op omdat hij vaak in de schaduw van de dakrand ligt. Dat is precies de omstandigheid waarin algen en groene aanslag zich thuis voelen. Op kunststof zijwangen en boeidelen zie je dat het snelst: een grijsgroene waas die vanaf de straat meteen opvalt.",
+          "Veel mensen laten alleen de ramen van de dakkapel doen en vergeten de rest. Juist die zijkanten en de onderrand bepalen of het geheel er verzorgd uitziet. Wij nemen ze standaard mee.",
+        ],
+      },
+      {
+        heading: "Kunststof, hout of aluminium",
+        paragraphs: [
+          "Niet elke dakkapel vraagt dezelfde aanpak. Kunststof heeft een coating die u met agressieve middelen of harde borstels permanent dof kunt maken. Houten boeidelen zijn gevoelig voor water dat blijft staan, en aluminium kan bij verkeerde reiniging vlekken vertonen. We beoordelen vooraf het materiaal en kiezen daar de juiste methode bij.",
+          "In alle gevallen werken we met gezuiverd osmosewater. Dat bevat geen kalk of mineralen, droogt daardoor vlekkeloos op en laat geen residu achter op de zijwangen of het glas.",
+        ],
+      },
+      {
+        heading: "Veilig, zonder ladder tegen uw dakkapel",
+        paragraphs: [
+          "Een dakkapel zit per definitie hoog, en een ladder ertegenaan zetten is zowel voor u als voor de dakkapel geen goed idee. Met onze watergevoede telescoopstelen bereiken we het glas, de zijwangen en de boeidelen veilig vanaf de begane grond of vanaf een veilig werkvlak. Geen steunpunten tegen het kunststof, geen risico voor uw dakpannen.",
+        ],
+      },
+      {
+        heading: "Wat kost het en hoe vaak?",
+        paragraphs: [
+          "De prijs hangt af van de breedte van de dakkapel, het materiaal en hoe goed hij bereikbaar is. U krijgt vooraf een vaste prijs, zodat u niet voor verrassingen komt te staan. Voor de meeste woningen volstaat één beurt per jaar; ligt uw dakkapel op het noorden of staan er bomen vlakbij, dan komt de aanslag sneller terug.",
+          "Veel klanten combineren het reinigen van de dakkapel met de glasbewassing of het schoonmaken van de dakgoot. Dat scheelt een aparte voorrijbeurt en houdt de prijs per klus gunstiger.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getServiceContent(slug: string): ServiceContent | undefined {

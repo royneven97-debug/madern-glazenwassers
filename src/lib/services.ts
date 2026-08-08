@@ -284,6 +284,54 @@ export const services: Service[] = [
       },
     ],
   },
+  {
+    slug: "dakkapel-reinigen",
+    available: true,
+    audience: "particulier",
+    name: "Dakkapel reinigen",
+    title: "Dakkapel reinigen",
+    metaTitle: "Dakkapel reinigen Apeldoorn | Kunststof en hout | Madern",
+    metaDescription:
+      "Dakkapel reinigen in Apeldoorn? Madern haalt groene aanslag en vuil van de zijwangen, boeidelen en ramen van uw dakkapel. Veilig vanaf de grond. Gratis offerte.",
+    tagline: "Weer een frisse dakkapel, veilig vanaf de grond.",
+    intro:
+      "Een vieze dakkapel valt van de straat direct op. Groene aanslag op de zijwangen, vuil op de boeidelen en doffe ramen maken een verzorgde woning ineens verwaarloosd. Madern maakt uw dakkapel weer schoon met gezuiverd osmosewater, veilig vanaf de begane grond.",
+    keywords: [
+      "dakkapel reinigen Apeldoorn",
+      "dakkapel schoonmaken Apeldoorn",
+      "dakkapel laten reinigen",
+      "kunststof dakkapel reinigen",
+      "dakkapel reinigen kosten",
+    ],
+    highlights: [
+      {
+        title: "Zijwangen en boeidelen",
+        body: "Niet alleen het glas: juist de kunststof of houten zijkanten vergroenen het snelst.",
+      },
+      {
+        title: "Veilig vanaf de grond",
+        body: "Met watergevoede telescoopstelen, dus geen ladder tegen uw dakkapel.",
+      },
+      {
+        title: "Zonder agressieve middelen",
+        body: "Osmosewater tast de coating van kunststof delen niet aan en spoelt vlekkeloos op.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Wat kost een dakkapel reinigen?",
+        a: "Dat hangt af van de breedte van de dakkapel, het materiaal en de bereikbaarheid. U ontvangt vooraf een gratis offerte met een vaste prijs.",
+      },
+      {
+        q: "Kan een kunststof dakkapel schoongemaakt worden zonder krassen?",
+        a: "Ja. We werken met zacht, gezuiverd water en zachte borstels. Daardoor blijft de coating van kunststof zijwangen en boeidelen intact.",
+      },
+      {
+        q: "Hoe vaak moet een dakkapel gereinigd worden?",
+        a: "Eén keer per jaar is voor de meeste woningen genoeg. Staat uw dakkapel op het noorden of dicht bij bomen, dan groeit de aanslag sneller terug.",
+      },
+    ],
+  },
 ];
 
 export const availableServices = services.filter((s) => s.available);
