@@ -30,6 +30,13 @@ export const serviceContent: Record<string, ServiceContent> = {
         ],
       },
       {
+        heading: "Glasbewassing in Apeldoorn voor particulieren",
+        paragraphs: [
+          "Glasbewassing is het vakwoord voor wat u waarschijnlijk gewoon ramen wassen noemt: het professioneel schoonmaken van al het glas aan uw woning. Bij Madern betekent dat ramen, kozijnen, deuren, serres en dakramen, aan de binnen- en de buitenkant, met gezuiverd osmosewater.",
+          "Veel mensen denken dat glasbewassing alleen iets is voor kantoren en winkels. Dat klopt niet: juist bij woningen levert het veel op, omdat u er elke dag doorheen kijkt. Wij werken met vaste schema's voor particulieren in heel Apeldoorn, van De Maten en Zevenhuizen tot Ugchelen en Beekbergen.",
+        ],
+      },
+      {
         heading: "Binnen- en buitenkant, inclusief kozijnen",
         paragraphs: [
           "We maken niet alleen de buitenkant van uw ramen schoon, maar op verzoek ook de binnenkant. Vingerafdrukken, aanslag en stof verdwijnen, zodat het glas aan beide zijden helder is. Ook uw kozijnen, vensterbanken en het glaswerk van deuren en serres nemen we graag mee.",
@@ -133,23 +140,23 @@ export const serviceContent: Record<string, ServiceContent> = {
     ],
   },
 
-  "zonnepanelen-reinigen": {
+  "zonnepanelen-schoonmaken": {
     image: {
       src: "/images/glasdak-reinigen-apeldoorn.jpg",
       alt: "Glazen dakpanelen op een pand in Apeldoorn worden met wasborstel en osmosewater streepvrij gereinigd",
     },
     sections: [
       {
-        heading: "Vuile zonnepanelen leveren minder op",
+        heading: "Zonnepanelen schoonmaken: vuile panelen leveren minder op",
         paragraphs: [
           "Zonnepanelen werken het best als er zoveel mogelijk zonlicht op de cellen valt. In de praktijk hopen stof, stuifmeel, mos, bladeren en vogelpoep zich op het oppervlak op, vooral op panelen die plat of onder een kleine hoek liggen, want daar spoelt de regen het vuil niet vanzelf af. Die vervuiling vermindert de opbrengst, soms met een paar tot wel tien procent of meer.",
-          "Door uw zonnepanelen periodiek te laten reinigen, herstelt u die opbrengst. De investering verdient zichzelf vaak terug in extra opgewekte stroom.",
+          "Door uw zonnepanelen periodiek te laten schoonmaken, herstelt u die opbrengst. De investering verdient zichzelf vaak terug in extra opgewekte stroom.",
         ],
       },
       {
-        heading: "Veilig en krasvrij gereinigd",
+        heading: "Veilig en krasvrij schoongemaakt",
         paragraphs: [
-          "Zonnepanelen vragen om een voorzichtige aanpak. Wij reinigen ze met zacht, gezuiverd osmosewater en speciaal gereedschap dat geschikt is voor het kwetsbare oppervlak. Geen agressieve middelen, geen harde borstels en geen krassen, zodat de beschermende coating intact blijft.",
+          "Zonnepanelen vragen om een voorzichtige aanpak. Wij maken ze schoon met zacht, gezuiverd osmosewater en speciaal gereedschap dat geschikt is voor het kwetsbare oppervlak. Geen agressieve middelen, geen harde borstels en geen krassen, zodat de beschermende coating intact blijft.",
           "Met onze watergevoede telescoopstelen reinigen we de panelen waar mogelijk veilig vanaf de grond of vanaf een veilig werkvlak, zonder onnodig over uw dak te lopen.",
         ],
       },
@@ -163,7 +170,7 @@ export const serviceContent: Record<string, ServiceContent> = {
         heading: "Hoe vaak en wanneer?",
         paragraphs: [
           "Voor de meeste daken volstaat één tot twee keer per jaar. Liggen uw panelen plat, of staan er veel bomen in de buurt, dan kan vaker reinigen lonen. Het voorjaar is een goed moment, zodat uw panelen in de zonrijke maanden maximaal renderen.",
-          "We reinigen zonnepanelen voor zowel particulieren als bedrijven in Apeldoorn en omgeving. Vraag vrijblijvend een offerte aan en haal weer het maximale uit uw installatie.",
+          "We maken zonnepanelen schoon voor zowel particulieren als bedrijven in Apeldoorn en omgeving. Zowel op schuine daken als op platte daken, waar het vuil door het ontbreken van afspoeling juist sneller blijft liggen. Vraag vrijblijvend een offerte aan en haal weer het maximale uit uw installatie.",
         ],
       },
     ],
@@ -204,17 +211,17 @@ export const serviceContent: Record<string, ServiceContent> = {
     ],
   },
 
-  dakgootreiniging: {
+  "dakgoot-schoonmaken": {
     image: {
       src: "/images/dakgootreiniging-apeldoorn.jpg",
-      alt: "Medewerker van Madern reinigt vanaf een ladder de dakgoot en dakrand van een woning in Apeldoorn met een telescoopsteel",
+      alt: "Medewerker van Madern maakt vanaf een ladder de dakgoot en dakrand van een woning in Apeldoorn schoon met een telescoopsteel",
     },
     sections: [
       {
         heading: "Voorkom waterschade door verstopte dakgoten",
         paragraphs: [
-          "Dakgoten hebben één belangrijke taak: regenwater gecontroleerd afvoeren. Raken ze verstopt met bladeren, mos en vuil, dan kan het water niet weg. Het loopt over de rand, langs de gevel naar beneden en kan zo leiden tot vochtplekken, schimmel en in het ergste geval lekkages en houtrot. Regelmatige dakgootreiniging voorkomt dure schade.",
-          "Madern reinigt dakgoten voor particulieren en bedrijven in Apeldoorn en omgeving, snel, grondig en veilig.",
+          "Dakgoten hebben één belangrijke taak: regenwater gecontroleerd afvoeren. Raken ze verstopt met bladeren, mos en vuil, dan kan het water niet weg. Het loopt over de rand, langs de gevel naar beneden en kan zo leiden tot vochtplekken, schimmel en in het ergste geval lekkages en houtrot. Regelmatig de dakgoot schoonmaken voorkomt dure schade.",
+          "Madern maakt dakgoten schoon voor particulieren en bedrijven in Apeldoorn en omgeving, snel, grondig en veilig.",
         ],
       },
       {
@@ -232,7 +239,50 @@ export const serviceContent: Record<string, ServiceContent> = {
       {
         heading: "Het beste moment en de prijs",
         paragraphs: [
-          "Het najaar, ná de bladval, is doorgaans het beste moment om de dakgoten te laten reinigen; bij veel bomen in de buurt is twee keer per jaar verstandig. De prijs hangt af van de lengte en bereikbaarheid van de goten. Vraag vrijblijvend een offerte aan, vaak te combineren met gevelreiniging of glasbewassing.",
+          "Het najaar, ná de bladval, is doorgaans het beste moment om de dakgoten te laten schoonmaken; bij veel bomen in de buurt is twee keer per jaar verstandig. De prijs hangt af van de lengte en bereikbaarheid van de goten. Vraag vrijblijvend een offerte aan, vaak te combineren met gevelreiniging of glasbewassing.",
+        ],
+      },
+      {
+        heading: "Dakgoten schoonmaken in Apeldoorn en omgeving",
+        paragraphs: [
+          "Wij komen voor het schoonmaken van dakgoten in heel Apeldoorn en de omliggende dorpen, van Ugchelen en Beekbergen tot Twello, Vaassen en Loenen. Juist aan de rand van de Veluwe zitten veel woningen dicht op de bomen, waardoor goten in het najaar razendsnel vollopen met blad en naalden.",
+          "We halen het blad en slib eruit, spoelen de goot door en controleren of de regenpijp vrij is. Zo weet u zeker dat het water er ook echt uit kan. Op verzoek combineren we het schoonmaken van de dakgoot met de glasbewassing of gevelreiniging in dezelfde afspraak.",
+        ],
+      },
+    ],
+  },
+
+  "dakkapel-reinigen": {
+    image: {
+      src: "/images/werk-glazenwasser-woning-apeldoorn.jpg",
+      alt: "Glazenwasser van Madern reinigt vanaf een ladder met een watergevoede telescoopsteel de dakrand en bovenste geveldelen van een woning in Apeldoorn",
+    },
+    sections: [
+      {
+        heading: "Waarom een dakkapel zo snel vies wordt",
+        paragraphs: [
+          "Een dakkapel staat vrij, vangt alle regen en wind op en droogt na een bui traag op omdat hij vaak in de schaduw van de dakrand ligt. Dat is precies de omstandigheid waarin algen en groene aanslag zich thuis voelen. Op kunststof zijwangen en boeidelen zie je dat het snelst: een grijsgroene waas die vanaf de straat meteen opvalt.",
+          "Veel mensen laten alleen de ramen van de dakkapel doen en vergeten de rest. Juist die zijkanten en de onderrand bepalen of het geheel er verzorgd uitziet. Wij nemen ze standaard mee.",
+        ],
+      },
+      {
+        heading: "Kunststof, hout of aluminium",
+        paragraphs: [
+          "Niet elke dakkapel vraagt dezelfde aanpak. Kunststof heeft een coating die u met agressieve middelen of harde borstels permanent dof kunt maken. Houten boeidelen zijn gevoelig voor water dat blijft staan, en aluminium kan bij verkeerde reiniging vlekken vertonen. We beoordelen vooraf het materiaal en kiezen daar de juiste methode bij.",
+          "In alle gevallen werken we met gezuiverd osmosewater. Dat bevat geen kalk of mineralen, droogt daardoor vlekkeloos op en laat geen residu achter op de zijwangen of het glas.",
+        ],
+      },
+      {
+        heading: "Veilig, zonder ladder tegen uw dakkapel",
+        paragraphs: [
+          "Een dakkapel zit per definitie hoog, en een ladder ertegenaan zetten is zowel voor u als voor de dakkapel geen goed idee. Met onze watergevoede telescoopstelen bereiken we het glas, de zijwangen en de boeidelen veilig vanaf de begane grond of vanaf een veilig werkvlak. Geen steunpunten tegen het kunststof, geen risico voor uw dakpannen.",
+        ],
+      },
+      {
+        heading: "Wat kost het en hoe vaak?",
+        paragraphs: [
+          "De prijs hangt af van de breedte van de dakkapel, het materiaal en hoe goed hij bereikbaar is. U krijgt vooraf een vaste prijs, zodat u niet voor verrassingen komt te staan. Voor de meeste woningen volstaat één beurt per jaar; ligt uw dakkapel op het noorden of staan er bomen vlakbij, dan komt de aanslag sneller terug.",
+          "Veel klanten combineren het reinigen van de dakkapel met de glasbewassing of het schoonmaken van de dakgoot. Dat scheelt een aparte voorrijbeurt en houdt de prijs per klus gunstiger.",
         ],
       },
     ],

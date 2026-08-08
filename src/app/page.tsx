@@ -14,7 +14,7 @@ import { GoogleReviews } from "@/components/sections/GoogleReviews";
 
 export const metadata: Metadata = generatePageMetadata({
   title:
-    "Glazenwasser Apeldoorn nodig? - Madern Glazenwassers - voor streepvrij glazenwassen, zonnepanelen reinigen, gevel- & dakgootreiniging bij u in de buurt",
+    "Glazenwasser Apeldoorn nodig? - Madern Glazenwassers voor streepvrije glasbewassing, zonnepanelen schoonmaken, gevelreiniging en dakgoot schoonmaken bij u in de buurt",
   description: siteConfig.shortDescription,
   path: "/",
 });

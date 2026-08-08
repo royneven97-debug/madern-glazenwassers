@@ -42,7 +42,8 @@ export const services: Service[] = [
       "Eerste indrukken tellen, ook bij uw eigen huis. Madern Glazenwassers maakt alle soorten ramen aan de binnen- en buitenkant perfect schoon, streepvrij en zonder gedoe. We werken met gezuiverd osmosewater voor een langdurig helder resultaat zonder chemicaliën.",
     keywords: [
       "glazenwasser particulier Apeldoorn",
-      "ramen wassen Apeldoorn",
+      "glasbewassing Apeldoorn",
+      "glasbewassing particulier",
       "ramen laten wassen",
     ],
     highlights: [
@@ -155,20 +156,22 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "zonnepanelen-reinigen",
+    slug: "zonnepanelen-schoonmaken",
     available: true,
     audience: "beide",
-    name: "Zonnepanelen reinigen",
-    title: "Zonnepanelen reinigen",
-    metaTitle: "Zonnepanelen reinigen Apeldoorn | Meer opbrengst | Madern",
+    name: "Zonnepanelen schoonmaken",
+    title: "Zonnepanelen schoonmaken",
+    metaTitle: "Zonnepanelen schoonmaken Apeldoorn | Meer opbrengst | Madern",
     metaDescription:
-      "Vuile zonnepanelen leveren minder op. Madern reinigt uw zonnepanelen in Apeldoorn streepvrij met osmosewater, veilig en zonder krassen. Vraag een offerte aan.",
+      "Vuile zonnepanelen leveren minder op. Madern maakt uw zonnepanelen in Apeldoorn streepvrij schoon met osmosewater, veilig en zonder krassen. Vraag een offerte aan.",
     tagline: "Schone panelen, meer rendement.",
     intro:
-      "Stof, mos en vogelpoep verminderen de opbrengst van uw zonnepanelen. Madern reinigt uw panelen veilig en streepvrij met gezuiverd osmosewater, zonder agressieve middelen die de coating kunnen aantasten, zodat ze weer maximaal renderen.",
+      "Stof, mos en vogelpoep verminderen de opbrengst van uw zonnepanelen. Madern maakt uw panelen veilig en streepvrij schoon met gezuiverd osmosewater, zonder agressieve middelen die de coating kunnen aantasten, zodat ze weer maximaal renderen.",
     keywords: [
-      "zonnepanelen reinigen Apeldoorn",
       "zonnepanelen schoonmaken Apeldoorn",
+      "zonnepanelen laten schoonmaken",
+      "zonnepanelen reinigen Apeldoorn",
+      "zonnepanelen schoonmaken kosten",
     ],
     highlights: [
       {
@@ -186,8 +189,12 @@ export const services: Service[] = [
     ],
     faqs: [
       {
-        q: "Hoe vaak moet ik mijn zonnepanelen laten reinigen?",
+        q: "Hoe vaak moet je zonnepanelen schoonmaken?",
         a: "Eén tot twee keer per jaar is voor de meeste daken voldoende. Bij veel bomen of een plat dak kan vaker lonen.",
+      },
+      {
+        q: "Wat kost zonnepanelen schoonmaken?",
+        a: "De prijs hangt af van het aantal panelen, de hoogte en de bereikbaarheid van het dak. U krijgt vooraf een gratis offerte met een vaste prijs.",
       },
       {
         q: "Beschadigt het reinigen mijn panelen niet?",
@@ -230,18 +237,24 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "dakgootreiniging",
+    slug: "dakgoot-schoonmaken",
     available: true,
     audience: "beide",
-    name: "Dakgootreiniging",
-    title: "Dakgootreiniging",
-    metaTitle: "Dakgootreiniging Apeldoorn | Voorkom waterschade | Madern",
+    name: "Dakgoot schoonmaken",
+    title: "Dakgoot schoonmaken",
+    metaTitle: "Dakgoot schoonmaken Apeldoorn | Voorkom waterschade | Madern",
     metaDescription:
-      "Verstopte dakgoten voorkomen lekkage en waterschade. Madern reinigt uw dakgoten in Apeldoorn snel en veilig. Vraag een gratis, vrijblijvende offerte aan.",
+      "Dakgoot schoonmaken in Apeldoorn? Madern haalt blad, mos en vuil uit uw dakgoten en voorkomt zo lekkage en waterschade. Vraag een gratis offerte aan.",
     tagline: "Voorkom waterschade door verstopping.",
     intro:
-      "Verstopte dakgoten kunnen leiden tot lekkage en waterschade. Madern reinigt uw dakgoten veilig en grondig, verwijdert blad en vuil, zodat het regenwater weer vrij kan wegstromen.",
-    keywords: ["dakgootreiniging Apeldoorn", "dakgoot reinigen Apeldoorn"],
+      "Verstopte dakgoten kunnen leiden tot lekkage en waterschade. Madern maakt uw dakgoten veilig en grondig schoon, verwijdert blad en vuil, zodat het regenwater weer vrij kan wegstromen.",
+    keywords: [
+      "dakgoot schoonmaken Apeldoorn",
+      "dakgoten schoonmaken Apeldoorn",
+      "dakgoot schoonmaken Twello",
+      "dakgoot laten schoonmaken",
+      "dakgoot reinigen Apeldoorn",
+    ],
     highlights: [
       {
         title: "Voorkom lekkage",
@@ -258,8 +271,64 @@ export const services: Service[] = [
     ],
     faqs: [
       {
-        q: "Wanneer kan ik mijn dakgoten het beste laten reinigen?",
+        q: "Wanneer kan ik mijn dakgoot het beste laten schoonmaken?",
         a: "Meestal in het najaar, ná de bladval, en eventueel in het voorjaar. Bij veel bomen in de buurt is twee keer per jaar verstandig.",
+      },
+      {
+        q: "Wat kost dakgoot schoonmaken?",
+        a: "Dat hangt af van de lengte van de goten, de hoogte en de bereikbaarheid. U ontvangt vooraf altijd een gratis, vrijblijvende offerte, zodat u niet voor verrassingen komt te staan.",
+      },
+      {
+        q: "Hoe vaak moet je dakgoten schoonmaken?",
+        a: "Voor de meeste woningen volstaat één keer per jaar. Staan er bomen vlak bij het dak, dan is twee keer per jaar verstandig omdat de goten dan sneller dichtslibben.",
+      },
+    ],
+  },
+  {
+    slug: "dakkapel-reinigen",
+    available: true,
+    audience: "particulier",
+    name: "Dakkapel reinigen",
+    title: "Dakkapel reinigen",
+    metaTitle: "Dakkapel reinigen Apeldoorn | Kunststof en hout | Madern",
+    metaDescription:
+      "Dakkapel reinigen in Apeldoorn? Madern haalt groene aanslag en vuil van de zijwangen, boeidelen en ramen van uw dakkapel. Veilig vanaf de grond. Gratis offerte.",
+    tagline: "Weer een frisse dakkapel, veilig vanaf de grond.",
+    intro:
+      "Een vieze dakkapel valt van de straat direct op. Groene aanslag op de zijwangen, vuil op de boeidelen en doffe ramen maken een verzorgde woning ineens verwaarloosd. Madern maakt uw dakkapel weer schoon met gezuiverd osmosewater, veilig vanaf de begane grond.",
+    keywords: [
+      "dakkapel reinigen Apeldoorn",
+      "dakkapel schoonmaken Apeldoorn",
+      "dakkapel laten reinigen",
+      "kunststof dakkapel reinigen",
+      "dakkapel reinigen kosten",
+    ],
+    highlights: [
+      {
+        title: "Zijwangen en boeidelen",
+        body: "Niet alleen het glas: juist de kunststof of houten zijkanten vergroenen het snelst.",
+      },
+      {
+        title: "Veilig vanaf de grond",
+        body: "Met watergevoede telescoopstelen, dus geen ladder tegen uw dakkapel.",
+      },
+      {
+        title: "Zonder agressieve middelen",
+        body: "Osmosewater tast de coating van kunststof delen niet aan en spoelt vlekkeloos op.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Wat kost een dakkapel reinigen?",
+        a: "Dat hangt af van de breedte van de dakkapel, het materiaal en de bereikbaarheid. U ontvangt vooraf een gratis offerte met een vaste prijs.",
+      },
+      {
+        q: "Kan een kunststof dakkapel schoongemaakt worden zonder krassen?",
+        a: "Ja. We werken met zacht, gezuiverd water en zachte borstels. Daardoor blijft de coating van kunststof zijwangen en boeidelen intact.",
+      },
+      {
+        q: "Hoe vaak moet een dakkapel gereinigd worden?",
+        a: "Eén keer per jaar is voor de meeste woningen genoeg. Staat uw dakkapel op het noorden of dicht bij bomen, dan groeit de aanslag sneller terug.",
       },
     ],
   },

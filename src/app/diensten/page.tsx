@@ -30,7 +30,7 @@ const dienstenFaqs = [
 export const metadata: Metadata = generatePageMetadata({
   title: "Diensten glazenwasser Apeldoorn | Madern Glazenwassers",
   description:
-    "Alle diensten van uw glazenwasser in Apeldoorn: glazenwassen voor particulier en zakelijk, etalages, zonnepanelen reinigen, gevel- en dakgootreiniging. Vraag een gratis offerte aan.",
+    "Alle diensten van uw glazenwasser in Apeldoorn: glazenwassen voor particulier en zakelijk, etalages, zonnepanelen schoonmaken, gevelreiniging en dakgoot schoonmaken. Vraag een gratis offerte aan.",
   path: "/diensten",
 });
 
