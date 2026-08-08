@@ -34,6 +34,7 @@ export const serviceContent: Record<string, ServiceContent> = {
         paragraphs: [
           "Glasbewassing is het vakwoord voor wat u waarschijnlijk gewoon ramen wassen noemt: het professioneel schoonmaken van al het glas aan uw woning. Bij Madern betekent dat ramen, kozijnen, deuren, serres en dakramen, aan de binnen- en de buitenkant, met gezuiverd osmosewater.",
           "Veel mensen denken dat glasbewassing alleen iets is voor kantoren en winkels. Dat klopt niet: juist bij woningen levert het veel op, omdat u er elke dag doorheen kijkt. Wij werken met vaste schema's voor particulieren in heel Apeldoorn, van De Maten en Zevenhuizen tot Ugchelen en Beekbergen.",
+          "Wij doen dit als osmose glasbewassing: het water gaat eerst door een filter dat alle kalk en mineralen eruit haalt. Daardoor droogt het vlekkeloos op en heeft u geen zeem of schoonmaakmiddel meer nodig om de laatste strepen weg te werken.",
         ],
       },
       {
@@ -170,6 +171,7 @@ export const serviceContent: Record<string, ServiceContent> = {
         heading: "Hoe vaak en wanneer?",
         paragraphs: [
           "Voor de meeste daken volstaat één tot twee keer per jaar. Liggen uw panelen plat, of staan er veel bomen in de buurt, dan kan vaker reinigen lonen. Het voorjaar is een goed moment, zodat uw panelen in de zonrijke maanden maximaal renderen.",
+          "Veel mensen overwegen eerst om hun zonnepanelen zelf te wassen. Dat kan, maar het betekent klimmen op een schuin dak met een emmer water, en leidingwater laat kalkvlekken achter die het licht juist tegenhouden. Wilt u uw zonnepanelen laten reinigen zonder dat risico, dan doen wij het vanaf een veilig werkvlak met gezuiverd water.",
           "We maken zonnepanelen schoon voor zowel particulieren als bedrijven in Apeldoorn en omgeving. Zowel op schuine daken als op platte daken, waar het vuil door het ontbreken van afspoeling juist sneller blijft liggen. Vraag vrijblijvend een offerte aan en haal weer het maximale uit uw installatie.",
         ],
       },
@@ -247,6 +249,7 @@ export const serviceContent: Record<string, ServiceContent> = {
         paragraphs: [
           "Wij komen voor het schoonmaken van dakgoten in heel Apeldoorn en de omliggende dorpen, van Ugchelen en Beekbergen tot Twello, Vaassen en Loenen. Juist aan de rand van de Veluwe zitten veel woningen dicht op de bomen, waardoor goten in het najaar razendsnel vollopen met blad en naalden.",
           "We halen het blad en slib eruit, spoelen de goot door en controleren of de regenpijp vrij is. Zo weet u zeker dat het water er ook echt uit kan. Op verzoek combineren we het schoonmaken van de dakgoot met de glasbewassing of gevelreiniging in dezelfde afspraak.",
+          "U kunt uw dakgoten laten schoonmaken door Madern en hoeft dan zelf niet de ladder op, en dat scheelt jaarlijks het grootste risico rond huisonderhoud. De prijs voor dakgoot schoonmaken hangt af van de lengte en de hoogte van de goot; u krijgt dat vooraf zwart op wit.",
         ],
       },
     ],

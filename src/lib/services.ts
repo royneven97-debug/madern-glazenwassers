@@ -197,6 +197,10 @@ export const services: Service[] = [
         a: "De prijs hangt af van het aantal panelen, de hoogte en de bereikbaarheid van het dak. U krijgt vooraf een gratis offerte met een vaste prijs.",
       },
       {
+        q: "Kan ik mijn zonnepanelen laten reinigen in plaats van het zelf te doen?",
+        a: "Zeker, en dat is meestal ook verstandiger. Zelf zonnepanelen wassen betekent op een schuin dak klimmen met water en gereedschap, en met leidingwater blijven er kalkvlekken achter. Wij doen het vanaf een veilig werkvlak en met osmosewater dat vlekkeloos opdroogt.",
+      },
+      {
         q: "Beschadigt het reinigen mijn panelen niet?",
         a: "Nee. We gebruiken zacht osmosewater en zachte borstels, speciaal geschikt voor zonnepanelen, zonder krassen of agressieve middelen.",
       },
@@ -275,8 +279,8 @@ export const services: Service[] = [
         a: "Meestal in het najaar, ná de bladval, en eventueel in het voorjaar. Bij veel bomen in de buurt is twee keer per jaar verstandig.",
       },
       {
-        q: "Wat kost dakgoot schoonmaken?",
-        a: "Dat hangt af van de lengte van de goten, de hoogte en de bereikbaarheid. U ontvangt vooraf altijd een gratis, vrijblijvende offerte, zodat u niet voor verrassingen komt te staan.",
+        q: "Wat is de prijs voor dakgoot schoonmaken?",
+        a: "Dat hangt af van de lengte van de goten, de hoogte en de bereikbaarheid. U ontvangt vooraf altijd een gratis, vrijblijvende offerte met een vaste prijs, zodat u niet voor verrassingen komt te staan.",
       },
       {
         q: "Hoe vaak moet je dakgoten schoonmaken?",
@@ -321,6 +325,14 @@ export const services: Service[] = [
       {
         q: "Wat kost een dakkapel reinigen?",
         a: "Dat hangt af van de breedte van de dakkapel, het materiaal en de bereikbaarheid. U ontvangt vooraf een gratis offerte met een vaste prijs.",
+      },
+      {
+        q: "Wat kost dakkapel schoonmaken?",
+        a: "De kosten voor dakkapel schoonmaken hangen af van de breedte, het materiaal en de bereikbaarheid. Combineert u het met de glasbewassing of de dakgoot, dan valt de prijs per klus gunstiger uit omdat we maar één keer hoeven voor te rijden.",
+      },
+      {
+        q: "Kan ik mijn dakkapel laten schoonmaken zonder dat er een ladder tegenaan komt?",
+        a: "Ja. Wij werken met watergevoede telescoopstelen en bereiken het glas, de zijwangen en de boeidelen vanaf de begane grond. Er komt dus niets tegen uw dakkapel of dakpannen te staan.",
       },
       {
         q: "Kan een kunststof dakkapel schoongemaakt worden zonder krassen?",
