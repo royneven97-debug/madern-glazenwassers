@@ -696,10 +696,11 @@ git commit -m "seo: nulmeting 2026-08-08 en nieuwe doelzoekwoorden in rank-track
 
 ---
 
-### Task 7 (GEBLOKKEERD): `/tarieven` herbouwen
+### Task 7 (UITGESTELD): `/tarieven` herbouwen
 
-**Blokkade:** Roy moet echte prijsindicaties aanleveren. Prijzen worden niet verzonnen.
-Zolang die er niet zijn, blijft deze taak open. **Niet uitvoeren met placeholderbedragen.**
+**Status 2026-08-08:** Roy is nog bezig prijzen te bepalen die klanten accepteren, en
+heeft besloten dit voorlopig te laten liggen. De pagina blijft ongewijzigd. **Niet
+uitvoeren met placeholderbedragen.** Oppakken zodra de tarieven vaststaan.
 
 Zodra de cijfers er zijn, mikt de pagina op: wat kost een glazenwasser (500), prijs
 glazenwasser (200), glazenwasser tarieven (150), glazenwasser prijs (150), glazenwasser
@@ -710,10 +711,12 @@ appartement (40). Allemaal KD 0-1. Lokaal: glazenwasser apeldoorn kosten (50), n
 
 ---
 
-### Task 8 (GEBLOKKEERD): `/dakkapel-reinigen`
+### Task 8 (AFGEROND 2026-08-08): `/dakkapel-reinigen`
 
-**Blokkade:** eerst bevestigen dat Michael dakkapelreiniging levert. Volgt het bestaande
-`available: false`-patroon: niets bouwen wat Madern niet doet.
+Roy bevestigde dat Michael dakkapellen schoonmaakt. Pagina gebouwd met
+`available: true`, long-form content over kunststof/hout/aluminium, veilig werken vanaf
+de grond, en prijs/frequentie. Hergebruikt `werk-glazenwasser-woning-apeldoorn.jpg`;
+een echte dakkapelfoto zou beter zijn zodra die er is.
 
 Cluster ~2.400/mnd landelijk: dakkapel reinigen (700), dakkapel schoonmaken (450),
 dakkapel laten reinigen (150), dakkapel reinigen kosten (150), dakkapel schoonmaken kosten
