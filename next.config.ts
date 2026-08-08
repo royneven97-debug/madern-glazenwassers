@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
         destination: "/dakgoot-schoonmaken",
         permanent: true,
       },
+      {
+        source: "/zonnepanelen-reinigen",
+        destination: "/zonnepanelen-schoonmaken",
+        permanent: true,
+      },
     ];
   },
 };

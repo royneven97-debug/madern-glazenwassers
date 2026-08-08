@@ -133,23 +133,23 @@ export const serviceContent: Record<string, ServiceContent> = {
     ],
   },
 
-  "zonnepanelen-reinigen": {
+  "zonnepanelen-schoonmaken": {
     image: {
       src: "/images/glasdak-reinigen-apeldoorn.jpg",
       alt: "Glazen dakpanelen op een pand in Apeldoorn worden met wasborstel en osmosewater streepvrij gereinigd",
     },
     sections: [
       {
-        heading: "Vuile zonnepanelen leveren minder op",
+        heading: "Zonnepanelen schoonmaken: vuile panelen leveren minder op",
         paragraphs: [
           "Zonnepanelen werken het best als er zoveel mogelijk zonlicht op de cellen valt. In de praktijk hopen stof, stuifmeel, mos, bladeren en vogelpoep zich op het oppervlak op, vooral op panelen die plat of onder een kleine hoek liggen, want daar spoelt de regen het vuil niet vanzelf af. Die vervuiling vermindert de opbrengst, soms met een paar tot wel tien procent of meer.",
-          "Door uw zonnepanelen periodiek te laten reinigen, herstelt u die opbrengst. De investering verdient zichzelf vaak terug in extra opgewekte stroom.",
+          "Door uw zonnepanelen periodiek te laten schoonmaken, herstelt u die opbrengst. De investering verdient zichzelf vaak terug in extra opgewekte stroom.",
         ],
       },
       {
-        heading: "Veilig en krasvrij gereinigd",
+        heading: "Veilig en krasvrij schoongemaakt",
         paragraphs: [
-          "Zonnepanelen vragen om een voorzichtige aanpak. Wij reinigen ze met zacht, gezuiverd osmosewater en speciaal gereedschap dat geschikt is voor het kwetsbare oppervlak. Geen agressieve middelen, geen harde borstels en geen krassen, zodat de beschermende coating intact blijft.",
+          "Zonnepanelen vragen om een voorzichtige aanpak. Wij maken ze schoon met zacht, gezuiverd osmosewater en speciaal gereedschap dat geschikt is voor het kwetsbare oppervlak. Geen agressieve middelen, geen harde borstels en geen krassen, zodat de beschermende coating intact blijft.",
           "Met onze watergevoede telescoopstelen reinigen we de panelen waar mogelijk veilig vanaf de grond of vanaf een veilig werkvlak, zonder onnodig over uw dak te lopen.",
         ],
       },
@@ -163,7 +163,7 @@ export const serviceContent: Record<string, ServiceContent> = {
         heading: "Hoe vaak en wanneer?",
         paragraphs: [
           "Voor de meeste daken volstaat één tot twee keer per jaar. Liggen uw panelen plat, of staan er veel bomen in de buurt, dan kan vaker reinigen lonen. Het voorjaar is een goed moment, zodat uw panelen in de zonrijke maanden maximaal renderen.",
-          "We reinigen zonnepanelen voor zowel particulieren als bedrijven in Apeldoorn en omgeving. Vraag vrijblijvend een offerte aan en haal weer het maximale uit uw installatie.",
+          "We maken zonnepanelen schoon voor zowel particulieren als bedrijven in Apeldoorn en omgeving. Zowel op schuine daken als op platte daken, waar het vuil door het ontbreken van afspoeling juist sneller blijft liggen. Vraag vrijblijvend een offerte aan en haal weer het maximale uit uw installatie.",
         ],
       },
     ],

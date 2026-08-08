@@ -4,7 +4,7 @@ import { getService } from "@/lib/services";
 import { generatePageMetadata } from "@/lib/metadata";
 import { ServicePageTemplate } from "@/components/sections/ServicePageTemplate";
 
-const slug = "zonnepanelen-reinigen";
+const slug = "zonnepanelen-schoonmaken";
 const service = getService(slug);
 
 export const metadata: Metadata = service

@@ -155,20 +155,22 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "zonnepanelen-reinigen",
+    slug: "zonnepanelen-schoonmaken",
     available: true,
     audience: "beide",
-    name: "Zonnepanelen reinigen",
-    title: "Zonnepanelen reinigen",
-    metaTitle: "Zonnepanelen reinigen Apeldoorn | Meer opbrengst | Madern",
+    name: "Zonnepanelen schoonmaken",
+    title: "Zonnepanelen schoonmaken",
+    metaTitle: "Zonnepanelen schoonmaken Apeldoorn | Meer opbrengst | Madern",
     metaDescription:
-      "Vuile zonnepanelen leveren minder op. Madern reinigt uw zonnepanelen in Apeldoorn streepvrij met osmosewater, veilig en zonder krassen. Vraag een offerte aan.",
+      "Vuile zonnepanelen leveren minder op. Madern maakt uw zonnepanelen in Apeldoorn streepvrij schoon met osmosewater, veilig en zonder krassen. Vraag een offerte aan.",
     tagline: "Schone panelen, meer rendement.",
     intro:
-      "Stof, mos en vogelpoep verminderen de opbrengst van uw zonnepanelen. Madern reinigt uw panelen veilig en streepvrij met gezuiverd osmosewater, zonder agressieve middelen die de coating kunnen aantasten, zodat ze weer maximaal renderen.",
+      "Stof, mos en vogelpoep verminderen de opbrengst van uw zonnepanelen. Madern maakt uw panelen veilig en streepvrij schoon met gezuiverd osmosewater, zonder agressieve middelen die de coating kunnen aantasten, zodat ze weer maximaal renderen.",
     keywords: [
-      "zonnepanelen reinigen Apeldoorn",
       "zonnepanelen schoonmaken Apeldoorn",
+      "zonnepanelen laten schoonmaken",
+      "zonnepanelen reinigen Apeldoorn",
+      "zonnepanelen schoonmaken kosten",
     ],
     highlights: [
       {
@@ -186,8 +188,12 @@ export const services: Service[] = [
     ],
     faqs: [
       {
-        q: "Hoe vaak moet ik mijn zonnepanelen laten reinigen?",
+        q: "Hoe vaak moet je zonnepanelen schoonmaken?",
         a: "Eén tot twee keer per jaar is voor de meeste daken voldoende. Bij veel bomen of een plat dak kan vaker lonen.",
+      },
+      {
+        q: "Wat kost zonnepanelen schoonmaken?",
+        a: "De prijs hangt af van het aantal panelen, de hoogte en de bereikbaarheid van het dak. U krijgt vooraf een gratis offerte met een vaste prijs.",
       },
       {
         q: "Beschadigt het reinigen mijn panelen niet?",
