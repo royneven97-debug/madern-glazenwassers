@@ -93,6 +93,93 @@ for (const f of ["src/lib/services.ts", "src/lib/serviceContent.ts", "src/lib/pl
   });
 }
 
+// --- 6. Kennisbank: elk verwacht artikel bestaat en dekt zijn doelzoekwoorden ---
+// Zie docs/superpowers/specs/2026-08-12-kennisbank-design.md sectie 3.
+// Deze lijst is de bron: staat een artikel hier, dan moet het bestand bestaan
+// en moeten de termen letterlijk in de tekst staan.
+const ARTIKELEN = [
+  ["wat-is-osmosewater", ["wat is osmose water", "hoe werkt osmose", "nadelen van osmose water"]],
+  ["hoe-vaak-ramen-laten-wassen", ["hoe vaak ramen wassen", "ramen wassen buiten"]],
+  ["wat-kost-dakgoot-schoonmaken", ["wat kost dakgoot schoonmaken", "dakgoot schoonmaken prijs", "per strekkende meter"]],
+  ["hoe-vaak-zonnepanelen-schoonmaken", ["hoe vaak zonnepanelen schoonmaken", "moet je zonnepanelen schoonmaken"]],
+  ["waarmee-kun-je-het-beste-ramen-wassen", ["waarmee kun je het beste ramen wassen", "ramen wassen zonder strepen"]],
+  ["hoe-vaak-dakgoot-schoonmaken", ["hoe vaak dakgoot schoonmaken", "wanneer dakgoot schoonmaken"]],
+  ["wat-voor-water-gebruikt-een-glazenwasser", ["wat voor water gebruikt een glazenwasser", "welk water gebruikt een glazenwasser"]],
+  ["wat-is-glasbewassing", ["wat is glasbewassing", "glasbewassing"]],
+];
+
+const blogDir = join(root, "src/lib/blog");
+const artikelBestanden = readdirSync(blogDir)
+  .filter((f) => f.endsWith(".ts") && f !== "index.ts" && f !== "types.ts");
+
+const indexSrc = read("src/lib/blog/index.ts");
+const gezieneSlugs = new Set();
+
+for (const [slug, termen] of ARTIKELEN) {
+  const bestand = `src/lib/blog/${slug}.ts`;
+  if (!existsSync(join(root, bestand))) {
+    errors.push(`artikel "${slug}" ontbreekt: ${bestand} bestaat niet`);
+    continue;
+  }
+  const src = read(bestand);
+  const tekst = src.toLowerCase().replace(/\s+/g, " ");
+
+  // 6a. Doelzoekwoorden moeten letterlijk in de tekst staan
+  for (const term of termen) {
+    check(tekst.includes(term), `artikel "${slug}": zoekterm "${term}" ontbreekt in de tekst`);
+  }
+
+  // 6b. Het artikel is geregistreerd in index.ts
+  check(indexSrc.includes(`"./${slug}"`),
+    `artikel "${slug}" staat niet geregistreerd in src/lib/blog/index.ts`);
+
+  // 6c. Beeld bestaat echt
+  const img = (src.match(/src:\s*"(\/images\/[^"]+)"/) || [])[1];
+  if (img) {
+    check(existsSync(join(root, "public", img)),
+      `artikel "${slug}": afbeelding ${img} bestaat niet in public/images`);
+  }
+
+  // 6d. Slug in het bestand komt overeen met de bestandsnaam
+  const slugInBestand = (src.match(/slug:\s*"([^"]+)"/) || [])[1];
+  check(slugInBestand === slug,
+    `artikel "${slug}": slug in het bestand is "${slugInBestand}", dat wijkt af van de bestandsnaam`);
+  gezieneSlugs.add(slug);
+}
+
+// 6e. Geen artikelbestanden die niet in ARTIKELEN staan (verweesd of vergeten)
+for (const f of artikelBestanden) {
+  const slug = f.replace(/\.ts$/, "");
+  check(gezieneSlugs.has(slug),
+    `src/lib/blog/${f} hoort bij geen enkel artikel uit de spec (verweesd bestand?)`);
+}
+
+// --- 7. Elke interne link in de artikelteksten wijst naar een bestaande route ---
+const ALLE_SLUGS = new Set(ARTIKELEN.map(([s]) => s));
+for (const f of artikelBestanden) {
+  const src = read(`src/lib/blog/${f}`);
+  for (const m of src.matchAll(/\[[^\]]+\]\((\/[^)]*)\)/g)) {
+    const pad = m[1];
+    if (pad.startsWith("/blog/")) {
+      const doel = pad.slice("/blog/".length);
+      check(ALLE_SLUGS.has(doel),
+        `src/lib/blog/${f}: link naar ${pad}, maar dat artikel bestaat niet`);
+    } else if (pad === "/") {
+      continue;
+    } else {
+      check(existsSync(join(root, "src/app", pad.slice(1), "page.tsx")),
+        `src/lib/blog/${f}: link naar ${pad}, maar src/app${pad}/page.tsx bestaat niet`);
+    }
+  }
+}
+
+// --- 8. Geen em-dashes in de artikelbestanden ---
+for (const f of artikelBestanden) {
+  read(`src/lib/blog/${f}`).split("\n").forEach((r, i) => {
+    if (r.includes("—")) errors.push(`em-dash in src/lib/blog/${f}:${i + 1}`);
+  });
+}
+
 if (errors.length) {
   console.error(`\nSEO-check: ${errors.length} probleem(en)\n`);
   for (const e of errors) console.error("  x " + e);

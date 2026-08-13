@@ -9,7 +9,8 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Faq } from "@/components/sections/Faq";
 import { LeadForm } from "@/components/sections/LeadForm";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { articleSchema } from "@/lib/schema";
+import { articleSchema, faqSchema } from "@/lib/schema";
+import { RichText } from "@/components/blog/RichText";
 
 export const dynamicParams = false;
 
@@ -94,7 +95,7 @@ export default async function BlogArticlePage({
               <h2 className="text-2xl font-bold text-navy-900">{sec.heading}</h2>
               {sec.paragraphs.map((p, i) => (
                 <p key={i} className="mt-3 text-pretty leading-relaxed text-navy-800/85">
-                  {p}
+                  <RichText text={p} />
                 </p>
               ))}
             </div>
@@ -113,12 +114,15 @@ export default async function BlogArticlePage({
       </article>
 
       {a.faqs && a.faqs.length > 0 && (
-        <div className="py-8">
-          <Faq faqs={a.faqs} />
-        </div>
+        <>
+          <JsonLd schema={faqSchema(a.faqs)} />
+          <div className="py-8">
+            <Faq faqs={a.faqs} />
+          </div>
+        </>
       )}
 
-      <LeadForm title="Ramen laten wassen in Apeldoorn?" />
+      {!a.hideLeadForm && <LeadForm title="Ramen laten wassen in Apeldoorn?" />}
     </>
   );
 }
