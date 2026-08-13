@@ -49,8 +49,9 @@ export const artikel: BlogArticle = {
     {
       heading: "Zelf doen of uitbesteden?",
       paragraphs: [
+        "De ramen op de begane grond zijn goed zelf te doen, en welk gereedschap en welk middel daarvoor het beste werken, leest u in ons artikel over [waarmee u het beste ramen wast](/blog/waarmee-kun-je-het-beste-ramen-wassen).",
         "De buitenkant van hoger gelegen ramen zelf schoonhouden is lastig en niet zonder risico. Met watergevoede telescoopstelen bereiken wij die ramen veilig vanaf de begane grond, zonder ladders tegen de gevel. Voor de binnenkant maken we een afspraak die u uitkomt.",
-        "Twijfelt u over de juiste frequentie voor uw situatie in Apeldoorn of omgeving? Vraag vrijblijvend een offerte aan, dan adviseren we u graag.",
+        "Twijfelt u over de juiste frequentie voor uw situatie in Apeldoorn of omgeving? [Vraag vrijblijvend een offerte aan](/offerte), dan adviseren we u graag.",
       ],
     },
   ],
