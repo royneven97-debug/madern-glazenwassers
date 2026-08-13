@@ -5,12 +5,14 @@
 // Eén bestand per artikel. De volgorde hieronder is de volgorde waarin ze op
 // /blog verschijnen: nieuwste bovenaan.
 
+import { artikel as watKostDakgootSchoonmaken } from "./wat-kost-dakgoot-schoonmaken";
 import { artikel as hoeVaakRamenLatenWassen } from "./hoe-vaak-ramen-laten-wassen";
 import { artikel as watIsOsmosewater } from "./wat-is-osmosewater";
 
 export type { BlogArticle, BlogSection } from "./types";
 
 export const blogArticles = [
+  watKostDakgootSchoonmaken,
   hoeVaakRamenLatenWassen,
   watIsOsmosewater,
 ];
