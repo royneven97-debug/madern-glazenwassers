@@ -40,7 +40,7 @@ export const artikel: BlogArticle = {
       heading: "Voor welke oppervlakken is het geschikt?",
       paragraphs: [
         "Naast ramen is osmosewater uitstekend voor kozijnen, etalages, serres en zelfs zonnepanelen. Juist bij zonnepanelen is de zachte, mineraalvrije reiniging een groot pluspunt: geen krassen, geen kalkresten en geen aantasting van de coating.",
-        "Wilt u uw ramen of zonnepanelen in Apeldoorn en omgeving streepvrij laten reinigen met osmosewater? Vraag vrijblijvend een offerte aan.",
+        "Wilt u uw ramen of zonnepanelen in Apeldoorn en omgeving streepvrij laten reinigen met osmosewater? [Vraag vrijblijvend een offerte aan](/offerte).",
       ],
     },
   ],

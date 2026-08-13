@@ -16,4 +16,7 @@ export type BlogArticle = {
   intro: string;
   sections: BlogSection[];
   faqs?: { q: string; a: string }[];
+  // Artikelen met doe-het-zelfintentie krijgen geen offerteblok: dat publiek
+  // wil het zelf doen en haakt af op een verkoopblok. Zie spec 3.2.
+  hideLeadForm?: boolean;
 };
