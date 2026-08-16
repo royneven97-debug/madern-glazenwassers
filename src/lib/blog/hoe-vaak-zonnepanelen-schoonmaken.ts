@@ -10,8 +10,8 @@ export const artikel: BlogArticle = {
     "Vuile panelen leveren minder op, maar hoeveel precies? En maakt het uit of uw dak schuin of plat is?",
   datePublished: "2026-08-13",
   image: {
-    src: "/images/werk-glazenwasser-hoogte-apeldoorn.jpg",
-    alt: "Medewerker van Madern reinigt met een watergevoede telescoopsteel panelen op een dak in Apeldoorn",
+    src: "/images/zonnepanelen-schoonmaken-apeldoorn.jpg",
+    alt: "Dak vol zonnepanelen in de omgeving van Apeldoorn, met op de voorgrond de glazenwasser van Madern met borstel en watertank",
   },
   intro:
     "Voor de meeste daken is een tot twee keer per jaar zonnepanelen schoonmaken voldoende. Ligt uw installatie op een plat dak, staan er bomen in de buurt of woont u dicht bij een drukke weg, dan is twee keer per jaar verstandig. Hieronder leest u hoeveel opbrengst u werkelijk verliest door vuil, waarom een plat dak sneller vervuilt, en wanneer schoonmaken zichzelf terugverdient.",

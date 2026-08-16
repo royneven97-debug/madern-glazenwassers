@@ -11,8 +11,8 @@ export const artikel: BlogArticle = {
   datePublished: "2026-07-25",
   dateModified: "2026-08-13",
   image: {
-    src: "/images/glazenwasser-apeldoorn-aan-het-werk.jpg",
-    alt: "Glasgevel van een kantoorpand in Apeldoorn wordt streepvrij gereinigd met osmosewater en een watergevoede telescoopsteel",
+    src: "/images/osmosewater-tank-glazenwasser-apeldoorn.jpg",
+    alt: "Glazenwasser van Madern bij de tank met gezuiverd osmosewater, met borstel, telescoopsteel en waterslang klaar voor gebruik",
   },
   intro:
     "Osmose water is water waar vrijwel alle kalk en mineralen uit gefilterd zijn, gemaakt met een proces dat omgekeerde osmose heet. Doordat er niets in zit dat kan achterblijven, droogt het volledig streeploos op, en dat is precies waarom glazenwassers ermee werken. In dit artikel leest u hoe osmose werkt, waarvoor het geschikt is, en waar het tekortschiet.",
