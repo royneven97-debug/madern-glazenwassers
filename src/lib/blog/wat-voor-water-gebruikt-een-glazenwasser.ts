@@ -10,8 +10,8 @@ export const artikel: BlogArticle = {
     "Waarom een glazenwasser geen kraanwater gebruikt, en wat het verschil is tussen gedemineraliseerd en osmosewater.",
   datePublished: "2026-08-13",
   image: {
-    src: "/images/werk-glazenwasser-woning-apeldoorn.jpg",
-    alt: "Glazenwasser van Madern werkt met een watergevoede telescoopsteel aan de ramen van een woning in Apeldoorn",
+    src: "/images/glasbewassing-telescoopsteel-apeldoorn.jpg",
+    alt: "Glazenwasser van Madern brengt gezuiverd water via een slang door de telescoopsteel naar een raam op de eerste verdieping",
   },
   intro:
     "Een professionele glazenwasser gebruikt geen kraanwater, maar gezuiverd water waar de kalk en de mineralen uit zijn gehaald. Dat water droogt namelijk vlekkeloos op, waardoor er niet nagezeemd hoeft te worden. Hieronder leest u waarom kraanwater strepen achterlaat, wat het verschil is tussen gedemineraliseerd water en osmosewater, en hoe dat water bij het raam komt.",
