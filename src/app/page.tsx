@@ -73,24 +73,6 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-mist-200 bg-gradient-to-b from-water-50 via-mist-50 to-white">
-        {/* Decoratief watermerk: het logo groot en transparant links achter de
-            hero-tekst. alt="" en aria-hidden, want het logo staat al in de
-            header en zegt hier niets extra's tegen een schermlezer. De
-            zichtbare vorm beslaat 89% van de breedte en 67% van de hoogte van
-            het vierkante bestand, de rest is transparante marge. */}
-        <Image
-          src="/madern-glazenwassers-logo-transparant.png"
-          alt=""
-          aria-hidden
-          width={1024}
-          height={1024}
-          // Eager, maar bewust geen priority: het watermerk staat wel boven de
-          // vouw, dus lazy zou het zichtbaar laten inpoppen, maar het is te
-          // decoratief om een preload voor de hero-tekst te verdienen.
-          loading="eager"
-          className="pointer-events-none absolute -left-16 top-1/2 w-[22rem] -translate-y-1/2 select-none opacity-[0.12] sm:w-[28rem] lg:-left-24 lg:w-[38rem] xl:w-[44rem]"
-        />
-
         <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
           <div>
             <h1 className="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-navy-900 sm:text-5xl lg:text-6xl">

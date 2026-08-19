@@ -4,6 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { LogoWatermark } from "@/components/layout/LogoWatermark";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { localBusinessSchema, websiteSchema, founderSchema } from "@/lib/schema";
 import { getReviewAggregate } from "@/lib/reviews";
@@ -53,6 +54,7 @@ export default async function RootLayout({
             founderSchema(),
           ]}
         />
+        <LogoWatermark />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
