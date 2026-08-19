@@ -9,6 +9,12 @@ import Image from "next/image";
 // behalve in de hero. Het ligt dus erboven, met pointer-events-none zodat het
 // geen klikken opvangt, en onder z-50 zodat de sticky header er wel overheen gaat.
 //
+// mix-blend-multiply is wat de tekst eronder leesbaar houdt. Zonder die blend
+// legt een half doorzichtig plaatje een waas over alles: donkere tekst wordt
+// dan lichter en oogt zelf doorzichtig. Vermenigvuldigen kan per definitie
+// nooit lichter maken, dus zwarte tekst blijft zwart en alleen de witte vlakken
+// eromheen krijgen de blauwe tint van het logo.
+//
 // De zichtbare vorm beslaat 89% van de breedte en 67% van de hoogte van het
 // vierkante bestand, de rest is transparante marge.
 export function LogoWatermark() {
@@ -23,7 +29,7 @@ export function LogoWatermark() {
       // lazy zou het zichtbaar laten inpoppen, maar het is te decoratief om een
       // preload te verdienen boven de tekst van de pagina.
       loading="eager"
-      className="pointer-events-none fixed -left-16 top-1/2 z-40 w-[22rem] -translate-y-1/2 select-none opacity-[0.22] sm:w-[28rem] lg:-left-24 lg:w-[38rem] xl:w-[44rem]"
+      className="pointer-events-none fixed -left-16 top-1/2 z-40 w-[22rem] -translate-y-1/2 select-none mix-blend-multiply opacity-[0.22] sm:w-[28rem] lg:-left-24 lg:w-[38rem] xl:w-[44rem]"
     />
   );
 }
