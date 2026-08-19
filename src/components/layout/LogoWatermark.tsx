@@ -1,22 +1,25 @@
 import Image from "next/image";
 
-// Het logo als vast watermerk links in beeld. Staat in de root-layout, dus op
-// elke pagina, en blijft staan terwijl de pagina eronder doorscrollt.
+// Het logo als vast watermerk in de lege marge links naast de tekstkolom.
+// Staat in de root-layout, dus op elke pagina, en blijft staan tijdens scrollen.
 //
-// Waarom bovenóp de content en niet erachter: vrijwel elke sectie schildert een
-// eigen dekkende achtergrond (bg-white, bg-mist-50, bg-navy-900) en de body zelf
-// is ook wit. Een watermerk achter de content zou daar volledig onder verdwijnen,
-// behalve in de hero. Het ligt dus erboven, met pointer-events-none zodat het
-// geen klikken opvangt, en onder z-50 zodat de sticky header er wel overheen gaat.
+// Waarom in de marge en niet over de content: het watermerk lag eerst bovenop
+// de pagina en kleurde daarmee de witte achtergrond achter de tekst blauw. Dat
+// verlaagt het contrast en leest als een waas, zeker omdat veel bodytekst zelf
+// al half doorzichtig is (text-navy-800/75 en /85). Eronder leggen kan niet:
+// vrijwel elke sectie schildert een eigen dekkende achtergrond, dus daar zou
+// het volledig onder verdwijnen.
 //
-// mix-blend-multiply is wat de tekst eronder leesbaar houdt. Zonder die blend
-// legt een half doorzichtig plaatje een waas over alles: donkere tekst wordt
-// dan lichter en oogt zelf doorzichtig. Vermenigvuldigen kan per definitie
-// nooit lichter maken, dus zwarte tekst blijft zwart en alleen de witte vlakken
-// eromheen krijgen de blauwe tint van het logo.
+// De rekensom: de tekstkolom is max-w-6xl (72rem) en gecentreerd, dus de vrije
+// marge links is (100vw - 72rem) / 2. De rechterrand van het logo leggen we op
+// de linkerrand van die kolom, en de breedte begrenzen we tot diezelfde marge
+// met 1rem lucht. Dat plafond via min() is nodig: zonder zou het logo bij een
+// smaller venster links buiten beeld steken, en dat afvangen met overflow-x
+// hidden op de body breekt de sticky header.
 //
-// De zichtbare vorm beslaat 89% van de breedte en 67% van de hoogte van het
-// vierkante bestand, de rest is transparante marge.
+// Onder 1440px is de marge te smal om er iets zinnigs in te tonen, daar blijft
+// het watermerk dus weg. In calc() horen spaties rond + en -, vandaar de
+// underscores: Tailwind vertaalt die naar spaties.
 export function LogoWatermark() {
   return (
     <Image
@@ -29,7 +32,7 @@ export function LogoWatermark() {
       // lazy zou het zichtbaar laten inpoppen, maar het is te decoratief om een
       // preload te verdienen boven de tekst van de pagina.
       loading="eager"
-      className="pointer-events-none fixed -left-16 top-1/2 z-40 w-[22rem] -translate-y-1/2 select-none mix-blend-multiply opacity-[0.22] sm:w-[28rem] lg:-left-24 lg:w-[38rem] xl:w-[44rem]"
+      className="pointer-events-none fixed right-[calc(50%_+_36rem)] top-1/2 z-40 hidden w-[min(26rem,calc(50vw_-_37rem))] -translate-y-1/2 select-none mix-blend-multiply opacity-[0.14] min-[1440px]:block"
     />
   );
 }

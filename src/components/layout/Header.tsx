@@ -28,33 +28,38 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-mist-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center" aria-label="Madern Glazenwassers home">
-          {/* Beeldmerk met de naam erin, dus geen los tekstlabel ernaast meer.
-              Het bestand is strak bijgesneden op de letters (872x367, 2,4:1),
-              want het origineel is vierkant met 82% lege marge: ongesneden zou
-              de naam op deze hoogte maar een fractie van de ruimte vullen.
-              w-auto houdt de verhouding intact bij een vaste hoogte. */}
-          <Image
-            src="/madern-glazenwassers-logotekst.png"
-            alt="Madern Glazenwassers, glazenwasser in Apeldoorn"
-            width={872}
-            height={367}
-            className="h-14 w-auto sm:h-16"
-            priority
-          />
-        </Link>
+        {/* Beeldmerk en menu in een groep. Als losse kinderen van de balk trekt
+            justify-between ze uit elkaar en valt er een gat van zo'n 150px
+            tussen het beeldmerk en "Diensten". */}
+        <div className="flex items-center gap-6">
+          <Link href="/" className="flex items-center" aria-label="Madern Glazenwassers home">
+            {/* Beeldmerk met de naam erin, dus geen los tekstlabel ernaast meer.
+                Het bestand is strak bijgesneden op de letters (872x367, 2,4:1),
+                want het origineel is vierkant met 82% lege marge: ongesneden zou
+                de naam op deze hoogte maar een fractie van de ruimte vullen.
+                w-auto houdt de verhouding intact bij een vaste hoogte. */}
+            <Image
+              src="/madern-glazenwassers-logotekst.png"
+              alt="Madern Glazenwassers, glazenwasser in Apeldoorn"
+              width={872}
+              height={367}
+              className="h-[59px] w-auto sm:h-[67px]"
+              priority
+            />
+          </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
-          {desktopNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-navy-800 hover:bg-mist-100"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+          <nav className="hidden items-center gap-1 lg:flex">
+            {desktopNav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-navy-800 hover:bg-mist-100"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
         <div className="flex items-center gap-2">
           <a
