@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "Zijn er extra kosten?",
-    a: "Nee. U ontvangt vooraf een duidelijke offerte met een vaste prijs. Geen verrassingen achteraf.",
+    a: "Soms worden we bij een eerste schoonmaak verrast door de staat van de ramen. In dat geval zullen we een extra toeslag moeten rekenen op de eerste wasbeurt, die vervalt bij de volgende wasbeurten.",
   },
   {
     q: "Is een eenmalige beurt ook mogelijk?",
@@ -41,7 +41,9 @@ export default function TarievenPage() {
           Elke woning en elk pand is anders, dus de exacte prijs bepalen we op
           maat. Om u een idee te geven, hieronder een indicatie. U ontvangt
           altijd vooraf een gratis, vrijblijvende offerte met een eerlijke,
-          vaste prijs.
+          vaste prijs. Ter oriëntatie: voor een rijtjeswoning rekent men landelijk doorgaans
+          circa € 30–55 per beurt, voor een vrijstaande woning meer. Uw exacte
+          prijs hangt af van uw situatie, vraag vrijblijvend een offerte aan.
         </p>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-3">
@@ -65,14 +67,8 @@ export default function TarievenPage() {
           ))}
         </div>
 
-        <p className="mt-6 text-sm text-navy-800/60">
-          Ter oriëntatie: voor een rijtjeswoning rekent men landelijk doorgaans
-          circa € 30–55 per beurt, voor een vrijstaande woning meer. Uw exacte
-          prijs hangt af van uw situatie, vraag vrijblijvend een offerte aan.
-        </p>
-
         <div className="mt-8">
-          <Button href="/offerte" size="lg">Vraag uw gratis offerte aan</Button>
+          <Button href="/offerte" size="lg">Vraag gratis een offerte aan</Button>
         </div>
       </section>
 
