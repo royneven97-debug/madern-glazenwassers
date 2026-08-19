@@ -28,18 +28,20 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-mist-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="Madern Glazenwassers home">
+        <Link href="/" className="flex items-center" aria-label="Madern Glazenwassers home">
+          {/* Beeldmerk met de naam erin, dus geen los tekstlabel ernaast meer.
+              Het bestand is strak bijgesneden op de letters (872x367, 2,4:1),
+              want het origineel is vierkant met 82% lege marge: ongesneden zou
+              de naam op deze hoogte maar een fractie van de ruimte vullen.
+              w-auto houdt de verhouding intact bij een vaste hoogte. */}
           <Image
-            src="/madern-glazenwassers-logo.png"
-            alt="Logo van Madern Glazenwassers, glazenwasser in Apeldoorn"
-            width={80}
-            height={80}
-            className="h-16 w-16 rounded-lg object-cover sm:h-20 sm:w-20"
+            src="/madern-glazenwassers-logotekst.png"
+            alt="Madern Glazenwassers, glazenwasser in Apeldoorn"
+            width={872}
+            height={367}
+            className="h-14 w-auto sm:h-16"
             priority
           />
-          <span className="text-lg font-bold tracking-tight text-navy-900">
-            Madern<span className="text-accent-500"> Glazenwassers</span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

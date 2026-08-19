@@ -76,10 +76,10 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
           <div>
             <h1 className="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-navy-900 sm:text-5xl lg:text-6xl">
-              Glazenwasser <span className="text-accent-500">Apeldoorn</span>
+              Madern <span className="text-accent-500">Glazenwassers</span>
             </h1>
             <p className="mt-4 text-pretty text-xl font-semibold text-water-700">
-              Stralend schone ramen, streepvrij met osmosewater.
+              Glazenwassers in Apeldoorn.
             </p>
             <p className="mt-4 max-w-xl text-pretty text-lg text-navy-800/75">
               Madern Glazenwassers maakt uw ramen aan binnen- én buitenkant
