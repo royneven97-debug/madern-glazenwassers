@@ -78,8 +78,8 @@ export default function OverOnsPage() {
           {[
             { t: "Persoonlijk contact", b: "U heeft één vast aanspreekpunt dat u kent en die u kent." },
             { t: "Betrouwbaar", b: "Afspraak is afspraak. We komen op tijd en leveren vakwerk." },
-            { t: "Eerlijke prijzen", b: "Een duidelijke offerte vooraf, zonder verrassingen." },
-            { t: "Streepvrij osmosewater", b: "Milieuvriendelijk schoon, zonder chemicaliën." },
+            { t: "Eerlijke prijzen", b: "Een duidelijke offerte vooraf met een passende richtprijs." },
+            { t: "Met de hand én met osmosewater", b: "Passende methodes voor uw ramen." },
           ].map((v) => (
             <div key={v.t} className="rounded-2xl border border-mist-200 bg-white p-5">
               <h3 className="font-semibold text-navy-900">{v.t}</h3>
