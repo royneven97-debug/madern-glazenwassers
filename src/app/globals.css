@@ -102,3 +102,26 @@ body {
 .animate-shine {
   animation: shine 3.2s ease-in-out infinite;
 }
+
+/* Glansveeg over het podium van het GlansPlan-abonnement (Zilver).
+   Veegt kort door beeld en wacht dan, net als licht op schoon glas. */
+@keyframes glans {
+  0% { transform: translate3d(-170%, 0, 0) skewX(-16deg); }
+  26%, 100% { transform: translate3d(380%, 0, 0) skewX(-16deg); }
+}
+.animate-glans {
+  transform: translate3d(-170%, 0, 0) skewX(-16deg);
+  animation: glans 6.5s linear 1.2s infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shine,
+  .animate-glans {
+    animation: none;
+  }
+  .animate-glans {
+    transform: translate3d(90%, 0, 0) skewX(-16deg);
+    opacity: 0.35;
+  }
+}

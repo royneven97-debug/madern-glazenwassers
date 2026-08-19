@@ -11,6 +11,7 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { Faq } from "@/components/sections/Faq";
 import { HeroForm } from "@/components/sections/HeroForm";
 import { GoogleReviews } from "@/components/sections/GoogleReviews";
+import { GlansPlan } from "@/components/sections/GlansPlan";
 
 export const metadata: Metadata = generatePageMetadata({
   title:
@@ -116,6 +117,8 @@ export default function HomePage() {
       </section>
 
       <GoogleReviews />
+
+      <GlansPlan />
 
       <div className="pt-14 sm:pt-16">
         <UspStrip />
