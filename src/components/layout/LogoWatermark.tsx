@@ -10,6 +10,12 @@ import Image from "next/image";
 // vrijwel elke sectie schildert een eigen dekkende achtergrond, dus daar zou
 // het volledig onder verdwijnen.
 //
+// Omdat er in de marge geen tekst meer onder ligt, mag de dekking fors hoger
+// dan de 14% van de vorige opzet en is mix-blend-multiply eruit. Die blend
+// diende alleen om tekst eronder leesbaar te houden, en had nu een nadeel:
+// vermenigvuldigen kan niet lichter maken, dus op de donkere secties (de
+// blauwe CTA-balk, de footer) verdween het logo volledig.
+//
 // De rekensom: de tekstkolom is max-w-6xl (72rem) en gecentreerd, dus de vrije
 // marge links is (100vw - 72rem) / 2. De rechterrand van het logo leggen we op
 // de linkerrand van die kolom, en de breedte begrenzen we tot diezelfde marge
@@ -32,7 +38,7 @@ export function LogoWatermark() {
       // lazy zou het zichtbaar laten inpoppen, maar het is te decoratief om een
       // preload te verdienen boven de tekst van de pagina.
       loading="eager"
-      className="pointer-events-none fixed right-[calc(50%_+_36rem)] top-1/2 z-40 hidden w-[min(26rem,calc(50vw_-_37rem))] -translate-y-1/2 select-none mix-blend-multiply opacity-[0.14] min-[1440px]:block"
+      className="pointer-events-none fixed right-[calc(50%_+_36rem)] top-1/2 z-40 hidden w-[min(26rem,calc(50vw_-_37rem))] -translate-y-1/2 select-none opacity-[0.45] min-[1440px]:block"
     />
   );
 }
