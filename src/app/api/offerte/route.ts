@@ -1,11 +1,20 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 import { siteConfig } from "@/lib/site";
 
-// Verstuurt de offerteaanvraag via Resend (REST API, geen extra dependency).
+// Verstuurt de offerteaanvraag via SMTP van het eigen Google Workspace-account.
+// De mail gaat dus vanaf en naar info@madernglazenwassers.nl; geen externe
+// mailprovider en geen DNS-verificatie nodig.
+//
 // Vereiste env-vars (in Vercel instellen):
-//   RESEND_API_KEY   – API key van Resend
-//   OFFERTE_TO        – ontvangstadres (bijv. info@madernglazenwassers.nl of Outlook-adres)
-//   OFFERTE_FROM      – geverifieerd afzendadres in Resend (bijv. offerte@madernglazenwassers.nl)
+//   SMTP_USER  – het volledige adres, bijv. info@madernglazenwassers.nl
+//   SMTP_PASS  – Google app-wachtwoord (16 tekens, spaties mogen weg)
+// Optioneel:
+//   SMTP_HOST  – standaard smtp.gmail.com
+//   SMTP_PORT  – standaard 465 (SSL)
+//   OFFERTE_TO – ontvangers, komma-gescheiden; standaard info@ + Roy
+
+export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   let body: Record<string, string>;
@@ -26,17 +35,17 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Naam en telefoon zijn verplicht" }, { status: 400 });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  // Ontvangers: standaard naar info@ én royneven97@; override via OFFERTE_TO (komma-gescheiden).
+  const user = process.env.SMTP_USER;
+  // Het app-wachtwoord wordt door Google met spaties getoond; die zijn niet significant.
+  const pass = process.env.SMTP_PASS?.replace(/\s+/g, "");
   const toEnv = process.env.OFFERTE_TO;
   const to = toEnv
     ? toEnv.split(",").map((s) => s.trim()).filter(Boolean)
     : [siteConfig.email, "royneven97@gmail.com"];
-  const from = process.env.OFFERTE_FROM || "onboarding@resend.dev";
 
-  if (!apiKey) {
+  if (!user || !pass) {
     // Niet geconfigureerd: log zodat de aanvraag niet verloren gaat en geef nette fout.
-    console.error("[offerte] RESEND_API_KEY ontbreekt. Aanvraag:", body);
+    console.error("[offerte] SMTP_USER of SMTP_PASS ontbreekt. Aanvraag:", body);
     return NextResponse.json({ error: "E-mail nog niet geconfigureerd" }, { status: 500 });
   }
 
@@ -55,31 +64,26 @@ export async function POST(req: Request) {
     body.bericht || "-",
   ].join("\n");
 
+  const port = Number(process.env.SMTP_PORT || 465);
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
+    port,
+    secure: port === 465,
+    auth: { user, pass },
+  });
+
   try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: `Madern Offerte <${from}>`,
-        to,
-        reply_to: body.email || undefined,
-        subject: `Offerteaanvraag – ${naam} (${body.plaats || "Apeldoorn"})`,
-        text,
-      }),
+    await transporter.sendMail({
+      // Google staat alleen het eigen account als afzender toe; de naam mag vrij.
+      from: `Madern Offerte <${user}>`,
+      to,
+      replyTo: body.email || undefined,
+      subject: `Offerteaanvraag – ${naam} (${body.plaats || "Apeldoorn"})`,
+      text,
     });
-
-    if (!res.ok) {
-      const detail = await res.text();
-      console.error("[offerte] Resend-fout:", res.status, detail);
-      return NextResponse.json({ error: "Verzenden mislukt" }, { status: 502 });
-    }
-
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[offerte] Onverwachte fout:", err);
-    return NextResponse.json({ error: "Verzenden mislukt" }, { status: 500 });
+    console.error("[offerte] SMTP-fout:", err);
+    return NextResponse.json({ error: "Verzenden mislukt" }, { status: 502 });
   }
 }

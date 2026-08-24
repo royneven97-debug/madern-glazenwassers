@@ -60,10 +60,9 @@ export default function PrivacyPage() {
           <div>
             <h2 className="text-xl font-bold text-navy-900">Hoe wordt uw aanvraag verstuurd?</h2>
             <p className="mt-3">
-              Afhankelijk van uw apparaat wordt uw aanvraag verstuurd via WhatsApp
-              (op mobiel) of per e-mail (op desktop). Voor de e-mailverzending
-              maken we gebruik van de dienst Resend als verwerker. Onze website
-              wordt gehost bij Vercel. Op de homepage tonen we openbare
+              Uw aanvraag wordt per e-mail naar ons eigen mailadres verstuurd. Voor
+              onze e-mail maken we gebruik van Google Workspace als verwerker. Onze
+              website wordt gehost bij Vercel. Op de homepage tonen we openbare
               Google-reviews via de dienst Featurable; hierbij worden gegevens van
               Google geladen.
             </p>

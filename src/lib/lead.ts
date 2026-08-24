@@ -1,4 +1,4 @@
-// Formulier-afhandeling: elke aanvraag gaat via e-mail (Resend, server-side)
+// Formulier-afhandeling: elke aanvraag gaat via e-mail (SMTP, server-side)
 // naar de owner. De klant kan zelf apart contact opnemen via de WhatsApp-knop;
 // het formulier stuurt bewust GEEN WhatsApp namens de klant.
 import { siteConfig } from "./site";
@@ -43,7 +43,7 @@ function openMailto(fields: LeadFields): void {
 export async function submitLead(fields: LeadFields): Promise<LeadResult> {
   if (typeof window === "undefined") return "mailto";
 
-  // Altijd via e-mail (Resend, server-side).
+  // Altijd via e-mail (SMTP via Google Workspace, server-side).
   try {
     const res = await fetch("/api/offerte", {
       method: "POST",
@@ -53,7 +53,7 @@ export async function submitLead(fields: LeadFields): Promise<LeadResult> {
     if (!res.ok) throw new Error("mislukt");
     return "email";
   } catch {
-    // Resend tijdelijk niet bereikbaar: open het mailprogramma als terugval.
+    // Mailserver tijdelijk niet bereikbaar: open het mailprogramma als terugval.
     openMailto(fields);
     return "mailto";
   }
