@@ -230,6 +230,37 @@ function Rekentool({
         </p>
       </div>
 
+      {/* Tweede schuifknop, alleen zichtbaar als de panelen zijn aangevinkt */}
+      {keuze.zonnepanelen && (
+        <div className="mt-4 rounded-xl border border-water-200 bg-water-50 px-4 py-4">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <label
+              htmlFor="aantal-panelen"
+              className="text-sm font-semibold text-navy-900"
+            >
+              Aantal zonnepanelen
+            </label>
+            <span className="text-sm font-medium text-navy-800/70">
+              <b className="text-base font-bold text-navy-900">{panelen}</b> panelen ·{" "}
+              {euro(panelen * TARIEVEN.prijsPerZonnepaneel)} per keer
+            </span>
+          </div>
+          <input
+            id="aantal-panelen"
+            type="range"
+            min={PANELEN_MIN}
+            max={PANELEN_MAX}
+            step={1}
+            value={panelen}
+            onChange={(e) => setPanelen(Number(e.target.value))}
+            className="mt-3 w-full accent-water-600"
+          />
+          <p className="mt-2 text-xs text-navy-800/70">
+            We reinigen de panelen alleen tijdens een reguliere wasbeurt.
+          </p>
+        </div>
+      )}
+
       {/* Extra werk */}
       <fieldset className="mt-7">
         <legend className="text-sm font-semibold text-navy-900">
@@ -258,37 +289,6 @@ function Rekentool({
             </label>
           ))}
         </div>
-
-        {/* Tweede schuifknop, alleen zichtbaar als de panelen zijn aangevinkt */}
-        {keuze.zonnepanelen && (
-          <div className="mt-4 rounded-xl border border-water-200 bg-water-50 px-4 py-4">
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <label
-                htmlFor="aantal-panelen"
-                className="text-sm font-semibold text-navy-900"
-              >
-                Aantal zonnepanelen
-              </label>
-              <span className="text-sm font-medium text-navy-800/70">
-                <b className="text-base font-bold text-navy-900">{panelen}</b> panelen ·{" "}
-                {euro(panelen * TARIEVEN.prijsPerZonnepaneel)} per keer
-              </span>
-            </div>
-            <input
-              id="aantal-panelen"
-              type="range"
-              min={PANELEN_MIN}
-              max={PANELEN_MAX}
-              step={1}
-              value={panelen}
-              onChange={(e) => setPanelen(Number(e.target.value))}
-              className="mt-3 w-full accent-water-600"
-            />
-            <p className="mt-2 text-xs text-navy-800/70">
-              We reinigen de panelen alleen tijdens een reguliere wasbeurt.
-            </p>
-          </div>
-        )}
       </fieldset>
     </div>
   );
