@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
 import { generatePageMetadata } from "@/lib/metadata";
@@ -52,7 +53,11 @@ export default function OffertePage() {
         </div>
 
         <div className="rounded-3xl border border-mist-200 bg-white p-6 shadow-sm sm:p-8">
-          <OfferteForm />
+          {/* useSearchParams in het formulier: de rest van de pagina blijft
+              hierdoor gewoon vooraf gerenderd. */}
+          <Suspense fallback={<div className="h-[540px]" />}>
+            <OfferteForm />
+          </Suspense>
         </div>
       </section>
     </>

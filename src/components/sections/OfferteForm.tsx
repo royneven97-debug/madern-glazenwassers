@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { submitLead } from "@/lib/lead";
 
 const services = [
@@ -14,6 +15,9 @@ const services = [
 
 export function OfferteForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
+  // De rekentool van het GlansPlan stuurt de berekening mee in de URL, zodat de
+  // aanvraag binnenkomt met het aantal ramen, het pakket en het extra werk erbij.
+  const berekening = useSearchParams().get("bericht") ?? "";
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -25,6 +29,7 @@ export function OfferteForm() {
       naam: data.naam,
       telefoon: data.telefoon,
       email: data.email,
+      adres: data.adres,
       plaats: data.plaats,
       dienst: data.dienst,
       bericht: data.bericht,
@@ -73,10 +78,15 @@ export function OfferteForm() {
         </div>
       </div>
 
+      <div>
+        <label className={label} htmlFor="email">E-mailadres</label>
+        <input id="email" name="email" type="email" className={field} placeholder="uw@email.nl" />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label className={label} htmlFor="email">E-mailadres</label>
-          <input id="email" name="email" type="email" className={field} placeholder="uw@email.nl" />
+          <label className={label} htmlFor="adres">Adres</label>
+          <input id="adres" name="adres" className={field} placeholder="Straatnaam 12" autoComplete="street-address" />
         </div>
         <div>
           <label className={label} htmlFor="plaats">Plaats *</label>
@@ -98,10 +108,16 @@ export function OfferteForm() {
         <textarea
           id="bericht"
           name="bericht"
-          rows={4}
+          rows={berekening ? 8 : 4}
           className={field}
+          defaultValue={berekening}
           placeholder="Aantal ramen, type woning/pand, bijzonderheden, gewenste frequentie, etc."
         />
+        {berekening && (
+          <p className="mt-1.5 text-xs text-water-700">
+            Uw berekening staat er al bij. Aanpassen of aanvullen mag natuurlijk.
+          </p>
+        )}
       </div>
 
       <button

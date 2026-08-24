@@ -7,6 +7,7 @@ export type LeadFields = {
   naam?: string;
   telefoon?: string;
   email?: string;
+  adres?: string;
   plaats?: string;
   dienst?: string;
   bericht?: string;
@@ -18,6 +19,7 @@ const LABELS: [keyof LeadFields, string][] = [
   ["naam", "Naam"],
   ["telefoon", "Telefoon"],
   ["email", "E-mail"],
+  ["adres", "Adres"],
   ["plaats", "Plaats"],
   ["dienst", "Dienst"],
   ["bericht", "Bericht"],
