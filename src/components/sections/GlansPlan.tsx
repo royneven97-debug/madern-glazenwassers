@@ -380,7 +380,7 @@ function PrijsBalk({
             Uw indicatie
           </p>
 
-          <div className="flex flex-1 items-stretch gap-2 sm:gap-3">
+          <div className="flex flex-1 items-stretch justify-center gap-2 sm:gap-3">
             {berekeningen.map((b) => {
               const uitgelicht = b.pakket.id === "zilver";
               return (
@@ -390,7 +390,7 @@ function PrijsBalk({
                     berekeningSamenvatting(b, invoer),
                   )}`}
                   tabIndex={zichtbaar ? undefined : -1}
-                  className={`flex flex-1 flex-col items-center rounded-xl px-2 py-1.5 transition-colors sm:flex-none sm:flex-1 ${
+                  className={`flex flex-1 flex-col items-center rounded-xl px-3 py-1.5 transition-colors sm:flex-none sm:min-w-[7.5rem] ${
                     uitgelicht
                       ? "bg-water-600 hover:bg-water-500"
                       : "hover:bg-white/10"
