@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { siteConfig } from "@/lib/site";
 import {
   GEEN_OPTIES,
@@ -14,6 +14,7 @@ import {
   RAMEN_MIN,
   RAMEN_STANDAARD,
   TARIEVEN,
+  WONINGTYPE_STANDAARD,
   WONINGTYPES,
   berekenPakket,
   berekeningSamenvatting,
@@ -40,6 +41,63 @@ const voordelen = [
   { kop: "25% voordeel", uitleg: "op de arbeidscomponent" },
   { kop: "12 gelijke bedragen", uitleg: "automatisch per maand" },
 ];
+
+/**
+ * Laat een bedrag naar zijn nieuwe waarde toe tellen in plaats van er hard
+ * naartoe te springen. Zonder die beweging ziet niemand dat een vinkje de
+ * prijs veranderde. Bij "prefers-reduced-motion" springt hij gewoon.
+ */
+function useTellend(doel: number): number {
+  const [waarde, setWaarde] = useState(doel);
+  const vorige = useRef(doel);
+
+  useEffect(() => {
+    const van = vorige.current;
+    vorige.current = doel;
+    if (van === doel) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setWaarde(doel);
+      return;
+    }
+
+    const duur = 420;
+    const start = performance.now();
+    let frame = requestAnimationFrame(function stap(nu) {
+      const t = Math.min(1, (nu - start) / duur);
+      const soepel = 1 - Math.pow(1 - t, 3);
+      setWaarde(van + (doel - van) * soepel);
+      if (t < 1) frame = requestAnimationFrame(stap);
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [doel]);
+
+  return waarde;
+}
+
+/** Een bedrag dat naar zijn nieuwe waarde telt en daarbij kort oplicht. */
+function Bedrag({ waarde, className }: { waarde: number; className?: string }) {
+  const getoond = useTellend(waarde);
+  const [puls, setPuls] = useState(false);
+  const eersteRender = useRef(true);
+
+  useEffect(() => {
+    if (eersteRender.current) {
+      eersteRender.current = false;
+      return;
+    }
+    setPuls(true);
+    const timer = setTimeout(() => setPuls(false), 700);
+    return () => clearTimeout(timer);
+  }, [waarde]);
+
+  return (
+    <span className={`${puls ? "animate-prijs-puls" : ""} ${className ?? ""}`}>
+      {euro(getoond)}
+    </span>
+  );
+}
 
 /** Regels in de kaart: de vaste beloftes plus wat de bezoeker aanvinkte. */
 function kaartRegels(b: Berekening, panelen: number): { tekst: string; inbegrepen: boolean }[] {
@@ -110,7 +168,7 @@ function PlanCard({
         }`}
       >
         <span className="align-middle text-2xl font-bold text-navy-800/50">±&nbsp;</span>
-        {euro(berekening.perMaand)}
+        <Bedrag waarde={berekening.perMaand} />
         <span className="text-lg font-semibold">/mnd</span>
       </p>
       <p className="mt-1 text-center text-xs font-medium text-navy-800/60">
@@ -163,8 +221,10 @@ function Rekentool({
   invoer: Invoer;
   setInvoer: (i: Invoer) => void;
 }) {
-  const { ramen, panelen, keuze } = invoer;
+  const { woningtype, ramen, panelen, keuze } = invoer;
   const setRamen = (n: number) => setInvoer({ ...invoer, ramen: n });
+  const kiesWoning = (label: string, n: number) =>
+    setInvoer({ ...invoer, woningtype: label, ramen: n });
   const setPanelen = (n: number) => setInvoer({ ...invoer, panelen: n });
   const toggle = (key: OptieKey) =>
     setInvoer({ ...invoer, keuze: { ...keuze, [key]: !keuze[key] } });
@@ -183,12 +243,14 @@ function Rekentool({
         </legend>
         <div className="mt-3 flex flex-wrap gap-2">
           {WONINGTYPES.map((w) => {
-            const actief = ramen === w.ramen;
+            // Aan de keuze zelf gekoppeld, niet aan het aantal ramen: wie daarna
+            // aan de schuifknop draait, houdt zijn woningtype geselecteerd.
+            const actief = woningtype === w.label;
             return (
               <button
                 key={w.label}
                 type="button"
-                onClick={() => setRamen(w.ramen)}
+                onClick={() => kiesWoning(w.label, w.ramen)}
                 aria-pressed={actief}
                 className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                   actief
@@ -292,17 +354,102 @@ function Rekentool({
   );
 }
 
+/**
+ * Meelopende prijsbalk. Verschijnt zodra de rekentool in beeld komt, want dan
+ * staan de kaarten erboven buiten beeld en zou je de prijs niet zien bewegen.
+ */
+function PrijsBalk({
+  berekeningen,
+  invoer,
+  zichtbaar,
+}: {
+  berekeningen: Berekening[];
+  invoer: Invoer;
+  zichtbaar: boolean;
+}) {
+  return (
+    <div
+      aria-hidden={!zichtbaar}
+      className={`fixed inset-x-0 bottom-0 z-40 transition-transform duration-300 ${
+        zichtbaar ? "translate-y-0" : "translate-y-full"
+      }`}
+    >
+      <div className="border-t border-white/10 bg-navy-900/95 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] sm:gap-5 sm:px-6 sm:py-3">
+          <p className="hidden shrink-0 text-[11px] font-bold uppercase tracking-[0.14em] text-white/55 lg:block">
+            Uw indicatie
+          </p>
+
+          <div className="flex flex-1 items-stretch gap-2 sm:gap-3">
+            {berekeningen.map((b) => {
+              const uitgelicht = b.pakket.id === "zilver";
+              return (
+                <Link
+                  key={b.pakket.id}
+                  href={`/offerte?bericht=${encodeURIComponent(
+                    berekeningSamenvatting(b, invoer),
+                  )}`}
+                  tabIndex={zichtbaar ? undefined : -1}
+                  className={`flex flex-1 flex-col items-center rounded-xl px-2 py-1.5 transition-colors sm:flex-none sm:flex-1 ${
+                    uitgelicht
+                      ? "bg-water-600 hover:bg-water-500"
+                      : "hover:bg-white/10"
+                  }`}
+                >
+                  <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/70">
+                    {b.pakket.naam}
+                  </span>
+                  <span
+                    style={{ "--puls-kleur": "rgba(255,255,255,0.32)" } as CSSProperties}
+                    className="text-base font-extrabold leading-tight text-white sm:text-lg"
+                  >
+                    ±&nbsp;
+                    <Bedrag waarde={b.perMaand} />
+                    <span className="text-[11px] font-semibold text-white/70">/mnd</span>
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+
+          <span className="hidden shrink-0 text-xs text-white/55 lg:block">
+            per maand, indicatie
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function GlansPlan() {
   const [invoer, setInvoer] = useState<Invoer>({
+    woningtype: WONINGTYPE_STANDAARD,
     ramen: RAMEN_STANDAARD,
     panelen: PANELEN_STANDAARD,
     keuze: GEEN_OPTIES,
   });
 
-  const [brons, zilver, goud] = useMemo(
+  const berekeningen = useMemo(
     () => PAKKETTEN.map((p) => berekenPakket(p, invoer)),
     [invoer],
   );
+  const [brons, zilver, goud] = berekeningen;
+
+  // De balk hoort alleen in beeld te zijn terwijl iemand met de rekentool bezig
+  // is; daarboven staan de kaarten zelf al in beeld.
+  const toolRef = useRef<HTMLDivElement>(null);
+  const [balkZichtbaar, setBalkZichtbaar] = useState(false);
+
+  useEffect(() => {
+    const doel = toolRef.current;
+    if (!doel) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setBalkZichtbaar(entry.isIntersecting),
+      { rootMargin: "-10% 0px -10% 0px" },
+    );
+    observer.observe(doel);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
@@ -342,7 +489,9 @@ export function GlansPlan() {
           <PlanCard berekening={goud} invoer={invoer} />
         </div>
 
-        <Rekentool invoer={invoer} setInvoer={setInvoer} />
+        <div ref={toolRef}>
+          <Rekentool invoer={invoer} setInvoer={setInvoer} />
+        </div>
 
         {/* Waarom een abonnement voordeliger is */}
         <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-4 rounded-2xl border border-mist-200 bg-white px-6 py-5 text-center">
@@ -364,6 +513,8 @@ export function GlansPlan() {
           </a>
         </p>
       </div>
+
+      <PrijsBalk berekeningen={berekeningen} invoer={invoer} zichtbaar={balkZichtbaar} />
     </section>
   );
 }

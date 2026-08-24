@@ -118,6 +118,8 @@ export const GEEN_OPTIES: Keuze = {
 
 /** Alles wat de bezoeker in de rekentool invult. */
 export type Invoer = {
+  /** Blijft staan zoals aangeklikt, ook als daarna het aantal ramen wijzigt. */
+  woningtype: string;
   ramen: number;
   panelen: number;
   keuze: Keuze;
@@ -194,10 +196,13 @@ export type Woningtype = { label: string; ramen: number };
 
 // Startpunten zodat niemand eerst zijn hele huis hoeft te tellen.
 export const WONINGTYPES: Woningtype[] = [
+  { label: "Appartement", ramen: 8 },
   { label: "Tussenwoning", ramen: 14 },
   { label: "Hoek- of 2-onder-1-kap", ramen: 20 },
   { label: "Vrijstaand", ramen: 28 },
 ];
+
+export const WONINGTYPE_STANDAARD = "Tussenwoning";
 
 export const RAMEN_MIN = 4;
 export const RAMEN_MAX = 60;
@@ -215,6 +220,7 @@ export function berekeningSamenvatting(b: Berekening, invoer: Invoer): string {
   const regels = [
     `Berekening via de website (indicatie):`,
     `Pakket: ${b.pakket.naam}`,
+    `Woningtype: ${invoer.woningtype}`,
     `Aantal ramen: ${invoer.ramen}`,
     `Frequentie: ${b.pakket.beurtenPerJaar}× per jaar buiten` +
       (b.pakket.binnenPerJaar > 0 ? `, ${b.pakket.binnenPerJaar}× per jaar binnen` : ""),
