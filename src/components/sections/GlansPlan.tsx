@@ -435,20 +435,38 @@ export function GlansPlan() {
   );
   const [brons, zilver, goud] = berekeningen;
 
-  // De balk hoort alleen in beeld te zijn terwijl iemand met de rekentool bezig
-  // is; daarboven staan de kaarten zelf al in beeld.
+  // De balk hoort pas te verschijnen als de kop "Wat kost het bij u?" bovenaan
+  // in beeld staat, en weer weg te zakken zodra de rekentool voorbij is. Als
+  // ijkpunt kijken we of de rekentool een dunne lijn vlak onder de plakkende
+  // header kruist: dat is precies de periode dat iemand met de tool bezig is.
   const toolRef = useRef<HTMLDivElement>(null);
   const [balkZichtbaar, setBalkZichtbaar] = useState(false);
 
   useEffect(() => {
     const doel = toolRef.current;
     if (!doel) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setBalkZichtbaar(entry.isIntersecting),
-      { rootMargin: "-10% 0px -10% 0px" },
-    );
-    observer.observe(doel);
-    return () => observer.disconnect();
+
+    let observer: IntersectionObserver | undefined;
+
+    // De header groeit mee met het scherm, dus meten we hem in plaats van een
+    // vaste hoogte aan te nemen.
+    const koppel = () => {
+      observer?.disconnect();
+      const headerHoogte = document.querySelector("header")?.offsetHeight ?? 88;
+      const onder = Math.max(0, window.innerHeight - headerHoogte - 1);
+      observer = new IntersectionObserver(
+        ([entry]) => setBalkZichtbaar(entry.isIntersecting),
+        { rootMargin: `-${headerHoogte}px 0px -${onder}px 0px` },
+      );
+      observer.observe(doel);
+    };
+
+    koppel();
+    window.addEventListener("resize", koppel);
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("resize", koppel);
+    };
   }, []);
 
   return (
