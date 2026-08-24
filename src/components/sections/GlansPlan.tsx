@@ -230,14 +230,12 @@ function Rekentool({
         </p>
       </div>
 
-      {/* Tweede schuifknop, alleen zichtbaar als de panelen zijn aangevinkt */}
+      {/* Tweede schuifknop, alleen zichtbaar als de panelen zijn aangevinkt.
+          Zelfde opbouw als hierboven, zodat beide balken even lang zijn. */}
       {keuze.zonnepanelen && (
-        <div className="mt-4 rounded-xl border border-water-200 bg-water-50 px-4 py-4">
+        <div className="mt-7">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <label
-              htmlFor="aantal-panelen"
-              className="text-sm font-semibold text-navy-900"
-            >
+            <label htmlFor="aantal-panelen" className="text-sm font-semibold text-navy-900">
               Aantal zonnepanelen
             </label>
             <span className="text-sm font-medium text-navy-800/70">
@@ -255,7 +253,7 @@ function Rekentool({
             onChange={(e) => setPanelen(Number(e.target.value))}
             className="mt-3 w-full accent-water-600"
           />
-          <p className="mt-2 text-xs text-navy-800/70">
+          <p className="mt-2 text-xs text-navy-800/60">
             We reinigen de panelen alleen tijdens een reguliere wasbeurt.
           </p>
         </div>

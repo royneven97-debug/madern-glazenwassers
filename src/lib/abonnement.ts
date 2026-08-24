@@ -44,16 +44,16 @@ export type Optie = {
 };
 
 export const OPTIES: Optie[] = [
-  { key: "schuifwanden", label: "Veranda schuifwanden", prijs: 30, perJaar: 1 },
-  { key: "verandadak", label: "Veranda dak, binnen én buiten", prijs: 30, perJaar: 1 },
-  { key: "houtwerk", label: "Houtwerk van het huis", prijs: 200, perJaar: 1 },
-  { key: "goten", label: "Goten legen", prijs: 25, perJaar: 1 },
   {
     key: "zonnepanelen",
     label: "Zonnepanelen reinigen",
     prijsPerStuk: TARIEVEN.prijsPerZonnepaneel,
     perJaar: 1,
   },
+  { key: "schuifwanden", label: "Veranda schuifwanden", prijs: 30, perJaar: 1 },
+  { key: "verandadak", label: "Veranda dak, binnen én buiten", prijs: 30, perJaar: 1 },
+  { key: "houtwerk", label: "Houtwerk van het huis", prijs: 200, perJaar: 1 },
+  { key: "goten", label: "Goten legen", prijs: 25, perJaar: 1 },
 ];
 
 export type PakketId = "brons" | "zilver" | "goud";
