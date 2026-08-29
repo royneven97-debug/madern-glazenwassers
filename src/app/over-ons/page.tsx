@@ -6,7 +6,6 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { LeadForm } from "@/components/sections/LeadForm";
-import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Over Madern Glazenwassers | Uw glazenwasser uit Apeldoorn",
@@ -15,21 +14,9 @@ export const metadata: Metadata = generatePageMetadata({
   path: "/over-ons",
 });
 
-// Person-schema voor de oprichter, versterkt E-E-A-T.
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: siteConfig.founder,
-  jobTitle: "Oprichter",
-  worksFor: { "@type": "LocalBusiness", name: siteConfig.name },
-  homeLocation: { "@type": "City", name: "Apeldoorn" },
-  image: `${siteConfig.url}/michael-oprichter-glazenwasser-apeldoorn.jpg`,
-};
-
 export default function OverOnsPage() {
   return (
     <>
-      <JsonLd schema={personSchema} />
       <Breadcrumbs items={[{ name: "Over ons", path: "/over-ons" }]} />
 
       <section className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
