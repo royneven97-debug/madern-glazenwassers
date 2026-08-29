@@ -8,6 +8,7 @@ import { LogoWatermark } from "@/components/layout/LogoWatermark";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { localBusinessSchema, websiteSchema, founderSchema } from "@/lib/schema";
 import { getReviewAggregate } from "@/lib/reviews";
+import { ContactTracking } from "@/components/analytics/ContactTracking";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -58,6 +59,7 @@ export default async function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <ContactTracking />
       </body>
     </html>
   );
