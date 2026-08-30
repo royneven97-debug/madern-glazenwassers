@@ -21,7 +21,7 @@ import {
   berekenPakket,
   berekeningSamenvatting,
   euro,
-  optieOmschrijving,
+  optieKaartregel,
   optiePrijs,
   prijsPerBeurt,
   type Berekening,
@@ -121,7 +121,7 @@ function kaartRegels(b: Berekening, panelen: number): { tekst: string; inbegrepe
     const optie = OPTIES.find((o) => o.key === key);
     if (optie) {
       regels.push({
-        tekst: `${optieOmschrijving(optie, panelen)}, 1× p/jr`,
+        tekst: optieKaartregel(optie, panelen),
         inbegrepen: true,
       });
     }
@@ -129,7 +129,7 @@ function kaartRegels(b: Berekening, panelen: number): { tekst: string; inbegrepe
 
   // Aangevinkt extra werk dat bovenop het pakket komt.
   for (const o of b.extraOpties) {
-    regels.push({ tekst: `${optieOmschrijving(o, panelen)}, 1× p/jr`, inbegrepen: false });
+    regels.push({ tekst: optieKaartregel(o, panelen), inbegrepen: false });
   }
 
   return regels;

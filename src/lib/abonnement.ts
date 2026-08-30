@@ -55,6 +55,12 @@ export type Optie = {
   prijsPerStuk?: number;
   /** Bodembedrag bij een prijs per stuk: onder dit bedrag rijden we niet uit. */
   minimum?: number;
+  /**
+   * Hoe de optie in een pakketkaart heet. Daar loopt de regel door op de
+   * frequentie ervoor ("1× p/jr ..."), dus leest een omschrijving in kleine
+   * letter beter dan het label van het vinkje.
+   */
+  kaartLabel?: string;
   /** Alle opties rekenen we één keer per jaar. */
   perJaar: number;
 };
@@ -71,7 +77,13 @@ export const OPTIES: Optie[] = [
   ZONNEPANELEN,
   { key: "schuifwanden", label: "Veranda schuifwanden", prijs: 30, perJaar: 1 },
   { key: "verandadak", label: "Veranda dak, binnen én buiten", prijs: 30, perJaar: 1 },
-  { key: "houtwerk", label: "Houtwerk van het huis", prijs: 300, perJaar: 1 },
+  {
+    key: "houtwerk",
+    label: "Houtwerk van het huis",
+    kaartLabel: "al het houtwerk",
+    prijs: 300,
+    perJaar: 1,
+  },
   { key: "goten", label: "Goten legen", prijs: 25, perJaar: 1 },
 ];
 
@@ -186,10 +198,18 @@ export function optiePrijs(optie: Optie, panelen: number): number {
   return optie.prijs ?? 0;
 }
 
-/** Regel zoals die in de kaart komt te staan, inclusief het aantal panelen. */
+/** Omschrijving van een optie, inclusief het aantal panelen. */
 export function optieOmschrijving(optie: Optie, panelen: number): string {
   if (optie.key === "zonnepanelen") return `${optie.label}, ${panelen} stuks`;
   return optie.label;
+}
+
+/**
+ * Regel zoals die in een pakketkaart komt te staan. De frequentie staat
+ * voorop, net als bij de regels over de binnen- en buitenramen erboven.
+ */
+export function optieKaartregel(optie: Optie, panelen: number): string {
+  return `1× p/jr ${optie.kaartLabel ?? optieOmschrijving(optie, panelen)}`;
 }
 
 export function berekenPakket(pakket: Pakket, invoer: Invoer): Berekening {
