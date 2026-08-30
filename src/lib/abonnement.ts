@@ -3,7 +3,7 @@
 //
 // Het model rekent in tijd, niet in losse raamprijzen: per bezoek een vaste
 // opstarttijd (aanrijden, opbouwen) plus een aantal minuten per raam, maal het
-// uurtarief. Bij €45/uur komt dat neer op €7,50 opstart en €1,25 per raam.
+// uurtarief. Bij €45/uur komt dat neer op €7,50 opstart en €1,61 per raam.
 
 export const TARIEVEN = {
   /** Uurtarief binnen een abonnement. */
@@ -12,14 +12,20 @@ export const TARIEVEN = {
   uurtariefLos: 60,
   /** Aanrijden en opbouwen, per bezoek. */
   opstartMinuten: 10,
-  /** Een raam van circa 1 × 1,5 m, buitenzijde. */
-  minutenPerRaamBuiten: 1.67,
-  /** Binnen kost per raam ongeveer evenveel: geen ladder, wel spullen verzetten. */
+  /**
+   * Een raam van circa 1 × 1,5 m, buitenzijde. Bewust zo gekozen dat een
+   * tussenwoning van veertien ramen precies op het minimum per beurt uitkomt:
+   * daarboven loopt de prijs meteen mee met de schuifknop, in plaats van pas
+   * na een lange vlakke aanloop.
+   */
+  minutenPerRaamBuiten: 2.15,
+  /** Binnen kost minder tijd: geen ladder en geen slang, wel spullen verzetten. */
   minutenPerRaamBinnen: 1.67,
   /**
-   * Onder dit bedrag rijden we niet uit. Gevolg: bij ongeveer 18 ramen of
-   * minder komt iedereen op dit bedrag uit, dus een appartement en een
-   * tussenwoning kosten op de standaardinstelling evenveel. Dat is een
+   * Onder dit bedrag rijden we niet uit. Het tarief per raam is erop afgestemd
+   * dat een tussenwoning hier bij veertien ramen net bovenuit komt. Een
+   * appartement blijft er wel op zitten: de factor van het woningtype drukt de
+   * prijs, dus dat type komt er pas bij zo'n zestien ramen bovenuit. Dat is een
    * bewuste keuze; de bodem weegt zwaarder dan het verschil daaronder.
    */
   minimumPerBeurt: 30,
