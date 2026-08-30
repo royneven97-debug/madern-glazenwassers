@@ -104,13 +104,13 @@ function Bedrag({ waarde, className }: { waarde: number; className?: string }) {
 function kaartRegels(b: Berekening, panelen: number): { tekst: string; inbegrepen: boolean }[] {
   const p = b.pakket;
   const regels = [
-    { tekst: `${p.beurtenPerJaar}× per jaar buitenramen`, inbegrepen: false },
+    { tekst: `${p.beurtenPerJaar}× p/jr buitenramen`, inbegrepen: false },
     ...p.features.map((f) => ({ tekst: f, inbegrepen: false })),
   ];
 
   if (p.binnenPerJaar > 0) {
     regels.push({
-      tekst: `${p.binnenPerJaar}× per jaar binnenramen`,
+      tekst: `${p.binnenPerJaar}× p/jr binnenramen`,
       inbegrepen: false,
     });
   }
@@ -120,7 +120,7 @@ function kaartRegels(b: Berekening, panelen: number): { tekst: string; inbegrepe
     const optie = OPTIES.find((o) => o.key === key);
     if (optie) {
       regels.push({
-        tekst: `${optieOmschrijving(optie, panelen)}, 1× per jaar`,
+        tekst: `${optieOmschrijving(optie, panelen)}, 1× p/jr`,
         inbegrepen: true,
       });
     }
@@ -128,7 +128,7 @@ function kaartRegels(b: Berekening, panelen: number): { tekst: string; inbegrepe
 
   // Aangevinkt extra werk dat bovenop het pakket komt.
   for (const o of b.extraOpties) {
-    regels.push({ tekst: `${optieOmschrijving(o, panelen)}, 1× per jaar`, inbegrepen: false });
+    regels.push({ tekst: `${optieOmschrijving(o, panelen)}, 1× p/jr`, inbegrepen: false });
   }
 
   return regels;
@@ -173,7 +173,7 @@ function PlanCard({
         <span className="text-lg font-semibold">/mnd</span>
       </p>
       <p className="mt-1 text-center text-xs font-medium text-navy-800/60">
-        12 gelijke bedragen · {euro(berekening.jaarTotaal)} per jaar
+        12 gelijke bedragen · {euro(berekening.jaarTotaal)} p/jr
       </p>
 
       <hr className="my-5 border-t border-mist-200" />
@@ -327,7 +327,7 @@ function Rekentool({
       {/* Extra werk */}
       <fieldset className="mt-7">
         <legend className="text-sm font-semibold text-navy-900">
-          Extra werk, 1× per jaar
+          Extra werk, 1× p/jr
         </legend>
         <div className="mt-3 grid gap-2">
           {OPTIES.map((o) => (
