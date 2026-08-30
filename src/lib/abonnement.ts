@@ -16,7 +16,12 @@ export const TARIEVEN = {
   minutenPerRaamBuiten: 1.67,
   /** Binnen kost per raam ongeveer evenveel: geen ladder, wel spullen verzetten. */
   minutenPerRaamBinnen: 1.67,
-  /** Onder dit bedrag rijden we niet uit. */
+  /**
+   * Onder dit bedrag rijden we niet uit. Gevolg: bij ongeveer 18 ramen of
+   * minder komt iedereen op dit bedrag uit, dus een appartement en een
+   * tussenwoning kosten op de standaardinstelling evenveel. Dat is een
+   * bewuste keuze; de bodem weegt zwaarder dan het verschil daaronder.
+   */
   minimumPerBeurt: 30,
   /** Prijs per zonnepaneel, vanaf het aantal waarop het minimum wordt gehaald. */
   prijsPerZonnepaneel: 2.5,
@@ -147,14 +152,22 @@ export type Berekening = {
 
 const prijsPerMinuut = (uurtarief: number) => uurtarief / 60;
 
-/** Prijs van één wasbeurt buiten: opstart plus de ramen, met het minimum als bodem. */
-export function prijsPerBeurt(ramen: number): number {
-  const minuten = TARIEVEN.opstartMinuten + ramen * TARIEVEN.minutenPerRaamBuiten;
+/**
+ * Prijs van één wasbeurt buiten: opstart plus de ramen, met het minimum als
+ * bodem. De factor van het woningtype zit op de ramen en niet op de opstart:
+ * aanrijden en opbouwen kost overal evenveel.
+ */
+export function prijsPerBeurt(ramen: number, factor = 1): number {
+  const minuten =
+    TARIEVEN.opstartMinuten + ramen * TARIEVEN.minutenPerRaamBuiten * factor;
   const prijs = minuten * prijsPerMinuut(TARIEVEN.uurtariefAbonnement);
   return Math.max(TARIEVEN.minimumPerBeurt, prijs);
 }
 
-/** Meerprijs voor de binnenzijde tijdens een beurt: geen extra opstart, alleen ramen. */
+/**
+ * Meerprijs voor de binnenzijde tijdens een beurt: geen extra opstart, alleen
+ * ramen. Hier telt het woningtype niet mee: binnen sta je overal op de vloer.
+ */
 export function binnenMeerprijs(ramen: number): number {
   return ramen * TARIEVEN.minutenPerRaamBinnen * prijsPerMinuut(TARIEVEN.uurtariefAbonnement);
 }
@@ -174,8 +187,8 @@ export function optieOmschrijving(optie: Optie, panelen: number): string {
 }
 
 export function berekenPakket(pakket: Pakket, invoer: Invoer): Berekening {
-  const { ramen, panelen, keuze } = invoer;
-  const beurt = prijsPerBeurt(ramen);
+  const { woningtype, ramen, panelen, keuze } = invoer;
+  const beurt = prijsPerBeurt(ramen, woningFactor(woningtype));
   const binnen = binnenMeerprijs(ramen);
 
   // Opties die het pakket zelf al bevat rekenen we altijd mee, ook als de klant
@@ -202,15 +215,30 @@ export function berekenPakket(pakket: Pakket, invoer: Invoer): Berekening {
   };
 }
 
-export type Woningtype = { label: string; ramen: number };
+export type Woningtype = {
+  label: string;
+  ramen: number;
+  /**
+   * Wat een raam bij dit woningtype aan werk kost, ten opzichte van een
+   * tussenwoning. Bij een appartement sta je vlak bij het glas en is alles
+   * vanaf één plek bereikbaar; hoe vrijstaander het huis, hoe vaker de ladder
+   * verzet moet worden en hoe meer je om het pand heen loopt.
+   */
+  factor: number;
+};
 
 // Startpunten zodat niemand eerst zijn hele huis hoeft te tellen.
 export const WONINGTYPES: Woningtype[] = [
-  { label: "Appartement", ramen: 8 },
-  { label: "Tussenwoning", ramen: 14 },
-  { label: "Hoek- of 2-onder-1-kap", ramen: 20 },
-  { label: "Vrijstaand", ramen: 28 },
+  { label: "Appartement", ramen: 8, factor: 0.9 },
+  { label: "Tussenwoning", ramen: 14, factor: 1 },
+  { label: "Hoek- of 2-onder-1-kap", ramen: 20, factor: 1.15 },
+  { label: "Vrijstaand", ramen: 28, factor: 1.3 },
 ];
+
+/** De factor bij een woningtype; onbekend type telt als tussenwoning. */
+export function woningFactor(woningtype: string): number {
+  return WONINGTYPES.find((w) => w.label === woningtype)?.factor ?? 1;
+}
 
 export const WONINGTYPE_STANDAARD = "Tussenwoning";
 

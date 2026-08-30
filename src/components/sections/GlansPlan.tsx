@@ -17,6 +17,7 @@ import {
   WONINGTYPE_STANDAARD,
   WONINGTYPES,
   ZONNEPANELEN,
+  woningFactor,
   berekenPakket,
   berekeningSamenvatting,
   euro,
@@ -274,7 +275,7 @@ function Rekentool({
           </label>
           <span className="text-sm font-medium text-navy-800/70">
             <b className="text-base font-bold text-navy-900">{ramen}</b> ramen ·{" "}
-            {euro(prijsPerBeurt(ramen))} per wasbeurt
+            {euro(prijsPerBeurt(ramen, woningFactor(woningtype)))} per wasbeurt
           </span>
         </div>
         <input
