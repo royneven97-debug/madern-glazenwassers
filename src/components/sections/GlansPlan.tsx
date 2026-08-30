@@ -39,7 +39,7 @@ const voordelen = [
     kop: `€${TARIEVEN.uurtariefAbonnement} i.p.v. €${TARIEVEN.uurtariefLos}`,
     uitleg: "per geraamd arbeidsuur",
   },
-  { kop: "25% voordeel", uitleg: "op de arbeidscomponent" },
+  { kop: "Geen omkijken meer", uitleg: "wij plannen het in" },
   { kop: "12 gelijke bedragen", uitleg: "automatisch per maand" },
 ];
 
