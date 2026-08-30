@@ -375,12 +375,14 @@ function PrijsBalk({
       }`}
     >
       <div className="border-t border-white/10 bg-navy-900/95 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] sm:gap-5 sm:px-6 sm:py-3">
-          <p className="hidden shrink-0 text-[11px] font-bold uppercase tracking-[0.14em] text-white/55 lg:block">
-            Uw indicatie
-          </p>
-
-          <div className="flex flex-1 items-stretch justify-center gap-2 sm:gap-3">
+        <div className="mx-auto flex max-w-6xl items-center justify-center px-4 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] sm:px-6 sm:py-3">
+          {/* De drie kaarten zijn even breed en staan als groep gecentreerd, zodat
+              Zilver precies in het midden van het scherm valt. Het label hangt er
+              absoluut naast en verschuift die centrering dus niet. */}
+          <div className="relative flex w-full max-w-md items-stretch justify-center gap-2 sm:max-w-lg sm:gap-3">
+            <p className="absolute right-full top-1/2 hidden -translate-y-1/2 whitespace-nowrap pr-5 text-[11px] font-bold uppercase tracking-[0.14em] text-white/55 lg:block">
+              Uw indicatie
+            </p>
             {berekeningen.map((b) => {
               const uitgelicht = b.pakket.id === "zilver";
               return (
@@ -390,7 +392,7 @@ function PrijsBalk({
                     berekeningSamenvatting(b, invoer),
                   )}`}
                   tabIndex={zichtbaar ? undefined : -1}
-                  className={`flex flex-1 flex-col items-center rounded-xl px-3 py-1.5 transition-colors sm:flex-none sm:min-w-[7.5rem] ${
+                  className={`flex flex-1 basis-0 flex-col items-center rounded-xl px-2 py-1.5 transition-colors sm:px-3 ${
                     uitgelicht
                       ? "bg-water-600 hover:bg-water-500"
                       : "hover:bg-white/10"
@@ -411,10 +413,6 @@ function PrijsBalk({
               );
             })}
           </div>
-
-          <span className="hidden shrink-0 text-xs text-white/55 lg:block">
-            per maand, indicatie
-          </span>
         </div>
       </div>
     </div>
