@@ -54,7 +54,7 @@ export default function BlogPage() {
                 </div>
               )}
               <div className="flex flex-1 flex-col p-6">
-                <p className="text-xs font-medium text-navy-800/55">{formatDate(a.datePublished)}</p>
+                <p className="text-xs font-medium text-navy-800/70">{formatDate(a.datePublished)}</p>
                 <h2 className="mt-2 text-xl font-bold text-navy-900 group-hover:text-water-600">
                   {a.title}
                 </h2>

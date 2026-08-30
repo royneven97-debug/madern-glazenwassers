@@ -160,7 +160,7 @@ function PlanCard({
       <span className="absolute left-0 bottom-7 top-7 w-[7px] rounded-r-md bg-[var(--accent)]" />
 
       <h3 className="text-center text-xl font-bold text-navy-900">{plan.naam}</h3>
-      <span className="mx-auto mt-2 w-fit rounded-full bg-mist-100 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-navy-900">
+      <span className="mx-auto mt-2 w-fit rounded-full bg-mist-100 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-navy-900">
         {plan.tag}
       </span>
 
@@ -173,13 +173,13 @@ function PlanCard({
         <Bedrag waarde={berekening.perMaand} />
         <span className="text-lg font-semibold">/mnd</span>
       </p>
-      <p className="mt-1 text-center text-xs font-medium text-navy-800/60">
+      <p className="mt-1 text-center text-xs font-medium text-navy-800/70">
         12 gelijke bedragen · {euro(berekening.jaarTotaal)} p/jr
       </p>
 
       <hr className="my-5 border-t border-mist-200" />
 
-      <p className="mb-4 text-center text-[11px] font-semibold uppercase tracking-[0.14em] text-navy-800/60">
+      <p className="mb-4 text-center text-[12px] font-semibold uppercase tracking-[0.14em] text-navy-800/70">
         Inbegrepen
       </p>
       <ul className="mb-7 flex flex-col gap-3">
@@ -194,7 +194,7 @@ function PlanCard({
             <span>
               {r.tekst}
               {r.inbegrepen && (
-                <span className="ml-1.5 whitespace-nowrap rounded-full bg-water-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-water-700">
+                <span className="ml-1.5 whitespace-nowrap rounded-full bg-water-50 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-water-700">
                   zit erin
                 </span>
               )}
@@ -288,7 +288,7 @@ function Rekentool({
           onChange={(e) => setRamen(Number(e.target.value))}
           className="mt-3 w-full accent-water-600"
         />
-        <p className="mt-2 text-xs text-navy-800/60">
+        <p className="mt-2 text-xs text-navy-800/70">
           Ramen tot aan de grond tellen als twee ramen. Weet u het niet precies?
           Een ruwe schatting is genoeg.
         </p>
@@ -317,7 +317,7 @@ function Rekentool({
             onChange={(e) => setPanelen(Number(e.target.value))}
             className="mt-3 w-full accent-water-600"
           />
-          <p className="mt-2 text-xs text-navy-800/60">
+          <p className="mt-2 text-xs text-navy-800/70">
             We reinigen de panelen alleen tijdens een reguliere wasbeurt. Tot{" "}
             {TARIEVEN.minimumZonnepanelen / TARIEVEN.prijsPerZonnepaneel} panelen
             geldt een minimum van {euro(TARIEVEN.minimumZonnepanelen)}.
@@ -347,7 +347,7 @@ function Rekentool({
                 className="h-4 w-4 shrink-0 accent-water-600"
               />
               <span className="flex-1">{o.label}</span>
-              <span className="shrink-0 text-xs font-semibold text-navy-800/60">
+              <span className="shrink-0 text-xs font-semibold text-navy-800/70">
                 +{euro(optiePrijs(o, panelen))}
               </span>
             </label>
@@ -384,7 +384,7 @@ function PrijsBalk({
               Zilver precies in het midden van het scherm valt. Het label hangt er
               absoluut naast en verschuift die centrering dus niet. */}
           <div className="relative flex w-full max-w-md items-stretch justify-center gap-2 sm:max-w-lg sm:gap-3">
-            <p className="absolute right-full top-1/2 hidden -translate-y-1/2 whitespace-nowrap pr-5 text-[11px] font-bold uppercase tracking-[0.14em] text-white/55 lg:block">
+            <p className="absolute right-full top-1/2 hidden -translate-y-1/2 whitespace-nowrap pr-5 text-[12px] font-bold uppercase tracking-[0.14em] text-white/55 lg:block">
               Uw indicatie
             </p>
             {berekeningen.map((b) => {
@@ -402,7 +402,7 @@ function PrijsBalk({
                       : "hover:bg-white/10"
                   }`}
                 >
-                  <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/70">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/70">
                     {b.pakket.naam}
                   </span>
                   <span
@@ -411,7 +411,7 @@ function PrijsBalk({
                   >
                     ±&nbsp;
                     <Bedrag waarde={b.perMaand} />
-                    <span className="text-[11px] font-semibold text-white/70">/mnd</span>
+                    <span className="text-[12px] font-semibold text-white/70">/mnd</span>
                   </span>
                 </Link>
               );
@@ -500,7 +500,7 @@ export function GlansPlan() {
           {/* Zilver op een podium: blauwe lijst met een glansveeg eroverheen */}
           <div className="relative isolate overflow-hidden rounded-[2rem] bg-gradient-to-br from-water-500 via-water-600 to-water-800 p-3.5 shadow-2xl shadow-navy-900/40">
             <span aria-hidden className="animate-glans pointer-events-none absolute -bottom-1/4 -top-1/4 left-0 z-20 w-[42%] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-            <p className="mb-3 mt-0.5 text-center text-[11px] font-bold uppercase tracking-[0.16em] text-white">
+            <p className="mb-3 mt-0.5 text-center text-[12px] font-bold uppercase tracking-[0.16em] text-white">
               Meest gekozen
             </p>
             <PlanCard berekening={zilver} invoer={invoer} featured />
@@ -518,7 +518,7 @@ export function GlansPlan() {
           {voordelen.map((v) => (
             <div key={v.kop}>
               <b className="block font-bold text-navy-900">{v.kop}</b>
-              <span className="text-xs font-medium text-navy-800/60">{v.uitleg}</span>
+              <span className="text-xs font-medium text-navy-800/70">{v.uitleg}</span>
             </div>
           ))}
         </div>

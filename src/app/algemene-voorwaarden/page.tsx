@@ -68,7 +68,7 @@ export default function AlgemeneVoorwaardenPage() {
         <h1 className="text-balance text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
           Algemene voorwaarden
         </h1>
-        <p className="mt-3 text-sm text-navy-800/55">Versie december 2020</p>
+        <p className="mt-3 text-sm text-navy-800/70">Versie december 2020</p>
 
         <div className="mt-8 space-y-8 text-pretty leading-relaxed text-navy-800/85">
           <p>

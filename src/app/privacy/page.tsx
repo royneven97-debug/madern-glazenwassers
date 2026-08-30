@@ -25,7 +25,7 @@ export default function PrivacyPage() {
         <h1 className="text-balance text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
           Privacybeleid
         </h1>
-        <p className="mt-3 text-sm text-navy-800/55">Laatst bijgewerkt: {updated}</p>
+        <p className="mt-3 text-sm text-navy-800/70">Laatst bijgewerkt: {updated}</p>
 
         <div className="mt-8 space-y-8 text-pretty leading-relaxed text-navy-800/85">
           <div>

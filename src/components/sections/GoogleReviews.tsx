@@ -78,7 +78,7 @@ function ReviewCard({ review }: { review: ReactGoogleReview }) {
         )}
         <div className="min-w-0">
           <p className="truncate font-semibold text-navy-900">{reviewer.displayName}</p>
-          <p className="text-xs text-navy-800/55">{relativeDateNL(createTime)}</p>
+          <p className="text-xs text-navy-800/70">{relativeDateNL(createTime)}</p>
         </div>
         <GoogleG />
       </div>

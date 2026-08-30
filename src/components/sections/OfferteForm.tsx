@@ -128,7 +128,7 @@ export function OfferteForm() {
         {status === "sending" ? "Versturen…" : "Verstuur offerteaanvraag"}
       </button>
 
-      <p className="text-xs text-navy-800/60">
+      <p className="text-xs text-navy-800/70">
         Door dit formulier te versturen gaat u akkoord met ons{" "}
         <Link href="/privacy" className="underline hover:text-navy-900">privacybeleid</Link>. We
         gebruiken uw gegevens alleen om op uw aanvraag te reageren. Op onze

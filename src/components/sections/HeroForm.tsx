@@ -78,7 +78,7 @@ export function HeroForm() {
         >
           {status === "sending" ? "Versturen…" : "Verstuur aanvraag"}
         </button>
-        <p className="text-center text-[11px] leading-tight text-navy-800/55">
+        <p className="text-center text-[12px] leading-tight text-navy-800/70">
           Door te versturen gaat u akkoord met ons{" "}
           <Link href="/privacy" className="underline hover:text-navy-900">privacybeleid</Link>.
           Op onze werkzaamheden zijn onze{" "}

@@ -110,7 +110,7 @@ export function LeadForm({ title, dienst, defaultPlaats = "Apeldoorn" }: Props) 
               </a>
             </div>
 
-            <p className="text-center text-xs text-navy-800/55">
+            <p className="text-center text-xs text-navy-800/70">
               Door te versturen gaat u akkoord met ons{" "}
               <Link href="/privacy" className="underline hover:text-navy-900">privacybeleid</Link>.
               Op onze werkzaamheden zijn onze{" "}

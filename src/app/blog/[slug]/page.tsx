@@ -70,7 +70,7 @@ export default async function BlogArticlePage({
       />
 
       <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-        <p className="text-sm font-medium text-navy-800/55">{formatDate(a.datePublished)}</p>
+        <p className="text-sm font-medium text-navy-800/70">{formatDate(a.datePublished)}</p>
         <h1 className="mt-2 text-balance text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
           {a.title}
         </h1>
@@ -102,7 +102,7 @@ export default async function BlogArticlePage({
           ))}
         </div>
 
-        <p className="mt-10 text-sm text-navy-800/60">
+        <p className="mt-10 text-sm text-navy-800/70">
           Geschreven door {siteConfig.founder}, oprichter van Madern Glazenwassers in Apeldoorn.
         </p>
 

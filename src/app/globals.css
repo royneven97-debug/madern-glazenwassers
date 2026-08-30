@@ -45,6 +45,17 @@
   --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 
   --radius-card: 1rem;
+
+  /*
+    De kleine tekst stond op 12 en 14px en las net te krap. Eén stap groter,
+    met de regelhoogte mee zodat de regels niet dichter op elkaar komen te
+    staan. Bewust hier en niet via de root font-size: de spacing van Tailwind
+    rekent ook in rem, dus daarmee zou de hele lay-out mee opschalen.
+  */
+  --text-xs: 0.8125rem; /* 13px */
+  --text-xs--line-height: 1.125rem;
+  --text-sm: 0.9375rem; /* 15px */
+  --text-sm--line-height: 1.375rem;
 }
 
 * {
