@@ -131,7 +131,12 @@ export function OfferteForm() {
       <p className="text-xs text-navy-800/60">
         Door dit formulier te versturen gaat u akkoord met ons{" "}
         <Link href="/privacy" className="underline hover:text-navy-900">privacybeleid</Link>. We
-        gebruiken uw gegevens alleen om op uw aanvraag te reageren.
+        gebruiken uw gegevens alleen om op uw aanvraag te reageren. Op onze
+        werkzaamheden zijn onze{" "}
+        <Link href="/algemene-voorwaarden" className="underline hover:text-navy-900">
+          algemene voorwaarden
+        </Link>{" "}
+        van toepassing.
       </p>
     </form>
   );

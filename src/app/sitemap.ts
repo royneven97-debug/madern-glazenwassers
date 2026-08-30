@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/blog", priority: 0.7 },
     { path: "/werken-bij", priority: 0.6 },
     { path: "/privacy", priority: 0.3 },
+    { path: "/algemene-voorwaarden", priority: 0.3 },
   ];
 
   return [

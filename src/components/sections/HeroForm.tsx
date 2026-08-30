@@ -81,6 +81,11 @@ export function HeroForm() {
         <p className="text-center text-[11px] leading-tight text-navy-800/55">
           Door te versturen gaat u akkoord met ons{" "}
           <Link href="/privacy" className="underline hover:text-navy-900">privacybeleid</Link>.
+          Op onze werkzaamheden zijn onze{" "}
+          <Link href="/algemene-voorwaarden" className="underline hover:text-navy-900">
+            algemene voorwaarden
+          </Link>{" "}
+          van toepassing.
         </p>
       </form>
     </div>

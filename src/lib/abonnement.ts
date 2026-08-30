@@ -71,7 +71,7 @@ export const OPTIES: Optie[] = [
   ZONNEPANELEN,
   { key: "schuifwanden", label: "Veranda schuifwanden", prijs: 30, perJaar: 1 },
   { key: "verandadak", label: "Veranda dak, binnen én buiten", prijs: 30, perJaar: 1 },
-  { key: "houtwerk", label: "Houtwerk van het huis", prijs: 200, perJaar: 1 },
+  { key: "houtwerk", label: "Houtwerk van het huis", prijs: 300, perJaar: 1 },
   { key: "goten", label: "Goten legen", prijs: 25, perJaar: 1 },
 ];
 

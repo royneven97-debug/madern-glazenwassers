@@ -71,6 +71,7 @@ export function Footer() {
             <li><Link href="/offerte" className="text-mist-200/80 hover:text-white">Offerte aanvragen</Link></li>
             <li><Link href="/contact" className="text-mist-200/80 hover:text-white">Contact</Link></li>
             <li><Link href="/privacy" className="text-mist-200/80 hover:text-white">Privacybeleid</Link></li>
+            <li><Link href="/algemene-voorwaarden" className="text-mist-200/80 hover:text-white">Algemene voorwaarden</Link></li>
           </ul>
           <p className="mt-4 text-xs text-mist-200/60">
             {siteConfig.openingHoursHuman}
