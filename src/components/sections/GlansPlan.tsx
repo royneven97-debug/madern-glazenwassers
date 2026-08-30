@@ -289,8 +289,8 @@ function Rekentool({
           className="mt-3 w-full accent-water-600"
         />
         <p className="mt-2 text-xs text-navy-800/60">
-          Tel elk raam apart, ook de kleine. Een schuifpui telt als twee ramen. Weet
-          u het niet precies? Een ruwe schatting is genoeg.
+          Ramen tot aan de grond tellen als twee ramen. Weet u het niet precies?
+          Een ruwe schatting is genoeg.
         </p>
       </div>
 
