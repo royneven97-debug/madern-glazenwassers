@@ -90,7 +90,7 @@ export const PAKKETTEN: Pakket[] = [
     beurtenPerJaar: 4,
     binnenPerJaar: 0,
     inbegrepen: [],
-    features: ["Kozijnen bij iedere beurt afnemen"],
+    features: ["Kozijnen bij iedere beurt afgenomen"],
   },
   {
     id: "zilver",
