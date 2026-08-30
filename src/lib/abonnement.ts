@@ -18,11 +18,14 @@ export const TARIEVEN = {
   minutenPerRaamBinnen: 1.67,
   /** Onder dit bedrag rijden we niet uit. */
   minimumPerBeurt: 30,
-  /**
-   * Prijs per zonnepaneel. Geen minimum: we reinigen de panelen alleen tijdens
-   * een reguliere wasbeurt, dus er komt geen extra voorrijmoment bij.
-   */
+  /** Prijs per zonnepaneel, vanaf het aantal waarop het minimum wordt gehaald. */
   prijsPerZonnepaneel: 2.5,
+  /**
+   * Bodembedrag voor het reinigen van de panelen. Ook voor een handvol panelen
+   * moeten de spullen erbij worden gepakt; onder dit bedrag doen we het niet.
+   * Bij €2,50 per paneel gaat de prijs dus pas vanaf 10 panelen omhoog.
+   */
+  minimumZonnepanelen: 25,
 } as const;
 
 export type OptieKey =
@@ -39,17 +42,22 @@ export type Optie = {
   prijs?: number;
   /** Of een prijs per stuk, waarbij het aantal uit de rekentool komt. */
   prijsPerStuk?: number;
+  /** Bodembedrag bij een prijs per stuk: onder dit bedrag rijden we niet uit. */
+  minimum?: number;
   /** Alle opties rekenen we één keer per jaar. */
   perJaar: number;
 };
 
+export const ZONNEPANELEN: Optie = {
+  key: "zonnepanelen",
+  label: "Zonnepanelen reinigen",
+  prijsPerStuk: TARIEVEN.prijsPerZonnepaneel,
+  minimum: TARIEVEN.minimumZonnepanelen,
+  perJaar: 1,
+};
+
 export const OPTIES: Optie[] = [
-  {
-    key: "zonnepanelen",
-    label: "Zonnepanelen reinigen",
-    prijsPerStuk: TARIEVEN.prijsPerZonnepaneel,
-    perJaar: 1,
-  },
+  ZONNEPANELEN,
   { key: "schuifwanden", label: "Veranda schuifwanden", prijs: 30, perJaar: 1 },
   { key: "verandadak", label: "Veranda dak, binnen én buiten", prijs: 30, perJaar: 1 },
   { key: "houtwerk", label: "Houtwerk van het huis", prijs: 200, perJaar: 1 },
@@ -92,7 +100,7 @@ export const PAKKETTEN: Pakket[] = [
     beurtenPerJaar: 6,
     binnenPerJaar: 1,
     inbegrepen: [],
-    features: ["Raamomlijsting intensief reinigen"],
+    features: ["Kozijnen intensief gereinigd"],
   },
   {
     id: "goud",
@@ -153,7 +161,9 @@ export function binnenMeerprijs(ramen: number): number {
 
 /** Wat een optie per keer kost; bij zonnepanelen hangt dat van het aantal af. */
 export function optiePrijs(optie: Optie, panelen: number): number {
-  if (optie.prijsPerStuk !== undefined) return optie.prijsPerStuk * panelen;
+  if (optie.prijsPerStuk !== undefined) {
+    return Math.max(optie.minimum ?? 0, optie.prijsPerStuk * panelen);
+  }
   return optie.prijs ?? 0;
 }
 

@@ -16,6 +16,7 @@ import {
   TARIEVEN,
   WONINGTYPE_STANDAARD,
   WONINGTYPES,
+  ZONNEPANELEN,
   berekenPakket,
   berekeningSamenvatting,
   euro,
@@ -103,13 +104,13 @@ function Bedrag({ waarde, className }: { waarde: number; className?: string }) {
 function kaartRegels(b: Berekening, panelen: number): { tekst: string; inbegrepen: boolean }[] {
   const p = b.pakket;
   const regels = [
-    { tekst: `${p.beurtenPerJaar}× per jaar buitenramen wassen`, inbegrepen: false },
+    { tekst: `${p.beurtenPerJaar}× per jaar buitenramen`, inbegrepen: false },
     ...p.features.map((f) => ({ tekst: f, inbegrepen: false })),
   ];
 
   if (p.binnenPerJaar > 0) {
     regels.push({
-      tekst: `${p.binnenPerJaar}× per jaar binnenramen wassen`,
+      tekst: `${p.binnenPerJaar}× per jaar binnenramen`,
       inbegrepen: false,
     });
   }
@@ -302,7 +303,7 @@ function Rekentool({
             </label>
             <span className="text-sm font-medium text-navy-800/70">
               <b className="text-base font-bold text-navy-900">{panelen}</b> panelen ·{" "}
-              {euro(panelen * TARIEVEN.prijsPerZonnepaneel)} per keer
+              {euro(optiePrijs(ZONNEPANELEN, panelen))} per keer
             </span>
           </div>
           <input
@@ -316,7 +317,9 @@ function Rekentool({
             className="mt-3 w-full accent-water-600"
           />
           <p className="mt-2 text-xs text-navy-800/60">
-            We reinigen de panelen alleen tijdens een reguliere wasbeurt.
+            We reinigen de panelen alleen tijdens een reguliere wasbeurt. Tot{" "}
+            {TARIEVEN.minimumZonnepanelen / TARIEVEN.prijsPerZonnepaneel} panelen
+            geldt een minimum van {euro(TARIEVEN.minimumZonnepanelen)}.
           </p>
         </div>
       )}
