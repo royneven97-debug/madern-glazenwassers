@@ -150,3 +150,11 @@ body {
     opacity: 0.35;
   }
 }
+
+/* De prijsbalk van het GlansPlan hangt vast onderaan het scherm en zou anders
+   de onderste regel van de footer afdekken. Op pagina's met die balk krijgt de
+   footer daarom extra ruimte onder zich. De balk is maximaal ~72px hoog; 5rem
+   plus de veilige zone van het toestel houdt de laatste regel altijd vrij. */
+body[data-prijsbalk] footer {
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+}

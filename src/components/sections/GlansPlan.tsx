@@ -445,6 +445,16 @@ export function GlansPlan() {
   const ijkpuntRef = useRef<HTMLDivElement>(null);
   const [balkZichtbaar, setBalkZichtbaar] = useState(false);
 
+  // Zolang deze pagina een prijsbalk heeft, moet de footer ruimte onder zich
+  // houden; de balk zou anders over de onderste regel heen vallen. De opmaak
+  // daarvan staat in globals.css.
+  useEffect(() => {
+    document.body.dataset.prijsbalk = "";
+    return () => {
+      delete document.body.dataset.prijsbalk;
+    };
+  }, []);
+
   useEffect(() => {
     const doel = ijkpuntRef.current;
     if (!doel) return;
