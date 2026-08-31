@@ -359,8 +359,9 @@ function Rekentool({
 }
 
 /**
- * Meelopende prijsbalk. Verschijnt zodra de rekentool in beeld komt, want dan
- * staan de kaarten erboven buiten beeld en zou je de prijs niet zien bewegen.
+ * Meelopende prijsbalk. Verschijnt zodra de kaarten voorbij gescrold zijn, want
+ * dan zou je de prijzen niet meer zien meebewegen, en blijft daarna staan tot
+ * onderaan de pagina.
  */
 function PrijsBalk({
   berekeningen,
@@ -437,15 +438,15 @@ export function GlansPlan() {
   );
   const [brons, zilver, goud] = berekeningen;
 
-  // De balk hoort pas te verschijnen als de kop "Wat kost het bij u?" bovenaan
-  // in beeld staat, en weer weg te zakken zodra de rekentool voorbij is. Als
-  // ijkpunt kijken we of de rekentool een dunne lijn vlak onder de plakkende
-  // header kruist: dat is precies de periode dat iemand met de tool bezig is.
-  const toolRef = useRef<HTMLDivElement>(null);
+  // De balk hoort te verschijnen zodra de bezoeker de drie kaarten voorbij is
+  // gescrold, en daarna gewoon te blijven staan tot onderaan de pagina. Als
+  // ijkpunt ligt er een streepje van 1px vlak onder de kaarten: zakt dat boven
+  // de plakkende header weg, dan is de balk in beeld.
+  const ijkpuntRef = useRef<HTMLDivElement>(null);
   const [balkZichtbaar, setBalkZichtbaar] = useState(false);
 
   useEffect(() => {
-    const doel = toolRef.current;
+    const doel = ijkpuntRef.current;
     if (!doel) return;
 
     let observer: IntersectionObserver | undefined;
@@ -455,10 +456,9 @@ export function GlansPlan() {
     const koppel = () => {
       observer?.disconnect();
       const headerHoogte = document.querySelector("header")?.offsetHeight ?? 88;
-      const onder = Math.max(0, window.innerHeight - headerHoogte - 1);
       observer = new IntersectionObserver(
-        ([entry]) => setBalkZichtbaar(entry.isIntersecting),
-        { rootMargin: `-${headerHoogte}px 0px -${onder}px 0px` },
+        ([entry]) => setBalkZichtbaar(entry.boundingClientRect.top <= headerHoogte),
+        { rootMargin: `-${headerHoogte}px 0px 0px 0px`, threshold: [0, 1] },
       );
       observer.observe(doel);
     };
@@ -509,9 +509,8 @@ export function GlansPlan() {
           <PlanCard berekening={goud} invoer={invoer} />
         </div>
 
-        <div ref={toolRef}>
-          <Rekentool invoer={invoer} setInvoer={setInvoer} />
-        </div>
+        <div ref={ijkpuntRef} aria-hidden className="h-px" />
+        <Rekentool invoer={invoer} setInvoer={setInvoer} />
 
         {/* Waarom een abonnement voordeliger is */}
         <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-4 rounded-2xl border border-mist-200 bg-white px-6 py-5 text-center">
