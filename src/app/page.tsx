@@ -83,9 +83,8 @@ export default function HomePage() {
               Glazenwassers in Apeldoorn.
             </p>
             <p className="mt-4 max-w-xl text-pretty text-lg text-navy-800/75">
-              Madern Glazenwassers maakt uw ramen aan binnen- én buitenkant
-              streepvrij schoon, voor woningen, kantoren en winkels. Een
-              Apeldoorns bedrijf, door Apeldoorners.
+              Wij maken uw ramen weer kristalhelder! Voor woningen, kantoren en
+              winkels. Een Apeldoorns bedrijf door Apeldoorners.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -336,7 +335,9 @@ export default function HomePage() {
           <div>
             <h2 className="text-xl font-bold text-navy-900">We zoeken glazenwassers</h2>
             <p className="mt-1 text-pretty text-navy-800/75">
-              Word jij ons nieuwe collega in Apeldoorn? Geen ervaring nodig, wij leiden je op.
+              Word jij ons nieuwe collega in Apeldoorn? Een actieve bijbaan naast
+              school of studie, vanaf 8 uur per week. Geen ervaring nodig, wij
+              leiden je op.
             </p>
           </div>
           <Button href="/werken-bij" variant="secondary" className="shrink-0">
