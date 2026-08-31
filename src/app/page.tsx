@@ -293,9 +293,14 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
         <div className="grid overflow-hidden rounded-3xl border border-mist-200 bg-white lg:grid-cols-2">
           <div className="h-72 w-full lg:h-auto lg:min-h-[320px]">
+            {/* We hebben (nog) geen pand, dus het bedrijfsprofiel heeft geen
+                adres om op in te zoomen: de kaart zou uitzoomen tot de hele
+                wereld. Daarom centreren we zelf op het werkgebied. */}
             <iframe
-              src={`https://www.google.com/maps?q=place_id:${siteConfig.reviews.googlePlaceId}&output=embed`}
-              title="Madern Glazenwassers op Google Maps"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(
+                `${primaryPlaats.name}, Nederland`,
+              )}&z=12&output=embed`}
+              title={`Werkgebied van Madern Glazenwassers rond ${primaryPlaats.name}`}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="h-full w-full border-0"
