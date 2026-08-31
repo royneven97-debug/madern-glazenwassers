@@ -211,6 +211,8 @@ export function jobPostingSchema(opts: {
   description: string;
   datePosted: string;
   validThrough?: string;
+  /** Schema.org-waarden; standaard een gewone deeltijd-/voltijdvacature. */
+  employmentType?: string[];
 }) {
   return {
     "@context": "https://schema.org",
@@ -219,7 +221,7 @@ export function jobPostingSchema(opts: {
     description: opts.description,
     datePosted: opts.datePosted,
     ...(opts.validThrough ? { validThrough: opts.validThrough } : {}),
-    employmentType: ["FULL_TIME", "PART_TIME"],
+    employmentType: opts.employmentType ?? ["FULL_TIME", "PART_TIME"],
     hiringOrganization: {
       "@type": "Organization",
       name: siteConfig.name,

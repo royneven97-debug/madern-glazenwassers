@@ -9,7 +9,7 @@ import { jobPostingSchema } from "@/lib/schema";
 export const metadata: Metadata = generatePageMetadata({
   title: "Vacature glazenwasser Apeldoorn | Werken bij Madern Glazenwassers",
   description:
-    "Word glazenwasser bij Madern in Apeldoorn. Geen ervaring nodig, wij leiden je op. Afwisselend werk buiten, een jong team en eerlijke voorwaarden. Solliciteer direct.",
+    "Bijbaan als medewerker glazenwasser in Apeldoorn e.o. Oproep-/flexcontract conform de cao, minimaal 8 uur per week, te combineren met school of studie. Geen ervaring nodig.",
   path: "/werken-bij",
 });
 
@@ -30,18 +30,29 @@ const documenten = [
   },
 ];
 
+const watDoeJe = [
+  "Ramen wassen bij particuliere en zakelijke klanten, met het telescoopsysteem of met de hand.",
+  "Zorgen voor een streeploos, representatief eindresultaat.",
+  "Vriendelijk en professioneel contact met klanten.",
+];
+
 const wieZoeken = [
+  "Je beheerst de Nederlandse taal uitstekend.",
+  "Je kunt fysiek werk aan: buiten werken, staan en reiken.",
+  "Je bent leergierig, zelfstandig en op tijd.",
+  "Je bent beschikbaar op werkdagen en/of zaterdagen, minimaal 8 uur per week, in te vullen naast school of studie.",
   "Je bent gemotiveerd, netjes en klantvriendelijk.",
-  "Je houdt van aanpakken en werkt graag buiten.",
   "Ervaring is niet nodig, wij leiden je volledig op.",
   "In het bezit van een rijbewijs B is een pré.",
 ];
 
 const watBieden = [
-  "Een jong, groeiend bedrijf met een persoonlijke sfeer.",
-  "Afwisselend werk in Apeldoorn en omgeving.",
-  "We leiden je op tot volwaardig glazenwasser.",
-  "Een eerlijk, marktconform salaris en flexibele uren.",
+  "Een oproep-/flexcontract conform de cao Schoonmaak- en Glazenwassersbedrijf.",
+  "Salaris volgens het (jeugd)minimumloon, afhankelijk van je leeftijd, met eventuele cao-toeslagen.",
+  "Flexibele werktijden die je goed kunt combineren met school of studie.",
+  "Uitzicht op meer uren of een vast contract bij goed functioneren.",
+  "Een jong, groeiend bedrijf met een persoonlijke sfeer en ruimte voor eigen inbreng.",
+  "Afwisselend werk in Apeldoorn en omgeving; we leiden je op tot volwaardig glazenwasser.",
 ];
 
 export default function WerkenBijPage() {
@@ -49,29 +60,47 @@ export default function WerkenBijPage() {
     <>
       <JsonLd
         schema={jobPostingSchema({
-          title: "Glazenwasser (m/v)",
+          title: "Medewerker glazenwasser (bijbaan)",
           description:
-            "Madern Glazenwassers in Apeldoorn zoekt nieuwe glazenwassers. Je maakt ramen, etalages en glaswerk streepvrij schoon met gezuiverd osmosewater, bij particulieren en bedrijven in Apeldoorn en omgeving. Geen ervaring nodig: wij leiden je volledig op. We bieden afwisselend werk buiten, een jong team, flexibele uren en een eerlijk salaris.",
+            "Madern Glazenwassers in Apeldoorn zoekt een medewerker glazenwasser voor een bijbaan naast school of studie. Je wast ramen bij particulieren en bedrijven in Apeldoorn en omgeving, met het telescoopsysteem of met de hand, en zorgt voor een streeploos resultaat. Geen ervaring nodig: wij leiden je volledig op. We bieden een oproep-/flexcontract conform de cao Schoonmaak- en Glazenwassersbedrijf, salaris volgens het (jeugd)minimumloon met eventuele cao-toeslagen, flexibele werktijden vanaf 8 uur per week en uitzicht op meer uren of een vast contract.",
           datePosted: "2026-07-31",
           validThrough: "2027-07-31",
+          // Een oproepcontract naast school of studie: geen voltijdbaan.
+          employmentType: ["PART_TIME", "PER_DIEM"],
         })}
       />
       <Breadcrumbs items={[{ name: "Werken bij", path: "/werken-bij" }]} />
 
       <section className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-        <p className="text-sm font-semibold text-water-600">Vacature · Apeldoorn</p>
+        <p className="text-sm font-semibold text-water-600">
+          Vacature · Oproep-/flexcontract · Apeldoorn en omgeving
+        </p>
         <h1 className="mt-2 text-balance text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
-          Word glazenwasser bij Madern
+          Medewerker glazenwasser (bijbaan)
         </h1>
         <p className="mt-5 text-pretty text-lg text-navy-800/80">
-          Madern Glazenwassers groeit, en daarom zoeken we nieuwe collega&apos;s in
-          Apeldoorn en omgeving. Lijkt het je wat om buiten te werken, elke dag een
-          zichtbaar resultaat neer te zetten en klanten blij te maken met stralend
-          schone ramen? Dan komen we graag met je in contact. Ervaring is niet
-          nodig, wij leiden je volledig op.
+          Ben jij scholier of student en zoek je een leuke, actieve bijbaan buiten
+          school of je studie om? Madern Glazenwassers zoekt een enthousiaste
+          medewerker die ons team komt versterken bij het glazenwassen van woningen
+          en bedrijfspanden in Apeldoorn en omgeving. Lijkt het je wat om buiten te
+          werken, elke dag een zichtbaar resultaat neer te zetten en klanten blij te
+          maken met stralend schone ramen? Ervaring is niet nodig, wij leiden je
+          volledig op.
         </p>
 
-        <h2 className="mt-12 text-2xl font-bold text-navy-900">Wie zoeken we?</h2>
+        <h2 className="mt-12 text-2xl font-bold text-navy-900">Wat ga je doen?</h2>
+        <ul className="mt-5 space-y-3">
+          {watDoeJe.map((item) => (
+            <li key={item} className="flex items-start gap-3 text-navy-900">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 shrink-0 text-water-500">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <h2 className="mt-12 text-2xl font-bold text-navy-900">Wat vragen we?</h2>
         <ul className="mt-5 space-y-3">
           {wieZoeken.map((item) => (
             <li key={item} className="flex items-start gap-3 text-navy-900">
@@ -142,16 +171,23 @@ export default function WerkenBijPage() {
           ))}
         </div>
 
+        <h2 className="mt-12 text-2xl font-bold text-navy-900">Werklocatie</h2>
+        <p className="mt-3 text-pretty leading-relaxed text-navy-800/85">
+          Apeldoorn en omgeving. We rijden samen vanuit Apeldoorn naar de klanten
+          in de regio.
+        </p>
+
         <h2 className="mt-12 text-2xl font-bold text-navy-900">Hoe solliciteer je?</h2>
         <p className="mt-3 text-pretty leading-relaxed text-navy-800/85">
-          Laat hieronder je gegevens achter en vertel kort iets over jezelf, dan
-          nemen we snel contact met je op. Liever direct? Bel of app ons op{" "}
-          {siteConfig.phone.display}.
+          Laat hieronder je gegevens achter en vertel kort iets over jezelf en je
+          beschikbaarheid, dan nemen we snel contact met je op. Liever direct? Bel
+          of app ons op {siteConfig.phone.display}, of mail naar{" "}
+          {siteConfig.email}.
         </p>
       </section>
 
       <LeadForm
-        title="Solliciteer als glazenwasser"
+        title="Solliciteer als medewerker glazenwasser"
         dienst="Sollicitatie glazenwasser"
       />
     </>
