@@ -14,6 +14,7 @@ const nav = [
   { href: "/werkgebied", label: "Werkgebied" },
   { href: "/over-ons", label: "Over ons" },
   { href: "/blog", label: "Blog" },
+  { href: "/werken-bij", label: "Werken bij" },
 ];
 
 // Op desktop een compactere set (Particulier/Zakelijk zitten al onder Diensten);

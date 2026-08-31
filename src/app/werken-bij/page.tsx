@@ -13,6 +13,23 @@ export const metadata: Metadata = generatePageMetadata({
   path: "/werken-bij",
 });
 
+// De twee documenten staan in public/. De vacature is de volledige tekst om
+// rustig na te lezen, de flyer is de versie die we uitdelen en ophangen.
+const documenten = [
+  {
+    href: "/vacature-glazenwasser-apeldoorn.pdf",
+    titel: "De vacature als PDF",
+    uitleg: "De volledige vacaturetekst om rustig door te lezen of te bewaren.",
+    grootte: "PDF · 150 kB",
+  },
+  {
+    href: "/vacature-glazenwasser-apeldoorn-flyer.pdf",
+    titel: "De vacatureflyer",
+    uitleg: "Ken je iemand die dit werk zou liggen? Stuur de flyer door of print hem uit.",
+    grootte: "PDF · 5 MB",
+  },
+];
+
 const wieZoeken = [
   "Je bent gemotiveerd, netjes en klantvriendelijk.",
   "Je houdt van aanpakken en werkt graag buiten.",
@@ -77,6 +94,53 @@ export default function WerkenBijPage() {
             </li>
           ))}
         </ul>
+
+        <h2 className="mt-12 text-2xl font-bold text-navy-900">
+          De vacature meenemen
+        </h2>
+        <p className="mt-3 text-pretty leading-relaxed text-navy-800/85">
+          Wil je de vacature rustig nalezen, of ken je iemand voor wie dit werk
+          is? Hieronder staan de vacature en de flyer om te openen, te bewaren of
+          door te sturen.
+        </p>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          {documenten.map((doc) => (
+            <a
+              key={doc.href}
+              href={doc.href}
+              target="_blank"
+              rel="noopener"
+              className="group flex gap-4 rounded-2xl border border-mist-200 bg-mist-50 p-5 transition-colors hover:border-water-500 hover:bg-white"
+            >
+              <svg
+                aria-hidden
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="mt-0.5 shrink-0 text-water-600"
+              >
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <path d="M14 2v6h6" />
+                <path d="M12 18v-6" />
+                <path d="m9 15 3 3 3-3" />
+              </svg>
+              <span>
+                <span className="block font-semibold text-navy-900 group-hover:text-water-600">
+                  {doc.titel}
+                </span>
+                <span className="mt-1 block text-sm text-navy-800/75">{doc.uitleg}</span>
+                <span className="mt-2 block text-xs font-semibold uppercase tracking-[0.1em] text-navy-800/55">
+                  {doc.grootte}
+                </span>
+              </span>
+            </a>
+          ))}
+        </div>
 
         <h2 className="mt-12 text-2xl font-bold text-navy-900">Hoe solliciteer je?</h2>
         <p className="mt-3 text-pretty leading-relaxed text-navy-800/85">
