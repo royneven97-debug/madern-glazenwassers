@@ -48,7 +48,9 @@ export async function submitLead(fields: LeadFields): Promise<LeadResult> {
     const res = await fetch("/api/offerte", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(fields),
+      // pagina gaat mee zodat de aanvragen-hub weet vanaf welke pagina de
+      // aanvraag kwam; zonder dit veld blijft bronPagina daar altijd leeg.
+      body: JSON.stringify({ ...fields, pagina: window.location.pathname }),
     });
     if (!res.ok) throw new Error("mislukt");
     return "email";

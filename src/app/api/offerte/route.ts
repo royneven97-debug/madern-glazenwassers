@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { siteConfig } from "@/lib/site";
+import { meldAanvraag } from "@/lib/hub";
 
 // Verstuurt de offerteaanvraag via SMTP van het eigen Google Workspace-account.
 // De mail gaat dus vanaf en naar info@madernglazenwassers.nl; geen externe
@@ -59,6 +60,7 @@ export async function POST(req: Request) {
     `Plaats: ${body.plaats || "-"}`,
     `Gewenste planning: ${body.wanneer || "-"}`,
     `Dienst: ${body.dienst || "-"}`,
+    `Aangevraagd via: ${body.pagina || body.bron || "-"}`,
     "",
     "Bericht:",
     body.bericht || "-",
@@ -72,18 +74,24 @@ export async function POST(req: Request) {
     auth: { user, pass },
   });
 
-  try {
-    await transporter.sendMail({
+  // De mail naar Madern en de melding aan de hub gaan tegelijk. De hub bewaart
+  // de aanvraag, zodat een storing bij de mail hem niet laat verdwijnen.
+  const [mail] = await Promise.allSettled([
+    transporter.sendMail({
       // Google staat alleen het eigen account als afzender toe; de naam mag vrij.
       from: `Madern Offerte <${user}>`,
       to,
       replyTo: body.email || undefined,
-      subject: `Offerteaanvraag – ${naam} (${body.plaats || "Apeldoorn"})`,
+      subject: `Offerteaanvraag - ${naam} (${body.plaats || "Apeldoorn"})`,
       text,
-    });
-    return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error("[offerte] SMTP-fout:", err);
+    }),
+    meldAanvraag({ ...body, naam, telefoon, bronPagina: body.pagina || body.bron }),
+  ]);
+
+  if (mail.status === "rejected") {
+    console.error("[offerte] SMTP-fout:", mail.reason);
     return NextResponse.json({ error: "Verzenden mislukt" }, { status: 502 });
   }
+
+  return NextResponse.json({ ok: true });
 }

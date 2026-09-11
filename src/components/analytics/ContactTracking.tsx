@@ -40,12 +40,34 @@ export function ContactTracking() {
       const soort = soortVanHref(href);
       if (!soort) return;
 
+      const pagina = window.location.pathname;
+
       track("contact_klik", {
         soort,
         // Waar op de site is geklikt. Levert het "vanaf welke pagina"-overzicht
         // in het weekrapport op.
-        pagina: window.location.pathname,
+        pagina,
       });
+
+      // Ook naar de aanvragen-hub, want daar staat de historie van alle sites
+      // bij elkaar. Via de eigen /api/klik zodat de projectsleutel op de server
+      // blijft; sendBeacon omdat de browser meteen daarna wegnavigeert.
+      const body = JSON.stringify({ soort: soort.toUpperCase(), pagina });
+      try {
+        const verstuurd =
+          typeof navigator.sendBeacon === "function" &&
+          navigator.sendBeacon("/api/klik", new Blob([body], { type: "application/json" }));
+        if (!verstuurd) {
+          void fetch("/api/klik", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body,
+            keepalive: true,
+          });
+        }
+      } catch {
+        // Meten mag nooit in de weg zitten van de klik zelf.
+      }
     }
 
     // Capture-fase: de klik wordt geteld ook als een handler onderweg
