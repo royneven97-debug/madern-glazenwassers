@@ -60,6 +60,7 @@ export async function POST(req: Request) {
     `Plaats: ${body.plaats || "-"}`,
     `Gewenste planning: ${body.wanneer || "-"}`,
     `Dienst: ${body.dienst || "-"}`,
+    `Aangevraagd via: ${body.pagina || body.bron || "-"}`,
     "",
     "Bericht:",
     body.bericht || "-",
