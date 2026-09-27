@@ -8,6 +8,9 @@ type PageMetaInput = {
   path?: string;
   // Indexeerbaar? Standaard true.
   index?: boolean;
+  // Merk-suffix toevoegen? Standaard true. Uit op de homepage: daar vult het
+  // homepage-recept de 60 tekens al en zou het suffix de title laten afkappen.
+  brandSuffix?: boolean;
 };
 
 /**
@@ -19,9 +22,10 @@ export function generatePageMetadata({
   description,
   path = "",
   index = true,
+  brandSuffix = true,
 }: PageMetaInput): Metadata {
   const canonical = `${siteConfig.url}${path}`;
-  const fullTitle = title.includes("Madern")
+  const fullTitle = !brandSuffix || title.includes("Madern")
     ? title
     : `${title} | ${siteConfig.name}`;
 

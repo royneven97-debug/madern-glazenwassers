@@ -17,6 +17,7 @@ export const metadata: Metadata = generatePageMetadata({
   title: "Beste Glazenwasser Apeldoorn | Ramen, Zonnepanelen & Gevel",
   description: siteConfig.shortDescription,
   path: "/",
+  brandSuffix: false,
 });
 
 const werkFotos = [
