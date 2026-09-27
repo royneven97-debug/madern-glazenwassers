@@ -13,8 +13,8 @@ import { HeroForm } from "@/components/sections/HeroForm";
 import { GoogleReviews } from "@/components/sections/GoogleReviews";
 
 export const metadata: Metadata = generatePageMetadata({
-  title:
-    "Glazenwasser Apeldoorn nodig? - Madern Glazenwassers voor streepvrije glasbewassing, zonnepanelen schoonmaken, gevelreiniging en dakgoot schoonmaken bij u in de buurt",
+  // Homepage-recept (27 sep 2026): Beste + categorie + plaats + diensten, max. 60 tekens.
+  title: "Beste Glazenwasser Apeldoorn | Ramen, Zonnepanelen & Gevel",
   description: siteConfig.shortDescription,
   path: "/",
 });
@@ -76,10 +76,10 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
           <div>
             <h1 className="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-navy-900 sm:text-5xl lg:text-6xl">
-              Madern <span className="text-accent-500">Glazenwassers</span>
+              Glazenwasser <span className="text-accent-500">Apeldoorn</span>
             </h1>
             <p className="mt-4 text-pretty text-xl font-semibold text-water-700">
-              Glazenwassers in Apeldoorn.
+              Madern Glazenwassers
             </p>
             <p className="mt-4 max-w-xl text-pretty text-lg text-navy-800/75">
               Madern Glazenwassers maakt uw ramen aan binnen- én buitenkant
@@ -124,7 +124,8 @@ export default function HomePage() {
       {/* Diensten */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-navy-900">Onze diensten</h2>
+          {/* Geen kop: de H2's op de homepage zijn de diensten zelf. */}
+          <p className="text-3xl font-bold text-navy-900">Onze diensten</p>
           <p className="mt-3 text-pretty text-navy-800/75">
             Van uw woonkamerramen tot een compleet bedrijfspand, Madern levert
             vakwerk met een persoonlijke aanpak.
@@ -137,9 +138,9 @@ export default function HomePage() {
               href={`/${s.slug}`}
               className="group rounded-2xl border border-mist-200 bg-white p-6 transition-shadow hover:shadow-lg hover:shadow-navy-900/5"
             >
-              <h3 className="text-xl font-semibold text-navy-900 group-hover:text-water-600">
+              <h2 className="text-xl font-semibold text-navy-900 group-hover:text-water-600">
                 {s.name}
-              </h3>
+              </h2>
               <p className="mt-2 text-pretty text-navy-800/75">{s.tagline}</p>
               <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-water-600">
                 Meer over deze dienst

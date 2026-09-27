@@ -22,7 +22,12 @@ export function Footer() {
             Professionele glazenwasser in Apeldoorn. Streepvrij schone ramen met
             gezuiverd osmosewater, voor particulier en zakelijk.
           </p>
+          {/* NAP: exact zoals in het Bedrijfsprofiel. Geen straat, want het adres is afgeschermd. */}
           <p className="mt-4 text-sm">
+            <span className="font-semibold text-white">{siteConfig.name}</span>
+            <br />
+            <span className="text-mist-200/80">{siteConfig.address.city}</span>
+            <br />
             <a href={siteConfig.phone.href} className="font-semibold text-white hover:text-water-300">
               {siteConfig.phone.display}
             </a>
