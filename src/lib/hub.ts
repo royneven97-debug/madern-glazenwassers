@@ -44,6 +44,10 @@ export function meldAanvraag(aanvraag: Aanvraag): Promise<boolean> {
 }
 
 /** Een klik op bellen, WhatsApp of e-mail. */
-export function meldKlik(soort: "BELLEN" | "WHATSAPP" | "EMAIL", pagina?: string): Promise<boolean> {
-  return stuur("/api/event", { soort, pagina });
+export function meldKlik(
+  soort: "BELLEN" | "WHATSAPP" | "EMAIL",
+  pagina?: string,
+  herkomst?: { bron?: string; landing?: string },
+): Promise<boolean> {
+  return stuur("/api/event", { soort, pagina, ...herkomst });
 }

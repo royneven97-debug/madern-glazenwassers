@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { herkomst, onthoudHerkomst } from "./herkomst";
 import { Analytics, track } from "@vercel/analytics/react";
 
 /**
@@ -26,6 +27,8 @@ function soortVanHref(href: string): ContactSoort | null {
 
 export function ContactTracking() {
   useEffect(() => {
+    onthoudHerkomst();
+
     function onClick(e: MouseEvent) {
       const target = e.target;
       if (!(target instanceof Element)) return;
@@ -52,7 +55,7 @@ export function ContactTracking() {
       // Ook naar de aanvragen-hub, want daar staat de historie van alle sites
       // bij elkaar. Via de eigen /api/klik zodat de projectsleutel op de server
       // blijft; sendBeacon omdat de browser meteen daarna wegnavigeert.
-      const body = JSON.stringify({ soort: soort.toUpperCase(), pagina });
+      const body = JSON.stringify({ ...herkomst(), soort: soort.toUpperCase(), pagina });
       try {
         const verstuurd =
           typeof navigator.sendBeacon === "function" &&

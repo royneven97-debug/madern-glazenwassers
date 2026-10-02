@@ -11,7 +11,7 @@ const SOORTEN = ["BELLEN", "WHATSAPP", "EMAIL"] as const;
 type Soort = (typeof SOORTEN)[number];
 
 export async function POST(request: Request) {
-  let body: { soort?: unknown; pagina?: unknown };
+  let body: { soort?: unknown; pagina?: unknown; bron?: unknown; landing?: unknown };
   try {
     body = await request.json();
   } catch {
@@ -24,7 +24,9 @@ export async function POST(request: Request) {
   }
 
   const pagina = typeof body.pagina === "string" ? body.pagina.slice(0, 200) : undefined;
-  await meldKlik(soort as Soort, pagina);
+  const bron = typeof body.bron === "string" ? body.bron.slice(0, 100) : undefined;
+  const landing = typeof body.landing === "string" ? body.landing.slice(0, 200) : undefined;
+  await meldKlik(soort as Soort, pagina, { bron, landing });
 
   return NextResponse.json({ ok: true });
 }
