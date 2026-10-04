@@ -11,7 +11,7 @@ const founderId = `${siteConfig.url}/#founder`;
 // Echte werkfoto's. Google toont in lokale resultaten liever een foto van het
 // werk dan een logo, dus die staan hier bovenaan.
 const businessPhotos = [
-  "/images/glazenwasser-apeldoorn-aan-het-werk.jpg",
+  "/images/glazenwasser-apeldoorn-ramen-wassen-wisser.jpg",
   "/images/werk-glazenwasser-woning-apeldoorn.jpg",
   "/images/werk-glasbewassing-bedrijfspand-apeldoorn.jpg",
   "/images/werk-dakgoot-reinigen-apeldoorn.jpg",
@@ -115,7 +115,7 @@ export function founderSchema() {
     "@id": founderId,
     name: siteConfig.founder,
     jobTitle: "Oprichter en glazenwasser",
-    image: `${siteConfig.url}/michael-oprichter-glazenwasser-apeldoorn.jpg`,
+    image: `${siteConfig.url}/michael-madern-glazenwasser-apeldoorn.jpg`,
     url: `${siteConfig.url}/over-ons`,
     worksFor: { "@id": businessId },
     knowsAbout: [

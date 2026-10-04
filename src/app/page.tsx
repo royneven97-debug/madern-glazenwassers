@@ -22,6 +22,10 @@ export const metadata: Metadata = generatePageMetadata({
 
 const werkFotos = [
   {
+    src: "/images/werk-kozijnen-afnemen-glazenwasser-apeldoorn.jpg",
+    alt: "Glazenwasser van Madern neemt met een doek het kozijn af na het wassen van de ramen van een woning in Apeldoorn",
+  },
+  {
     src: "/images/werk-glazenwasser-woning-apeldoorn.jpg",
     alt: "Glazenwasser van Madern werkt vanaf een ladder met een watergevoede telescoopsteel aan de dakrand van een woning in Apeldoorn",
   },
@@ -40,10 +44,6 @@ const werkFotos = [
   {
     src: "/images/werk-glazenwasser-hoogte-apeldoorn.jpg",
     alt: "Michael van Madern Glazenwassers op hoogte bij een woning in Apeldoorn, met de bedrijfsbus en ladders op de achtergrond",
-  },
-  {
-    src: "/images/werk-zakelijk-pand-apeldoorn.jpg",
-    alt: "Zakelijk pand op een bedrijventerrein bij Apeldoorn waar Madern Glazenwassers de glasbewassing verzorgt",
   },
 ];
 
@@ -162,8 +162,8 @@ export default function HomePage() {
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="overflow-hidden rounded-3xl">
             <Image
-              src="/images/glazenwasser-apeldoorn-aan-het-werk.jpg"
-              alt="Glazenwasser Apeldoorn: watergevoede telescoopsteel van Madern tegen de glasgevel van een kantoorpand tijdens de glasbewassing"
+              src="/images/glazenwasser-apeldoorn-ramen-wassen-wisser.jpg"
+              alt="Glazenwasser Apeldoorn: Michael van Madern Glazenwassers wast met wisser en doek de ramen van een woning"
               width={900}
               height={650}
               className="h-full w-full object-cover"

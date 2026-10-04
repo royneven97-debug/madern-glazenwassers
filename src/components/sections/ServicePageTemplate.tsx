@@ -16,6 +16,7 @@ import { serviceSchema } from "@/lib/schema";
 
 // Generieke werkfoto's om de long-form tekst mee af te wisselen.
 const werkbeelden = [
+  { src: "/images/werk-kozijnen-afnemen-glazenwasser-apeldoorn.jpg", alt: "Glazenwasser van Madern neemt het kozijn af met een doek bij een woning in Apeldoorn" },
   { src: "/images/werk-glazenwasser-woning-apeldoorn.jpg", alt: "Glazenwasser aan het werk bij een woning in Apeldoorn met een watergevoede telescoopsteel op een ladder" },
   { src: "/images/werk-glazenwasser-hoogte-apeldoorn.jpg", alt: "Michael van Madern Glazenwassers werkt veilig op hoogte bij een woning in Apeldoorn" },
   { src: "/images/werk-glasbewassing-bedrijfspand-apeldoorn.jpg", alt: "Glasbewassing bij een bedrijfspand bij Apeldoorn met een watergevoede telescoopsteel" },

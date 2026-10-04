@@ -32,10 +32,10 @@ export default function OverOnsPage() {
         <div className="mt-10 grid gap-8 rounded-3xl border border-mist-200 bg-mist-50 p-6 sm:p-8 md:grid-cols-[280px_1fr] md:items-center">
           <div className="overflow-hidden rounded-2xl">
             <Image
-              src="/michael-oprichter-glazenwasser-apeldoorn.jpg"
-              alt="Michael, oprichter en glazenwasser van Madern Glazenwassers, bij een woning in Apeldoorn met de telescoopsteel en bedrijfsbus achter zich"
-              width={720}
-              height={1100}
+              src="/michael-madern-glazenwasser-apeldoorn.jpg"
+              alt="Michael, oprichter en glazenwasser van Madern Glazenwassers, wast met de wisser een raam van een woning in Apeldoorn"
+              width={1100}
+              height={1466}
               className="h-full w-full object-cover"
               priority
             />

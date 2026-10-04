@@ -10,8 +10,8 @@ export type ServiceContent = {
 export const serviceContent: Record<string, ServiceContent> = {
   "glazenwassen-particulier": {
     image: {
-      src: "/images/ramen-wassen-woning-apeldoorn.jpg",
-      alt: "Glazenwasser van Madern wast vanaf een ladder de ramen en dakrand van een woning in Apeldoorn met een watergevoede telescoopsteel",
+      src: "/images/ramen-laten-wassen-woning-apeldoorn-ladder.jpg",
+      alt: "Glazenwasser van Madern wast vanaf een ladder met wisser en doek de ramen van een woning in Apeldoorn",
     },
     sections: [
       {
