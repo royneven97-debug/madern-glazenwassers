@@ -38,16 +38,52 @@ async function stuur(pad: string, body: unknown): Promise<boolean> {
   }
 }
 
-/** Elke aanvraag, met alle velden die het formulier had. */
-export function meldAanvraag(aanvraag: Aanvraag): Promise<boolean> {
-  return stuur("/api/intake", aanvraag);
+/** Hoe het bezoek begon; zie components/herkomst.ts. */
+export type Herkomst = { bron?: string; medium?: string; campagne?: string; landing?: string };
+
+/**
+ * Leest de herkomst uit wat de browser meestuurde. Alles wat geen korte tekst
+ * is valt weg: dit komt van buiten en gaat rechtstreeks de hub in.
+ */
+export function herkomstUit(bron: unknown): Herkomst {
+  if (typeof bron !== "object" || bron === null) return {};
+  const b = bron as Record<string, unknown>;
+  const veld = (v: unknown, max: number) =>
+    typeof v === "string" && v ? v.slice(0, max) : undefined;
+  return {
+    bron: veld(b.bron, 100),
+    medium: veld(b.medium, 60),
+    campagne: veld(b.campagne, 100),
+    landing: veld(b.landing, 200),
+  };
+}
+
+/**
+ * Elke aanvraag, met alle velden die het formulier had. De herkomst gaat mee
+ * onder eigen namen, want "bron" betekent in de hub al de pagina van het
+ * formulier.
+ */
+export function meldAanvraag(aanvraag: Aanvraag, herkomst?: Herkomst): Promise<boolean> {
+  return stuur("/api/intake", {
+    ...aanvraag,
+    herkomstBron: herkomst?.bron,
+    herkomstMedium: herkomst?.medium,
+    herkomstCampagne: herkomst?.campagne,
+    herkomstLanding: herkomst?.landing,
+  });
 }
 
 /** Een klik op bellen, WhatsApp of e-mail. */
 export function meldKlik(
   soort: "BELLEN" | "WHATSAPP" | "EMAIL",
   pagina?: string,
-  herkomst?: { bron?: string; landing?: string },
+  herkomst?: Herkomst,
 ): Promise<boolean> {
   return stuur("/api/event", { soort, pagina, ...herkomst });
+}
+
+/** Het begin van een bezoek: één keer per tabblad, op de eerste pagina. */
+export function meldBezoek(herkomst: Herkomst, apparaat?: "mobiel" | "desktop"): Promise<boolean> {
+  if (!herkomst.bron) return Promise.resolve(false);
+  return stuur("/api/event", { soort: "BEZOEK", apparaat, ...herkomst });
 }

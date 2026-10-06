@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { siteConfig } from "@/lib/site";
-import { meldAanvraag } from "@/lib/hub";
+import { herkomstUit, meldAanvraag, type Herkomst } from "@/lib/hub";
 
 // Verstuurt de offerteaanvraag via SMTP van het eigen Google Workspace-account.
 // De mail gaat dus vanaf en naar info@madernglazenwassers.nl; geen externe
@@ -19,8 +19,13 @@ export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   let body: Record<string, string>;
+  let herkomst: Herkomst;
   try {
-    body = await req.json();
+    // De herkomst is het enige veld dat geen tekst is; die gaat apart naar
+    // de hub en hoort niet tussen de formuliervelden.
+    const { herkomst: ruw, ...velden } = await req.json();
+    body = velden;
+    herkomst = herkomstUit(ruw);
   } catch {
     return NextResponse.json({ error: "Ongeldige aanvraag" }, { status: 400 });
   }
@@ -85,7 +90,7 @@ export async function POST(req: Request) {
       subject: `Offerteaanvraag - ${naam} (${body.plaats || "Apeldoorn"})`,
       text,
     }),
-    meldAanvraag({ ...body, naam, telefoon, bronPagina: body.pagina || body.bron }),
+    meldAanvraag({ ...body, naam, telefoon, bronPagina: body.pagina || body.bron }, herkomst),
   ]);
 
   if (mail.status === "rejected") {

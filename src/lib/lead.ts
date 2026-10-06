@@ -2,6 +2,7 @@
 // naar de owner. De klant kan zelf apart contact opnemen via de WhatsApp-knop;
 // het formulier stuurt bewust GEEN WhatsApp namens de klant.
 import { siteConfig } from "./site";
+import { herkomst } from "@/components/analytics/herkomst";
 
 export type LeadFields = {
   naam?: string;
@@ -50,7 +51,8 @@ export async function submitLead(fields: LeadFields): Promise<LeadResult> {
       headers: { "Content-Type": "application/json" },
       // pagina gaat mee zodat de aanvragen-hub weet vanaf welke pagina de
       // aanvraag kwam; zonder dit veld blijft bronPagina daar altijd leeg.
-      body: JSON.stringify({ ...fields, pagina: window.location.pathname }),
+      // De herkomst (Google, Bedrijfsprofiel, direct) gaat alleen naar de hub.
+      body: JSON.stringify({ ...fields, pagina: window.location.pathname, herkomst: herkomst() }),
     });
     if (!res.ok) throw new Error("mislukt");
     return "email";
