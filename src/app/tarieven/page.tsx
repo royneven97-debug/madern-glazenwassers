@@ -35,7 +35,7 @@ export default function TarievenPage() {
 
       <section className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
         <h1 className="text-balance text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
-          Wat kost een glazenwasser in Apeldoorn?
+          Wat kost een glazenwasser
         </h1>
         <p className="mt-4 text-pretty text-lg text-navy-800/80">
           Elke woning en elk pand is anders, dus de exacte prijs bepalen we op

@@ -19,7 +19,7 @@ export default function WerkgebiedPage() {
       <Breadcrumbs items={[{ name: "Werkgebied", path: "/werkgebied" }]} />
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <h1 className="text-balance text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
-          Glazenwasser in Apeldoorn en omgeving
+          Werkgebied
         </h1>
         <p className="mt-4 max-w-2xl text-pretty text-lg text-navy-800/80">
           Apeldoorn is onze thuisbasis. Vanuit hier verzorgen we glasbewassing in
