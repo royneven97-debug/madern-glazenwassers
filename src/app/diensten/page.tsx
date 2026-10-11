@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { availableServices } from "@/lib/services";
-import { plaatsen, plaatsHref } from "@/lib/plaatsen";
+import { sitebredePlaatsen, plaatsHref } from "@/lib/plaatsen";
 import { siteConfig } from "@/lib/site";
 import { generatePageMetadata } from "@/lib/metadata";
 import { Button } from "@/components/ui/Button";
@@ -117,7 +117,7 @@ export default function DienstenPage() {
             adres in de hele regio, bekijk uw plaats:
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            {plaatsen.map((p) => (
+            {sitebredePlaatsen.map((p) => (
               <Link
                 key={p.slug}
                 href={plaatsHref(p)}

@@ -5,7 +5,7 @@ import type { Service } from "@/lib/services";
 import { availableServices } from "@/lib/services";
 import { getServiceContent } from "@/lib/serviceContent";
 import { siteConfig } from "@/lib/site";
-import { plaatsen, plaatsHref } from "@/lib/plaatsen";
+import { sitebredePlaatsen, plaatsHref } from "@/lib/plaatsen";
 import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Faq } from "@/components/sections/Faq";
@@ -149,13 +149,13 @@ export function ServicePageTemplate({ service }: { service: Service }) {
             {/* Werkgebied, interne links voor lokale SEO */}
             <div className="rounded-2xl border border-mist-200 bg-mist-50 p-6">
               <h2 className="text-xl font-bold text-navy-900">
-                {service.name} in Apeldoorn en omgeving
+                {service.name} in Apeldoorn, Amersfoort en omgeving
               </h2>
               <p className="mt-2 text-navy-800/80">
                 Madern is een Apeldoorns bedrijf en werkt in de hele regio. Bekijk uw plaats:
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
-                {plaatsen.map((p) => (
+                {sitebredePlaatsen.map((p) => (
                   <Link
                     key={p.slug}
                     href={plaatsHref(p)}
@@ -164,6 +164,12 @@ export function ServicePageTemplate({ service }: { service: Service }) {
                     {p.name}
                   </Link>
                 ))}
+                <Link
+                  href="/werkgebied"
+                  className="rounded-full border border-mist-200 bg-white px-3.5 py-1.5 text-sm font-medium text-water-700 hover:border-water-300"
+                >
+                  Alle plaatsen
+                </Link>
               </div>
             </div>
           </div>

@@ -270,7 +270,7 @@ export default function HomePage() {
       {/* Werkgebied */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-navy-900">Werkgebied rondom Apeldoorn</h2>
+          <h2 className="text-3xl font-bold text-navy-900">Werkgebied rondom Apeldoorn en Amersfoort</h2>
           <p className="mt-3 text-navy-800/75">
             {primaryPlaats.name} is onze thuisbasis. We werken in de hele regio:
           </p>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site";
 import { availableServices } from "@/lib/services";
-import { plaatsen, plaatsHref } from "@/lib/plaatsen";
+import { sitebredePlaatsen, plaatsHref } from "@/lib/plaatsen";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -56,13 +56,18 @@ export function Footer() {
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-water-300">Werkgebied</h3>
           <ul className="mt-4 space-y-2 text-sm">
-            {plaatsen.map((p) => (
+            {sitebredePlaatsen.map((p) => (
               <li key={p.slug}>
                 <Link href={plaatsHref(p)} className="text-mist-200/80 hover:text-white">
                   Glazenwasser {p.name}
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/werkgebied" className="text-mist-200/80 hover:text-white">
+                Alle plaatsen
+              </Link>
+            </li>
           </ul>
         </div>
 

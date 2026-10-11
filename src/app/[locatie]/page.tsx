@@ -1,11 +1,19 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { locatiePlaatsen, getPlaatsByLocatie, locatieSlug } from "@/lib/plaatsen";
+import {
+  locatiePlaatsen,
+  getPlaats,
+  getPlaatsByLocatie,
+  locatieSlug,
+  plaatsHref,
+  type Plaats,
+} from "@/lib/plaatsen";
 import { availableServices } from "@/lib/services";
 import { siteConfig } from "@/lib/site";
 import { generatePageMetadata } from "@/lib/metadata";
 import { Button } from "@/components/ui/Button";
+import { RichText } from "@/components/blog/RichText";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -42,6 +50,10 @@ export default async function LocatiePage({
   const p = getPlaatsByLocatie(locatie);
   if (!p) notFound();
 
+  const nabij = (p.nabij ?? [])
+    .map((slug) => getPlaats(slug))
+    .filter((x): x is Plaats => Boolean(x));
+
   const faqs = [
     {
       q: `Werkt Madern Glazenwassers ook in ${p.name}?`,
@@ -51,6 +63,14 @@ export default async function LocatiePage({
       q: `Wat kost een glazenwasser in ${p.name}?`,
       a: "De prijs hangt af van het aantal ramen, het type pand en de frequentie. U ontvangt vooraf altijd een gratis, vrijblijvende offerte.",
     },
+    ...(p.afstand
+      ? [
+          {
+            q: `Hoe ver is ${p.name} van Apeldoorn?`,
+            a: `${p.name} ligt ongeveer ${p.afstand.km} kilometer van onze thuisbasis in Apeldoorn, zo'n ${p.afstand.min} minuten rijden. We plannen afspraken in de regio zo veel mogelijk op dezelfde dagen.`,
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -66,11 +86,17 @@ export default async function LocatiePage({
         <h1 className="text-balance text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
           Glazenwasser <span className="text-accent-500">{p.name}</span>
         </h1>
-        <p className="mt-5 text-pretty text-lg text-navy-800/80">{p.intro}</p>
-        <p className="mt-4 text-pretty text-navy-800/80">{p.detail}</p>
+        <p className="mt-5 text-pretty text-lg text-navy-800/80">
+          <RichText text={p.intro} />
+        </p>
+        <p className="mt-4 text-pretty text-navy-800/80">
+          <RichText text={p.detail} />
+        </p>
 
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <Button href="/offerte" size="lg">Offerte voor {p.name}</Button>
+          <Button href="/offerte" size="lg">
+            Offerte voor {p.name}
+          </Button>
           <Button href={siteConfig.phone.href} size="lg" variant="ghost">
             Bel {siteConfig.phone.display}
           </Button>
@@ -80,10 +106,15 @@ export default async function LocatiePage({
           <div className="mt-12 space-y-8">
             {p.sections.map((sec) => (
               <div key={sec.heading}>
-                <h2 className="text-2xl font-bold text-navy-900">{sec.heading}</h2>
+                <h2 className="text-2xl font-bold text-navy-900">
+                  {sec.heading}
+                </h2>
                 {sec.paragraphs.map((para, i) => (
-                  <p key={i} className="mt-3 text-pretty leading-relaxed text-navy-800/85">
-                    {para}
+                  <p
+                    key={i}
+                    className="mt-3 text-pretty leading-relaxed text-navy-800/85"
+                  >
+                    <RichText text={para} />
                   </p>
                 ))}
               </div>
@@ -101,11 +132,43 @@ export default async function LocatiePage({
               href={`/${s.slug}`}
               className="group rounded-xl border border-mist-200 bg-white p-5 hover:border-water-300"
             >
-              <h3 className="font-semibold text-navy-900 group-hover:text-water-600">{s.name}</h3>
+              <h3 className="font-semibold text-navy-900 group-hover:text-water-600">
+                {s.name}
+              </h3>
               <p className="mt-1 text-sm text-navy-800/70">{s.tagline}</p>
             </Link>
           ))}
         </div>
+
+        {nabij.length > 0 && (
+          <>
+            <h2 className="mt-12 text-2xl font-bold text-navy-900">
+              Ook in de buurt
+            </h2>
+            <div className="mt-5 flex flex-wrap gap-3">
+              {nabij.map((n) => (
+                <Link
+                  key={n.slug}
+                  href={plaatsHref(n)}
+                  className="rounded-full border border-mist-200 bg-white px-4 py-2 text-sm font-medium text-navy-800 hover:border-water-300 hover:text-water-700"
+                >
+                  Glazenwasser {n.name}
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
+
+        <p className="mt-8 text-navy-800/80">
+          Woont u ergens anders? Bekijk ons{" "}
+          <Link
+            href="/werkgebied"
+            className="font-medium text-water-600 underline underline-offset-2 hover:text-water-700"
+          >
+            volledige werkgebied
+          </Link>
+          .
+        </p>
       </section>
 
       <LeadForm defaultPlaats={p.name} />

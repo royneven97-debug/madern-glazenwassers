@@ -13,7 +13,33 @@ export type Plaats = {
   // Uitgebreide, unieke long-form content per plaats (voor diepte + lokale SEO)
   sections?: PlaatsSection[];
   primary?: boolean; // thuisbasis
+  // Regio voor groepering op /werkgebied. Ontbreekt = regio Apeldoorn.
+  regio?: Regio;
+  // Wegafstand en reistijd vanaf de thuisbasis Apeldoorn (afgerond), voor plaatsen buiten de directe omgeving.
+  afstand?: { km: number; min: number };
+  // Slugs van nabijgelegen plaatsen, voor "Ook in de buurt"-links (interne links binnen de regio).
+  nabij?: string[];
 };
+
+export type Regio = "apeldoorn" | "amersfoort";
+
+export const regios: { key: Regio; name: string; intro: string }[] = [
+  {
+    key: "apeldoorn",
+    name: "Apeldoorn en omgeving",
+    intro: "Onze thuisbasis: de wijken van Apeldoorn en de dorpen eromheen op de Veluwe.",
+  },
+  {
+    key: "amersfoort",
+    name: "Amersfoort en omgeving",
+    intro:
+      "Via de A1 rijden we vanuit Apeldoorn naar Amersfoort en de plaatsen eromheen, van de Gelderse Vallei tot Soest en Baarn.",
+  },
+];
+
+export function regioOf(p: Plaats): Regio {
+  return p.regio ?? "apeldoorn";
+}
 
 export const plaatsen: Plaats[] = [
   {
@@ -218,9 +244,216 @@ export const plaatsen: Plaats[] = [
       },
     ],
   },
+
+  // ── Regio Amersfoort ────────────────────────────────────────────────────
+  {
+    slug: "amersfoort",
+    afstand: { km: 47, min: 35 },
+    name: "Amersfoort",
+    regio: "amersfoort",
+    nabij: ["leusden", "hoevelaken", "nijkerk", "soest", "baarn", "barneveld"],
+    intro:
+      "Amersfoort is naast Apeldoorn ons tweede werkgebied. Via de A1 zijn we er vanuit onze thuisbasis snel, en we plannen de adressen in en rond Amersfoort zo veel mogelijk op dezelfde dagen. Zo houden we de reistijd laag en de prijs per beurt eerlijk.",
+    detail:
+      "Van de binnenstad en het Bergkwartier tot Vathorst, Nieuwland, Kattenbroek, Schothorst en Hoogland: voor woningen, winkels en kantoren in heel Amersfoort maken we de ramen streepvrij schoon.",
+    sections: [
+      {
+        heading: "Glazenwasser in Amersfoort",
+        paragraphs: [
+          "Madern wast ramen met gezuiverd osmosewater. Dat water bevat geen kalk of mineralen, droogt volledig vlekkeloos op en laat geen strepen achter. Omdat er geen zeepresten op het glas blijven zitten, hecht nieuw vuil minder snel en blijven uw ramen langer helder dan na een beurt met leidingwater en een zeem.",
+          "We werken met watergevoede telescoopstelen. Daarmee bereiken we ook de ramen op de tweede en derde verdieping veilig vanaf de grond, zonder ladders tegen uw gevel of in uw tuin. Voor [particulieren](/glazenwassen-particulier) en [bedrijven](/glazenwassen-zakelijk) in Amersfoort kunt u kiezen voor een eenmalige beurt of een vast schema.",
+        ],
+      },
+      {
+        heading: "Van de Muurhuizen tot Vathorst",
+        paragraphs: [
+          "Amersfoort is een stad van uitersten. In de middeleeuwse binnenstad, rond de Muurhuizen en de Onze Lieve Vrouwetoren, staan monumentale panden met kleine ruitjes, roedeverdeling en soms glas in lood. Dat glas is kwetsbaarder dan modern isolatieglas en vraagt om een rustige, zorgvuldige aanpak. In het Bergkwartier en het Leusderkwartier vindt u statige villa's en jaren dertig woningen met erkers en hoge ramen.",
+          "Aan de noordkant van de stad is het beeld heel anders. In Vathorst, Nieuwland en Kattenbroek staan vooral nieuwere woningen met grote raampartijen, glazen pui's en appartementen met veel glas aan de balkonzijde. Juist op die grote vlakken ziet u strepen en kalkranden direct. Met osmosewater worden ze weer egaal helder, ook in de zon.",
+        ],
+      },
+      {
+        heading: "Nieuwland en de zonnepanelen",
+        paragraphs: [
+          "Nieuwland was een van de eerste wijken in Nederland waar zonnepanelen op grote schaal op de daken kwamen. Inmiddels liggen er in heel Amersfoort panelen. Vuil, stuifmeel en vogelpoep kosten rendement, en bij oudere panelen telt elk procent. Wij [maken zonnepanelen schoon](/zonnepanelen-schoonmaken) met hetzelfde osmosewater en zachte borstels, zonder schoonmaakmiddelen die de coating aantasten.",
+          "Dat combineren we graag met de ramen en [het schoonmaken van dakgoten](/dakgoot-schoonmaken). Dan bent u in één afspraak klaar en heeft u één vast aanspreekpunt.",
+        ],
+      },
+      {
+        heading: "Winkels en bedrijven in Amersfoort",
+        paragraphs: [
+          "Voor winkels in de binnenstad, zoals langs de Langestraat en de Utrechtsestraat, zijn schone etalages het visitekaartje. We plannen het [etalage reinigen](/etalage-reinigen) bij voorkeur vóór openingstijd, zodat uw klanten er geen last van hebben. Ook kantoren en bedrijfspanden op bijvoorbeeld De Hoef en Isselt kunnen bij ons terecht voor een vast onderhoudsschema.",
+          "U krijgt vooraf een vaste prijs, zonder verrassingen achteraf. Vraag gerust een gratis offerte aan, dan kijken we samen wat uw pand nodig heeft.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "leusden",
+    afstand: { km: 52, min: 40 },
+    name: "Leusden",
+    regio: "amersfoort",
+    nabij: ["amersfoort", "soest", "barneveld"],
+    intro:
+      "Leusden ligt direct ten zuiden van Amersfoort, tussen de Leusderheide en de landgoederen van de Utrechtse Heuvelrug. Madern verzorgt hier de glasbewassing voor woningen en bedrijven.",
+    detail:
+      "Van Leusden-Zuid en het centrum tot Achterveld en Stoutenburg: we combineren adressen in Leusden met onze ronde door Amersfoort, zodat we efficiënt kunnen plannen.",
+    sections: [
+      {
+        heading: "Glazenwasser in Leusden",
+        paragraphs: [
+          "In Leusden wonen veel gezinnen in ruime eengezinswoningen en vrijstaande huizen met flink wat glas aan de tuinzijde. Wij wassen die ramen met gezuiverd osmosewater, dat zonder strepen opdroogt en geen kalk achterlaat. Met onze telescoopstelen bereiken we ook de ramen boven en [de dakkapel](/dakkapel-reinigen) veilig vanaf de grond.",
+        ],
+      },
+      {
+        heading: "Wonen tussen heide en bos",
+        paragraphs: [
+          "Het groen rond Leusden is prachtig, maar heeft een keerzijde voor uw ramen en gevel. Stuifmeel in het voorjaar, blad en naalden in het najaar en groene aanslag op de noordkant zorgen ervoor dat glas hier sneller dof wordt dan in de stad. Woont u aan de rand van het dorp, richting de heide of de landgoederen, dan adviseren we vaak vier tot zes beurten per jaar.",
+          "[Dakgoten](/dakgoot-schoonmaken) lopen door de bomen in de omgeving snel vol. Dat nemen we graag mee in dezelfde afspraak, net als [het schoonmaken van zonnepanelen](/zonnepanelen-schoonmaken) en [het reinigen van uw gevel](/gevelreiniging).",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "hoevelaken",
+    afstand: { km: 42, min: 30 },
+    name: "Hoevelaken",
+    regio: "amersfoort",
+    nabij: ["amersfoort", "nijkerk", "barneveld"],
+    intro:
+      "Hoevelaken, in de gemeente Nijkerk, ligt pal tegen Amersfoort-Vathorst aan. Een dorp met een rustige kern en veel ruime woningen, op een paar minuten van ons werk in Amersfoort.",
+    detail:
+      "Voor woningen en bedrijven in Hoevelaken verzorgen we eenmalige beurten en vaste onderhoudsafspraken, gecombineerd met onze ronde door Amersfoort en Nijkerk.",
+    sections: [
+      {
+        heading: "Ramen wassen in Hoevelaken",
+        paragraphs: [
+          "Hoevelaken heeft een dorpse sfeer, met veel vrijstaande en twee-onder-een-kapwoningen en nieuwere wijken aan de randen. Wij maken de ramen hier streepvrij schoon met osmosewater, zonder chemicaliën en zonder ladders tegen uw gevel.",
+        ],
+      },
+      {
+        heading: "Dicht bij de snelweg, sneller vuil",
+        paragraphs: [
+          "Hoevelaken ligt tussen de A1 en de A28. Waar veel verkeer rijdt, zet zich fijn stof en roet af op ramen, kozijnen en zonnepanelen. Dat ziet u vooral op ramen aan de wegkant en op glas dat veel zon krijgt. Met een vast schema blijft het glas het hele jaar helder en voorkomt u dat vuil zich vastzet.",
+          "We kijken bij een gratis inventarisatie welke frequentie bij uw woning past. [Dakgoten](/dakgoot-schoonmaken), [zonnepanelen](/zonnepanelen-schoonmaken) en [de gevel](/gevelreiniging) kunnen we in dezelfde afspraak meenemen.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "nijkerk",
+    afstand: { km: 45, min: 35 },
+    name: "Nijkerk",
+    regio: "amersfoort",
+    nabij: ["amersfoort", "hoevelaken", "barneveld"],
+    intro:
+      "Nijkerk combineert een historische binnenstad met grote woonwijken als Corlaer en Paasbos. Madern maakt hier ramen, etalages en zonnepanelen streepvrij schoon.",
+    detail:
+      "Ook voor Nijkerkerveen en het buitengebied rond de polder Arkemheen kunt u bij ons terecht, particulier of zakelijk.",
+    sections: [
+      {
+        heading: "Glazenwasser in Nijkerk",
+        paragraphs: [
+          "In de oude binnenstad van Nijkerk staan karakteristieke panden met kleinere ruitjes en oude kozijnen, die om een zorgvuldige aanpak vragen. In wijken als Corlaer en Paasbos gaat het juist om moderne woningen met grote ramen en veel glas. Voor allebei werken we met osmosewater, dat zonder strepen opdroogt en geen kalkranden achterlaat.",
+          "Winkeliers in het centrum helpen we met [het reinigen van etalages](/etalage-reinigen), op een moment dat het u uitkomt.",
+        ],
+      },
+      {
+        heading: "Dicht bij het water en de polder",
+        paragraphs: [
+          "Nijkerk ligt tussen het Nijkerkernauw en de open polder van Arkemheen. Wind, vocht en het open landschap zorgen voor meer aanslag op ramen en gevels, en noordgevels worden hier sneller groen. Een vast schema van een paar beurten per jaar houdt dat goed bij.",
+          "Naast ramen reinigen we in Nijkerk ook [gevels](/gevelreiniging), [dakgoten](/dakgoot-schoonmaken) en [zonnepanelen](/zonnepanelen-schoonmaken). Combineren in één afspraak scheelt u tijd en gedoe.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "soest",
+    afstand: { km: 60, min: 45 },
+    name: "Soest",
+    regio: "amersfoort",
+    nabij: ["amersfoort", "baarn", "leusden"],
+    intro:
+      "Soest, met Soestdijk en Soesterberg, ligt tussen Amersfoort en de Utrechtse Heuvelrug. Een groene gemeente met veel bos, de Soesterduinen en ruime woningen.",
+    detail:
+      "Van villawijken aan de bosrand tot rijtjeshuizen en appartementen: Madern verzorgt in heel Soest de glasbewassing voor particulieren en bedrijven.",
+    sections: [
+      {
+        heading: "Glazenwasser in Soest",
+        paragraphs: [
+          "In Soest staan veel vrijstaande woningen en villa's met grote raampartijen, serres en [dakkapellen](/dakkapel-reinigen). Met onze watergevoede telescoopstelen wassen we ook die hogere ramen veilig vanaf de grond, zonder ladders in uw borders. We gebruiken gezuiverd osmosewater, dus geen strepen, geen kalk en geen chemicaliën.",
+        ],
+      },
+      {
+        heading: "Bos en duinen rond de deur",
+        paragraphs: [
+          "Wie in Soest woont, woont dicht bij het bos. Dat betekent stuifmeel en hars in het voorjaar, naalden en blad in het najaar en groene aanslag op de schaduwkant van het huis. Ramen worden daardoor sneller dof en dakgoten lopen sneller vol dan in een stenige omgeving. Veel bewoners kiezen daarom voor een vast schema.",
+          "In Soesterberg, rond het voormalige vliegveld en het Nationaal Militair Museum, en in Soestdijk werken we op dezelfde manier. De [dakgoten](/dakgoot-schoonmaken), [zonnepanelen](/zonnepanelen-schoonmaken) en [de gevel](/gevelreiniging) nemen we desgewenst in één afspraak mee.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "baarn",
+    afstand: { km: 58, min: 45 },
+    name: "Baarn",
+    regio: "amersfoort",
+    nabij: ["amersfoort", "soest"],
+    intro:
+      "Baarn staat bekend als villadorp, met monumentale panden, het Baarnse Bos en Paleis Soestdijk binnen de gemeentegrens. Madern wast hier ramen met de zorg die zulke woningen verdienen.",
+    detail:
+      "Ook voor Lage Vuursche en Eembrugge kunt u bij ons terecht, voor een eenmalige beurt of een vast onderhoudsschema.",
+    sections: [
+      {
+        heading: "Glazenwasser in Baarn",
+        paragraphs: [
+          "Veel woningen in Baarn zijn oud en karakteristiek: hoge ramen, roedeverdeling, glas in lood, serres en erkers. Dat glas is vaak dunner en kwetsbaarder dan modern dubbel glas, en oude kozijnen hebben zachtere kitranden. Wij werken daarom met zacht osmosewater en rustige handbewegingen, zonder agressieve middelen en zonder druk op het glas.",
+          "Met telescoopstelen bereiken we ook hoger gelegen ramen vanaf de grond. Zo blijft er geen ladder tegen uw gevel of op uw grind staan.",
+        ],
+      },
+      {
+        heading: "Groen dorp, meer onderhoud",
+        paragraphs: [
+          "De lanen en tuinen in Baarn staan vol oude bomen. Mooi om te zien, maar ramen, gevels en dakgoten hebben er meer last van. Blad en takjes verstoppen de goten, en op de schaduwkant ontstaan sneller mos en algen. We adviseren u graag over een passende frequentie en nemen [gevel](/gevelreiniging), [dakgoot](/dakgoot-schoonmaken) en [zonnepanelen](/zonnepanelen-schoonmaken) mee waar nodig.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "barneveld",
+    afstand: { km: 30, min: 25 },
+    name: "Barneveld",
+    regio: "amersfoort",
+    nabij: ["amersfoort", "apeldoorn", "nijkerk", "leusden"],
+    intro:
+      "Barneveld ligt in de Gelderse Vallei, precies aan de A1 tussen onze thuisbasis Apeldoorn en Amersfoort. We komen er dus vaak langs, en dat houdt de planning voor Barneveldse klanten makkelijk.",
+    detail:
+      "Van het centrum van Barneveld tot Voorthuizen, Kootwijkerbroek, Garderen en Zwartebroek: we verzorgen de glasbewassing voor woningen, boerderijen en bedrijven in de hele gemeente.",
+    sections: [
+      {
+        heading: "Glazenwasser in Barneveld",
+        paragraphs: [
+          "Barneveld groeit hard, met veel nieuwe woonwijken naast het oude dorpscentrum. Nieuwbouwwoningen hebben vaak grote ramen en glazen schuifpuien waarop strepen meteen opvallen. Wij wassen ze met gezuiverd osmosewater, dat volledig vlekkeloos opdroogt. Voor oudere panden in het centrum werken we met dezelfde zorg.",
+        ],
+      },
+      {
+        heading: "Platteland, stof en bedrijven",
+        paragraphs: [
+          "Rond Barneveld is veel agrarische bedrijvigheid. Stof van het land, van stallen en van het verkeer op de doorgaande wegen zet zich af op ramen, kozijnen en zonnepanelen. Juist [zonnepanelen op grote schuur- en staldaken](/zonnepanelen-schoonmaken) verliezen daardoor rendement. We maken ze schoon met osmosewater en zachte borstels, zonder middelen die de coating aantasten.",
+          "Voor [bedrijfspanden](/glazenwassen-zakelijk) op de bedrijventerreinen van Barneveld en Voorthuizen bieden we vaste onderhoudscontracten met een vaste prijs per beurt. Ook [dakgoten schoonmaken](/dakgoot-schoonmaken) en [gevelreiniging](/gevelreiniging) nemen we graag in dezelfde afspraak mee.",
+        ],
+      },
+    ],
+  },
 ];
 
 export const primaryPlaats = plaatsen.find((p) => p.primary)!;
+
+// Sitebrede links (footer, dienstpagina's): de Apeldoornse plaatsen plus Amersfoort
+// als hub van de Amersfoortse regio. De dorpen rond Amersfoort hangen onder
+// Amersfoort en /werkgebied, zodat linkkracht binnen de gebiedssilo blijft.
+export const sitebredePlaatsen = plaatsen.filter(
+  (p) => regioOf(p) === "apeldoorn" || p.slug === "amersfoort",
+);
 
 // Plaatsen die een eigen /glazenwasser-[plaats] pagina krijgen (Apeldoorn = homepage).
 export const locatiePlaatsen = plaatsen.filter((p) => !p.primary);
