@@ -14,12 +14,12 @@ export const siteConfig = {
 
   // Contact
   phone: {
-    display: "06 22 15 84 98",
-    href: "tel:+31622158498",
-    e164: "+31622158498",
+    display: "06 83 40 43 99",
+    href: "tel:+31683404399",
+    e164: "+31683404399",
   },
   email: "info@madernglazenwassers.nl",
-  whatsapp: "https://wa.me/31622158498",
+  whatsapp: "https://wa.me/31683404399",
 
   // Adres / vestiging, Madern is een Apeldoorns bedrijf zonder publiek bezoekadres.
   // Voor LocalBusiness-schema gebruiken we de plaats + werkgebied (serviceArea).
