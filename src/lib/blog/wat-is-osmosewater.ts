@@ -43,7 +43,7 @@ export const artikel: BlogArticle = {
     {
       heading: "De voordelen op een rij",
       paragraphs: [
-        "Osmosewater is streepvrij, houdt ramen langer schoon en werkt volledig zonder agressieve chemicaliën. Dat is niet alleen beter voor het glas en de kozijnen, maar ook voor uw beplanting en het milieu. Omdat we het water via telescoopstelen aanvoeren, bereiken we hoger gelegen ramen veilig vanaf de grond, zonder ladders tegen de gevel.",
+        "Osmosewater is streepvrij, houdt ramen langer schoon en werkt volledig zonder agressieve chemicaliën. Dat is niet alleen beter voor het glas en de kozijnen, maar ook voor uw beplanting en het milieu. Omdat we het water via telescoopstelen aanvoeren, bereiken we hoger gelegen ramen veilig vanaf de grond, meestal zonder ladder tegen de gevel.",
         "Dat langer schoon blijven scheelt bovendien in de frequentie: hoe schoner het glas begint, hoe minder snel er weer een beurt nodig is. Wat een verstandig schema is voor uw situatie, leest u in ons artikel over [hoe vaak u uw ramen laat wassen](/blog/hoe-vaak-ramen-laten-wassen).",
       ],
     },

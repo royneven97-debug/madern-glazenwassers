@@ -26,7 +26,7 @@ export const serviceContent: Record<string, ServiceContent> = {
         paragraphs: [
           "Wij wassen uw ramen met gezuiverd osmosewater. Bij dit proces wordt al het kalk en alle mineralen uit het water gefilterd. Het resultaat: het water droogt volledig vlekkeloos op, zonder strepen of kalkranden, en helemaal zonder agressieve schoonmaakmiddelen. Beter voor uw ramen, uw kozijnen en het milieu.",
           "Doordat er geen mineralen achterblijven, blijven uw ramen ook langer schoon dan bij traditioneel zemen met leidingwater. Stof en vuil hechten minder snel aan een echt schoon oppervlak, waardoor u langer geniet van kristalheldere ruiten.",
-          "Met onze watergevoede telescoopstelen bereiken we ook hoger gelegen ramen veilig vanaf de begane grond, zonder ladders tegen uw gevel en zonder risico voor uw beplanting.",
+          "Met onze watergevoede telescoopstelen bereiken we ook hoger gelegen ramen veilig vanaf de begane grond, meestal zonder ladder tegen uw gevel en zonder risico voor uw beplanting. Is een ladder toch nodig, dan zetten we die zorgvuldig en veilig neer.",
         ],
       },
       {

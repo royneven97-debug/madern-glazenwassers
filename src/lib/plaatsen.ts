@@ -86,7 +86,7 @@ export const plaatsen: Plaats[] = [
       {
         heading: "Glazenwasser in Apeldoorn Zuid",
         paragraphs: [
-          "In het zuiden van Apeldoorn staan veel woningen met karakter: hoge ramen, glas in lood, erkers en serres. Dat vraagt om zorgvuldigheid, want oud glas en verweerde kozijnen zijn kwetsbaarder dan modern isolatieglas. Wij werken met zacht osmosewater en watergevoede telescoopstelen, zodat we ook hoger gelegen ramen veilig vanaf de begane grond bereiken, zonder ladders tegen uw gevel.",
+          "In het zuiden van Apeldoorn staan veel woningen met karakter: hoge ramen, glas in lood, erkers en serres. Dat vraagt om zorgvuldigheid, want oud glas en verweerde kozijnen zijn kwetsbaarder dan modern isolatieglas. Wij werken met zacht osmosewater en watergevoede telescoopstelen, zodat we ook hoger gelegen ramen veilig vanaf de begane grond bereiken, meestal zonder ladder tegen uw gevel.",
           "Voor woningen met veel glasoppervlak is een vast schema meestal het voordeligst. U betaalt dan een gunstiger tarief per beurt en heeft er verder geen omkijken naar.",
         ],
       },
@@ -117,7 +117,7 @@ export const plaatsen: Plaats[] = [
       {
         heading: "Villa's en woningen met veel glas",
         paragraphs: [
-          "Ugchelen kent veel vrijstaande woningen en villa's met grote raampartijen, serres en hoge gevels. Juist die grote glasoppervlakken vallen op zodra ze dof of gevlekt zijn. Met onze watergevoede telescoopstelen bereiken we ook hoger gelegen ramen veilig vanaf de begane grond, zonder ladders in uw borders en zonder risico voor uw beplanting.",
+          "Ugchelen kent veel vrijstaande woningen en villa's met grote raampartijen, serres en hoge gevels. Juist die grote glasoppervlakken vallen op zodra ze dof of gevlekt zijn. Met onze watergevoede telescoopstelen bereiken we ook hoger gelegen ramen veilig vanaf de begane grond, meestal zonder ladder in uw borders en zonder risico voor uw beplanting.",
           "Op verzoek nemen we de binnenkant, de kozijnen en het glaswerk van deuren en serres mee, zodat uw hele woning er weer verzorgd uitziet.",
         ],
       },
@@ -261,7 +261,7 @@ export const plaatsen: Plaats[] = [
         heading: "Glazenwasser in Amersfoort",
         paragraphs: [
           "Madern wast ramen met gezuiverd osmosewater. Dat water bevat geen kalk of mineralen, droogt volledig vlekkeloos op en laat geen strepen achter. Omdat er geen zeepresten op het glas blijven zitten, hecht nieuw vuil minder snel en blijven uw ramen langer helder dan na een beurt met leidingwater en een zeem.",
-          "We werken met watergevoede telescoopstelen. Daarmee bereiken we ook de ramen op de tweede en derde verdieping veilig vanaf de grond, zonder ladders tegen uw gevel of in uw tuin. Voor [particulieren](/glazenwassen-particulier) en [bedrijven](/glazenwassen-zakelijk) in Amersfoort kunt u kiezen voor een eenmalige beurt of een vast schema.",
+          "We werken met watergevoede telescoopstelen. Daarmee bereiken we ook de ramen op de tweede en derde verdieping veilig vanaf de grond, meestal zonder ladder tegen uw gevel of in uw tuin. Voor [particulieren](/glazenwassen-particulier) en [bedrijven](/glazenwassen-zakelijk) in Amersfoort kunt u kiezen voor een eenmalige beurt of een vast schema.",
         ],
       },
       {
@@ -327,7 +327,7 @@ export const plaatsen: Plaats[] = [
       {
         heading: "Ramen wassen in Hoevelaken",
         paragraphs: [
-          "Hoevelaken heeft een dorpse sfeer, met veel vrijstaande en twee-onder-een-kapwoningen en nieuwere wijken aan de randen. Wij maken de ramen hier streepvrij schoon met osmosewater, zonder chemicaliën en zonder ladders tegen uw gevel.",
+          "Hoevelaken heeft een dorpse sfeer, met veel vrijstaande en twee-onder-een-kapwoningen en nieuwere wijken aan de randen. Wij maken de ramen hier streepvrij schoon met osmosewater, zonder chemicaliën en meestal zonder ladder tegen uw gevel.",
         ],
       },
       {
@@ -380,7 +380,7 @@ export const plaatsen: Plaats[] = [
       {
         heading: "Glazenwasser in Soest",
         paragraphs: [
-          "In Soest staan veel vrijstaande woningen en villa's met grote raampartijen, serres en [dakkapellen](/dakkapel-reinigen). Met onze watergevoede telescoopstelen wassen we ook die hogere ramen veilig vanaf de grond, zonder ladders in uw borders. We gebruiken gezuiverd osmosewater, dus geen strepen, geen kalk en geen chemicaliën.",
+          "In Soest staan veel vrijstaande woningen en villa's met grote raampartijen, serres en [dakkapellen](/dakkapel-reinigen). Met onze watergevoede telescoopstelen wassen we ook die hogere ramen veilig vanaf de grond, meestal zonder ladder in uw borders. We gebruiken gezuiverd osmosewater, dus geen strepen, geen kalk en geen chemicaliën.",
         ],
       },
       {
@@ -407,7 +407,7 @@ export const plaatsen: Plaats[] = [
         heading: "Glazenwasser in Baarn",
         paragraphs: [
           "Veel woningen in Baarn zijn oud en karakteristiek: hoge ramen, roedeverdeling, glas in lood, serres en erkers. Dat glas is vaak dunner en kwetsbaarder dan modern dubbel glas, en oude kozijnen hebben zachtere kitranden. Wij werken daarom met zacht osmosewater en rustige handbewegingen, zonder agressieve middelen en zonder druk op het glas.",
-          "Met telescoopstelen bereiken we ook hoger gelegen ramen vanaf de grond. Zo blijft er geen ladder tegen uw gevel of op uw grind staan.",
+          "Met telescoopstelen bereiken we ook hoger gelegen ramen vanaf de grond. Zo hoeft er meestal geen ladder tegen uw gevel of op uw grind te staan.",
         ],
       },
       {
