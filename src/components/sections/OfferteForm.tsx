@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { submitLead } from "@/lib/lead";
+import { FotoVeld } from "./FotoVeld";
 
 const services = [
   "Glazenwassen woning",
@@ -14,6 +15,7 @@ const services = [
 
 export function OfferteForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
+  const [fotos, setFotos] = useState<File[]>([]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -21,14 +23,18 @@ export function OfferteForm() {
     const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
     if (data.company_website) return; // honeypot
     setStatus("sending");
-    const result = await submitLead({
-      naam: data.naam,
-      telefoon: data.telefoon,
-      email: data.email,
-      plaats: data.plaats,
-      dienst: data.dienst,
-      bericht: data.bericht,
-    });
+    const result = await submitLead(
+      {
+        naam: data.naam,
+        telefoon: data.telefoon,
+        email: data.email,
+        adres: data.adres,
+        plaats: data.plaats,
+        dienst: data.dienst,
+        bericht: data.bericht,
+      },
+      fotos,
+    );
     if (result === "email") {
       setStatus("success");
       form.reset();
@@ -73,14 +79,26 @@ export function OfferteForm() {
         </div>
       </div>
 
+      <div>
+        <label className={label} htmlFor="email">E-mailadres</label>
+        <input id="email" name="email" type="email" className={field} placeholder="uw@email.nl" />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label className={label} htmlFor="email">E-mailadres</label>
-          <input id="email" name="email" type="email" className={field} placeholder="uw@email.nl" />
+          <label className={label} htmlFor="adres">Adres *</label>
+          <input
+            id="adres"
+            name="adres"
+            required
+            className={field}
+            placeholder="Straatnaam 12"
+            autoComplete="street-address"
+          />
         </div>
         <div>
           <label className={label} htmlFor="plaats">Plaats *</label>
-          <input id="plaats" name="plaats" required className={field} placeholder="Apeldoorn" defaultValue="Apeldoorn" />
+          <input id="plaats" name="plaats" required className={field} placeholder="Apeldoorn" defaultValue="Apeldoorn" autoComplete="address-level2" />
         </div>
       </div>
 
@@ -103,6 +121,8 @@ export function OfferteForm() {
           placeholder="Aantal ramen, type woning/pand, bijzonderheden, gewenste frequentie, etc."
         />
       </div>
+
+      <FotoVeld onFotos={setFotos} />
 
       <button
         type="submit"
